@@ -80,11 +80,11 @@ export function Header() {
               className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
               priority
             />
-            <div className="hidden sm:block leading-tight">
-              <span className="font-[family-name:var(--font-display)] text-lg font-extrabold text-foreground tracking-tight">
+            <div className="leading-tight">
+              <span className="font-[family-name:var(--font-display)] text-base sm:text-lg font-extrabold text-foreground tracking-tight">
                 YOGI&apos;S
               </span>
-              <span className="block font-[family-name:var(--font-display)] text-xs font-bold text-muted tracking-widest">
+              <span className="block font-[family-name:var(--font-display)] text-[10px] sm:text-xs font-bold text-muted tracking-widest">
                 PEST CONTROL
               </span>
             </div>
