@@ -409,8 +409,176 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ GEO: ABOUT SNIPPET ═══ */}
+      <section className="bg-surface py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <AnimateIn direction="left">
+              <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">About Yogi&apos;s Pest Control</span>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Orange County&apos;s Local Pest Control Experts
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                Yogi&apos;s Pest Control is a licensed and insured pest control company serving all 34 cities in Orange County, California. We specialize in residential and commercial pest management using Integrated Pest Management (IPM) techniques and eco-friendly, EPA-approved products that are safe for families and pets.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-muted">
+                Our licensed technicians handle over 14 types of pest problems including rodents, cockroaches, ants, bed bugs, spiders, mosquitoes, wasps, bees, wildlife, and more. We offer same-day service, free inspections, and a 100% satisfaction guarantee on every job.
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-4">
+                {[
+                  "Licensed & Insured in CA",
+                  "EPA-Approved Products",
+                  "Same-Day Service Available",
+                  "Free Inspections",
+                  "100% Satisfaction Guarantee",
+                  "Eco-Friendly Treatments",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-sm text-foreground">
+                    <CheckCircle className="h-4 w-4 shrink-0 text-accent" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light"
+                >
+                  Learn More About Us <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
+            </AnimateIn>
+            <AnimateIn direction="right">
+              <div className="relative h-96 overflow-hidden rounded-2xl">
+                <Image
+                  src={heroImages.team}
+                  alt="Yogi's Pest Control team serving Orange County"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ GEO: HOMEPAGE FAQ ═══ */}
+      <section className="bg-background py-20 sm:py-28">
+        <div className="mx-auto max-w-4xl px-4">
+          <AnimateIn>
+            <div className="text-center">
+              <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Common Questions</span>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Frequently Asked Questions
+              </h2>
+            </div>
+          </AnimateIn>
+          <div className="mt-12 space-y-6">
+            {[
+              {
+                q: "How much does pest control cost in Orange County?",
+                a: "Pest control in Orange County typically costs between $150 and $300 for a one-time treatment, depending on the type of pest and size of the property. Quarterly maintenance plans range from $100 to $200 per visit. Yogi's Pest Control offers free inspections so you get an accurate quote before any work begins.",
+              },
+              {
+                q: "Does Yogi's Pest Control offer same-day service?",
+                a: "Yes, Yogi's Pest Control offers same-day and emergency pest control service across all 34 cities in Orange County. We're available 7 days a week from 8 AM to 8 PM. For urgent infestations like rodents, bed bugs, or wasps, call (714) 323-8262 for immediate assistance.",
+              },
+              {
+                q: "Are your pest control treatments safe for kids and pets?",
+                a: "Yes. We use EPA-approved, eco-friendly products and Integrated Pest Management (IPM) techniques that minimize chemical exposure. Our treatments are safe for children, pets, and the environment. Our licensed technicians follow all California Department of Pesticide Regulation guidelines.",
+              },
+              {
+                q: "What areas does Yogi's Pest Control serve?",
+                a: "Yogi's Pest Control serves all 34 cities in Orange County, California, including Anaheim, Irvine, Huntington Beach, Santa Ana, Costa Mesa, Fullerton, Orange, Newport Beach, Mission Viejo, Lake Forest, Yorba Linda, and more. We provide residential and commercial pest control throughout the entire county.",
+              },
+              {
+                q: "What types of pests do you handle?",
+                a: "We handle all common Orange County pests including rats, mice, cockroaches, ants (Argentine ants, fire ants), bed bugs, spiders (black widows, brown recluses), wasps, bees, mosquitoes, flies, fleas, ticks, raccoons, opossums, squirrels, and more. We offer 14+ specialized pest control services.",
+              },
+              {
+                q: "Do you offer a guarantee on your pest control services?",
+                a: "Yes. Yogi's Pest Control offers a 100% satisfaction guarantee. If pests return between scheduled treatments, we'll come back and re-treat your property at no additional cost. We stand behind every job we do.",
+              },
+            ].map(({ q, a }, i) => (
+              <AnimateIn key={i} delay={i * 0.05}>
+                <div className="rounded-xl border border-border bg-surface p-6">
+                  <h3 className="text-base font-bold text-foreground">{q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{a}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+          <AnimateIn className="mt-10 text-center">
+            <Link href="/faq" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light">
+              View All FAQs <ArrowRight className="h-5 w-5" />
+            </Link>
+          </AnimateIn>
+        </div>
+      </section>
+
       {/* ═══ CTA BANNER ═══ */}
       <CTABanner />
+
+      {/* GEO: Homepage FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How much does pest control cost in Orange County?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Pest control in Orange County typically costs between $150 and $300 for a one-time treatment, depending on the type of pest and size of the property. Quarterly maintenance plans range from $100 to $200 per visit. Yogi's Pest Control offers free inspections so you get an accurate quote before any work begins.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Does Yogi's Pest Control offer same-day service?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes, Yogi's Pest Control offers same-day and emergency pest control service across all 34 cities in Orange County. We're available 7 days a week from 8 AM to 8 PM.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Are your pest control treatments safe for kids and pets?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. We use EPA-approved, eco-friendly products and Integrated Pest Management (IPM) techniques that minimize chemical exposure. Our treatments are safe for children, pets, and the environment.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What areas does Yogi's Pest Control serve?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yogi's Pest Control serves all 34 cities in Orange County, California, including Anaheim, Irvine, Huntington Beach, Santa Ana, Costa Mesa, Fullerton, Orange, Newport Beach, Mission Viejo, Lake Forest, Yorba Linda, and more.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What types of pests do you handle?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We handle all common Orange County pests including rats, mice, cockroaches, ants, bed bugs, spiders, wasps, bees, mosquitoes, flies, fleas, ticks, raccoons, opossums, squirrels, and more. We offer 14+ specialized pest control services.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you offer a guarantee on your pest control services?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. Yogi's Pest Control offers a 100% satisfaction guarantee. If pests return between scheduled treatments, we'll come back and re-treat your property at no additional cost.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }
