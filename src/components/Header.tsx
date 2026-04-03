@@ -71,15 +71,23 @@ export function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image
-              src="/images/logo-transparent.png"
+              src="/images/logo-icon.png"
               alt="Yogi's Pest Control"
-              width={160}
-              height={160}
-              className="h-12 w-auto sm:h-14 object-contain"
+              width={56}
+              height={56}
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
               priority
             />
+            <div className="hidden sm:block leading-tight">
+              <span className="font-[family-name:var(--font-display)] text-lg font-extrabold text-foreground tracking-tight">
+                YOGI&apos;S
+              </span>
+              <span className="block font-[family-name:var(--font-display)] text-xs font-bold text-muted tracking-widest">
+                PEST CONTROL
+              </span>
+            </div>
           </Link>
 
           {/* Desktop nav */}
