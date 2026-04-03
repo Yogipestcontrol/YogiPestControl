@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const API_KEY = 'AIzaSyCZsQNjBeu_o94vYzJ48tG0Hs5Xyah7XBY';
+const API_KEY = process.env.GOOGLE_API_KEY;
 const MODEL = 'imagen-4.0-fast-generate-001';
 const BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:predict?key=${API_KEY}`;
 const OUT_DIR = path.join(__dirname, '..', 'public', 'images', 'cities');
