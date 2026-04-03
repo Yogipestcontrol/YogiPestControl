@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import { Phone, Mail, Clock, MapPin, CheckCircle, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
-
-export const metadata: Metadata = {
-  title: "Contact Us | Yogi's Pest Control Orange County",
-  description:
-    "Get in touch with Yogi's Pest Control. Call 714-323-8262, email us, or fill out our contact form for a free pest control quote in Orange County, CA.",
-};
 
 const contactInfo = [
   {
@@ -42,6 +38,36 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const updateField = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -78,98 +104,137 @@ export default function ContactPage() {
                 Fill out the form below and we&apos;ll get back to you within 30
                 minutes during business hours.
               </p>
-              <form className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
-                      Full Name *
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      placeholder="John Smith"
-                      className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
-                      Email Address *
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      placeholder="john@example.com"
-                      className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
-                      Phone Number *
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      required
-                      placeholder="(714) 555-0123"
-                      className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="pest"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
-                      Pest Type
-                    </label>
-                    <select
-                      id="pest"
-                      className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    >
-                      <option value="">Select a pest type</option>
-                      {SERVICES.map((s) => (
-                        <option key={s.slug} value={s.slug}>
-                          {s.name}
-                        </option>
-                      ))}
-                      <option value="other">Other / Not Sure</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-foreground"
+
+              {status === "success" ? (
+                <div className="rounded-xl border border-green-200 bg-green-50 p-8 text-center dark:border-green-800 dark:bg-green-950">
+                  <CheckCircle className="mx-auto mb-4 h-12 w-12 text-green-600" />
+                  <h3 className="mb-2 text-xl font-bold text-green-800 dark:text-green-200">Message Sent!</h3>
+                  <p className="text-green-700 dark:text-green-300">
+                    We&apos;ll get back to you within 30 minutes during business hours.
+                  </p>
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="mt-4 text-sm font-medium text-primary hover:text-primary-light"
                   >
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={5}
-                    placeholder="Tell us about your pest problem, property type, and preferred service time..."
-                    className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  />
+                    Send another message
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  className="rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-light hover:shadow-lg"
-                >
-                  Send Message
-                </button>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="mb-1.5 block text-sm font-medium text-foreground"
+                      >
+                        Full Name *
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => updateField("name", e.target.value)}
+                        placeholder="John Smith"
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="mb-1.5 block text-sm font-medium text-foreground"
+                      >
+                        Email Address *
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => updateField("email", e.target.value)}
+                        placeholder="john@example.com"
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="mb-1.5 block text-sm font-medium text-foreground"
+                      >
+                        Phone Number *
+                      </label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => updateField("phone", e.target.value)}
+                        placeholder="(714) 555-0123"
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="pest"
+                        className="mb-1.5 block text-sm font-medium text-foreground"
+                      >
+                        Pest Type
+                      </label>
+                      <select
+                        id="pest"
+                        value={formData.service}
+                        onChange={(e) => updateField("service", e.target.value)}
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      >
+                        <option value="">Select a pest type</option>
+                        {SERVICES.map((s) => (
+                          <option key={s.slug} value={s.slug}>
+                            {s.name}
+                          </option>
+                        ))}
+                        <option value="other">Other / Not Sure</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="mb-1.5 block text-sm font-medium text-foreground"
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => updateField("message", e.target.value)}
+                      placeholder="Tell us about your pest problem, property type, and preferred service time..."
+                      className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                    />
+                  </div>
+
+                  {status === "error" && (
+                    <p className="text-sm text-red-600">Something went wrong. Please try again or call us directly.</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-light hover:shadow-lg disabled:opacity-50"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" /> Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
 
             {/* Sidebar */}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle, Phone, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
 
 const timeSlots = [
@@ -22,6 +22,7 @@ const steps = [
 
 export default function BookPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     pestType: "",
     city: "",
@@ -39,6 +40,21 @@ export default function BookPage() {
 
   const nextStep = () => setCurrentStep((s) => Math.min(s + 1, 3));
   const prevStep = () => setCurrentStep((s) => Math.max(s - 1, 1));
+
+  const handleSubmit = async () => {
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const canProceedStep1 = formData.pestType && formData.city;
   const canProceedStep2 = formData.date && formData.time;
@@ -109,6 +125,25 @@ export default function BookPage() {
           </div>
 
           <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
+            {/* Success State */}
+            {status === "success" ? (
+              <div className="py-8 text-center">
+                <CheckCircle className="mx-auto mb-4 h-16 w-16 text-green-600" />
+                <h2 className="mb-2 text-2xl font-bold text-foreground">Inspection Booked!</h2>
+                <p className="mb-2 text-muted">
+                  We&apos;ll call you shortly to confirm your appointment.
+                </p>
+                <p className="mb-6 text-sm text-muted">
+                  Check your email at <strong>{formData.email}</strong> for a confirmation.
+                </p>
+                <Link
+                  href="/"
+                  className="inline-block rounded-lg bg-primary px-8 py-3 text-base font-semibold text-white transition-all hover:bg-primary-light"
+                >
+                  Back to Home
+                </Link>
+              </div>
+            ) : <>
             {/* Step 1: Pest Type + City */}
             {currentStep === 1 && (
               <div>
@@ -321,6 +356,9 @@ export default function BookPage() {
                     />
                   </div>
                 </div>
+                {status === "error" && (
+                  <p className="text-sm text-red-600">Something went wrong. Please try again or call us directly.</p>
+                )}
                 <div className="mt-8 flex justify-between">
                   <button
                     onClick={prevStep}
@@ -329,15 +367,21 @@ export default function BookPage() {
                     <ArrowLeft className="h-4 w-4" /> Back
                   </button>
                   <button
-                    type="submit"
-                    disabled={!canSubmit}
+                    type="button"
+                    onClick={handleSubmit}
+                    disabled={!canSubmit || status === "loading"}
                     className="flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-primary-dark transition-all hover:bg-accent-light hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Book My Free Inspection <CheckCircle className="h-5 w-5" />
+                    {status === "loading" ? (
+                      <><Loader2 className="h-5 w-5 animate-spin" /> Booking...</>
+                    ) : (
+                      <>Book My Free Inspection <CheckCircle className="h-5 w-5" /></>
+                    )}
                   </button>
                 </div>
               </div>
             )}
+            </>}
           </div>
 
           {/* Phone CTA */}
