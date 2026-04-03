@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Phone, Mail, Clock, MapPin, CheckCircle, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { trackContactFormSubmit, trackPhoneClick } from "@/lib/analytics";
 
 const contactInfo = [
   {
@@ -61,6 +62,7 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error("Failed");
+      trackContactFormSubmit(formData.service);
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", service: "", message: "" });
     } catch {

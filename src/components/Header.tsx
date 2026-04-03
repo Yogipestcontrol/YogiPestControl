@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Phone, Moon, Sun, ChevronDown, ArrowRight } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { trackPhoneClick, trackBookClick } from "@/lib/analytics";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -178,6 +179,7 @@ export function Header() {
             {/* Phone link - desktop only */}
             <a
               href={SITE_CONFIG.phoneTel}
+              onClick={() => trackPhoneClick("header")}
               className="hidden items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-primary xl:flex"
             >
               <Phone className="h-3.5 w-3.5" />
@@ -212,6 +214,7 @@ export function Header() {
             {/* CTA button */}
             <Link
               href="/book"
+              onClick={() => trackBookClick("header")}
               className="hidden rounded-xl bg-accent px-5 py-2.5 text-sm font-bold text-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-lg sm:block"
             >
               Book Free Inspection

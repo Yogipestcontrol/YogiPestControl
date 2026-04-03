@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { trackPhoneClick } from "@/lib/analytics";
 
 export function EmergencyButton() {
   const [visible, setVisible] = useState(true);
@@ -24,6 +25,7 @@ export function EmergencyButton() {
   return (
     <a
       href={SITE_CONFIG.phoneTel}
+      onClick={() => trackPhoneClick("emergency_button")}
       className="pulse-emergency fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-red-600 px-4 py-3 text-sm font-semibold text-white shadow-2xl transition-transform hover:scale-105 sm:px-5"
       aria-label="Emergency: Call Now"
     >

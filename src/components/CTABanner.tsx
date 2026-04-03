@@ -6,6 +6,7 @@ import { Phone } from "lucide-react";
 import { AnimateIn } from "@/components/animations/AnimateIn";
 import { SITE_CONFIG } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { trackPhoneClick, trackBookClick } from "@/lib/analytics";
 
 export function CTABanner({
   headline = "Ready to Get Rid of Pests?",
@@ -34,12 +35,14 @@ export function CTABanner({
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/book"
+              onClick={() => trackBookClick("cta_banner")}
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-primary-dark shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-[0_8px_25px_rgba(212,168,67,0.4)]"
             >
               Book Free Inspection
             </Link>
             <a
               href={SITE_CONFIG.phoneTel}
+              onClick={() => trackPhoneClick("cta_banner")}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
             >
               <Phone className="h-5 w-5" />

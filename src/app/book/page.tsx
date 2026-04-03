@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Phone, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
+import { trackBookingFormSubmit, trackPhoneClick } from "@/lib/analytics";
 
 const timeSlots = [
   "8:00 AM - 10:00 AM",
@@ -50,6 +51,7 @@ export default function BookPage() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error("Failed");
+      trackBookingFormSubmit({ pestType: formData.pestType, city: formData.city });
       setStatus("success");
     } catch {
       setStatus("error");
