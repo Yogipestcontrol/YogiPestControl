@@ -1,0 +1,40 @@
+// Maps pest slugs (from pests data) to their images
+export const pestImages: Record<string, string> = {
+  "argentine-ants": "/images/pests/ant.jpg",
+  "fire-ants": "/images/pests/fire-ant.jpg",
+  "norway-rats": "/images/pests/rat.jpg",
+  "roof-rats": "/images/pests/roof-rat.jpg",
+  "german-cockroaches": "/images/pests/cockroach.jpg",
+  "american-cockroaches": "/images/pests/american-cockroach.jpg",
+  "black-widows": "/images/pests/spider-black-widow.jpg",
+  "brown-recluses": "/images/pests/spider-brown-recluse.jpg",
+  "paper-wasps": "/images/pests/wasp.jpg",
+  "yellow-jackets": "/images/pests/yellow-jacket.jpg",
+  "honeybees": "/images/pests/bee.jpg",
+  "mosquitoes": "/images/pests/mosquito.jpg",
+  "house-flies": "/images/pests/fly.jpg",
+  "bed-bugs": "/images/pests/bed-bug.jpg",
+  "fleas": "/images/pests/flea.jpg",
+  "ticks": "/images/pests/tick.jpg",
+  "raccoons": "/images/pests/raccoon.jpg",
+  "opossums": "/images/pests/opossum.jpg",
+  "squirrels": "/images/pests/squirrel.jpg",
+};
+
+// Maps service slugs to their pest images (for service cards)
+export const servicePestImages: Record<string, string> = {
+  "rodent-control": "/images/pests/rat.jpg",
+  "cockroach-control": "/images/pests/cockroach.jpg",
+  "ant-control": "/images/pests/ant.jpg",
+  "wasp-control": "/images/pests/wasp.jpg",
+  "bee-removal": "/images/pests/bee.jpg",
+  "mosquito-control": "/images/pests/mosquito.jpg",
+  "fly-control": "/images/pests/fly.jpg",
+  "spider-control": "/images/pests/spider-black-widow.jpg",
+  "tick-flea-treatment": "/images/pests/flea.jpg",
+  "exclusion-repairs": "/images/pests/exclusion-repair.jpg",
+  "attic-cleanout": "/images/pests/attic-cleanout.jpg",
+  "bed-bug-treatment": "/images/pests/bed-bug.jpg",
+  "wildlife-trapping": "/images/pests/raccoon.jpg",
+  "dead-animal-removal": "/images/pests/opossum.jpg",
+};
