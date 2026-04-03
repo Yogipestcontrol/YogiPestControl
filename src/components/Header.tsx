@@ -73,7 +73,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo-full.jpg"
+              src="/images/logo-transparent.png"
               alt="Yogi's Pest Control"
               width={160}
               height={160}
