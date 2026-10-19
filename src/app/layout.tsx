@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { EmergencyButton } from "@/components/EmergencyButton";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SITE_CONFIG, OC_CITIES } from "@/lib/constants";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 const GA_ID = "G-NSXT0LW7GZ";
 
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Yogi's Pest Control",
   },
   description:
-    "Professional pest control services in Orange County, CA. Rodents, ants, cockroaches, bed bugs, wildlife removal & more. Licensed, eco-friendly, same-day service. Call 714-323-8262.",
+    "Licensed, owner-operated pest control in Orange County, based in Tustin. Rodents, ants, roaches, bees, mosquitoes & wildlife. 5.0 on Google. Call 714-323-8262.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -41,9 +42,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: SITE_CONFIG.name,
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,

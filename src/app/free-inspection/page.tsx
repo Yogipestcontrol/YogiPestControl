@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Phone, CheckCircle, Shield, Clock, Leaf, Star } from "lucide-react";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
@@ -6,12 +5,14 @@ import { FreeInspectionForm } from "@/components/FreeInspectionForm";
 import { SITE_CONFIG } from "@/lib/constants";
 import { GOOGLE_PROFILE } from "@/data/reviews";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book a Free Pest Inspection | Yogi's Pest Control Orange County",
+export const metadata = pageMeta({
+  title: "Free Pest Inspection in Orange County",
   description:
-    "Schedule your 100% free pest inspection in Orange County, CA. Same-day service, eco-friendly treatments, satisfaction guaranteed. Call 714-323-8262 or book online now.",
-};
+    "Get a free, no-obligation pest inspection and exact quote from a licensed Orange County operator. Same-day service often available. Call 714-323-8262.",
+  path: "/free-inspection",
+});
 
 const trustPoints = [
   { icon: Clock, text: "Same-Day Service Available" },

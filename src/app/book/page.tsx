@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Phone, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
-import { trackBookingFormSubmit, trackPhoneClick } from "@/lib/analytics";
+import { trackBookingFormSubmit } from "@/lib/analytics";
 import { useFormGuard } from "@/components/FormGuard";
 
 // Local date as YYYY-MM-DD, used as the earliest selectable booking date.

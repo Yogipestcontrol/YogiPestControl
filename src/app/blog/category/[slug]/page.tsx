@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
 import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
+
+// Only the slugs from generateStaticParams exist; anything else is a real 404.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return blogCategories.map((category) => ({ slug: category.slug }));
@@ -18,11 +23,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const category = blogCategories.find((c) => c.slug === slug);
-  if (!category) return {};
-  return {
-    title: `${category.name} | Pest Control Blog`,
-    description: category.description,
-  };
+  if (!category) notFound();
+  return pageMeta({ title: `${category.name}: Pest Control Blog`, description: category.description, path: `/blog/category/${category.slug}` });
 }
 
 export default async function CategoryPage({
@@ -33,9 +35,7 @@ export default async function CategoryPage({
   const { slug } = await params;
   const category = blogCategories.find((c) => c.slug === slug);
 
-  if (!category) {
-    return <div className="py-32 text-center text-xl">Category not found</div>;
-  }
+  if (!category) notFound();
 
   const categoryPosts = blogPosts
     .filter((post) => post.category === category.name)

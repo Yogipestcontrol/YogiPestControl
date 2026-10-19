@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, ArrowRight, ExternalLink } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
 import { heroImages } from "@/lib/images";
 import { GOOGLE_PROFILE, GOOGLE_REVIEWS, HOMEADVISOR_PROFILE, reviewMonth } from "@/data/reviews";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Customer Reviews: 5.0 on Google",
   description:
-    "Real Google reviews from Orange County homeowners. Rated 5.0 on Google: roof rats, rodent exclusion, fleas, skunks and monthly service by owner Yobani Arreola.",
-};
+    "Real Google reviews from Orange County customers. Rated 5.0 on Google for roof rats, rodent exclusion, fleas, skunks and monthly service.",
+  path: "/reviews",
+});
 
 function StarRating({ rating, size = "h-4 w-4" }: { rating: number; size?: string }) {
   return (

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -6,12 +5,14 @@ import { CTABanner } from "@/components/CTABanner";
 import { citiesData } from "@/data/cities";
 import { OC_CITIES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Areas We Serve in Orange County, CA",
+export const metadata = pageMeta({
+  title: "Pest Control Service Areas in Orange County, CA",
   description:
-    "Yogi's Pest Control serves all 34 cities in Orange County, CA. Find pest control services in your city — Anaheim, Irvine, Huntington Beach, and more. Call 714-323-8262.",
-};
+    "Yogi's Pest Control serves all 34 Orange County cities from our Tustin base: Irvine, Costa Mesa, Newport Beach, Santa Ana, Anaheim and more. 714-323-8262.",
+  path: "/areas-we-serve",
+});
 
 const priorityGroups = [
   { label: "High Priority Service Areas", priority: "high" as const },

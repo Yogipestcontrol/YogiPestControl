@@ -4,11 +4,14 @@ import { CITY_DATA } from "@/data/cities";
 import { pestsData } from "@/data/pests";
 import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
+import { CONTENT_UPDATED } from "@/lib/seo";
 
 const BASE_URL = "https://yogispestcontrol.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Real dates, not the build time: bump CONTENT_UPDATED when page content changes.
+  const now = new Date(CONTENT_UPDATED);
+  const newestPost = blogPosts.reduce((a, p) => (p.publishedAt > a ? p.publishedAt : a), "");
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -16,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/areas-we-serve`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/pests`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/blog`, lastModified: new Date(newestPost), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/book`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
@@ -25,6 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/pest-control-cost`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/reviews`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/pest-quiz`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/es`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   // Service pages
@@ -54,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: now,
+    lastModified: new Date(post.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

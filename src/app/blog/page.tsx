@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
@@ -8,12 +7,14 @@ import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
 import { heroImages } from "@/lib/images";
 import { blogImages } from "@/lib/blog-images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pest Control Blog | Tips & Guides for Orange County",
+export const metadata = pageMeta({
+  title: "Pest Control Blog: Tips & Guides for Orange County",
   description:
-    "Expert pest control tips, identification guides, and seasonal advice for Orange County homeowners. Stay informed with the latest from Yogi's Pest Control.",
-};
+    "Pest identification guides, seasonal advice and cost breakdowns for Orange County homeowners, from licensed operator Yobani Arreola.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const sortedPosts = [...blogPosts].sort(

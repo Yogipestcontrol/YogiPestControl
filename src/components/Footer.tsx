@@ -118,6 +118,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {SITE_CONFIG.licenseLabel}.
           </p>
           <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-white/70">Privacy</Link>
+            <Link href="/terms" className="hover:text-white/70">Terms</Link>
             <Link href="/sitemap.xml" className="hover:text-white/70">Sitemap</Link>
           </div>
         </div>

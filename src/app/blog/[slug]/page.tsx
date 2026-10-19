@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, Calendar, Tag, Phone } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
 import { SITE_CONFIG } from "@/lib/constants";
 import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
 import { heroImages } from "@/lib/images";
+import { pageMeta, breadcrumbJsonLd, BUSINESS_ID, DEFAULT_OG_IMAGE } from "@/lib/seo";
+
+// Only the slugs from generateStaticParams exist; anything else is a real 404.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -19,11 +24,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return {};
-  return {
+  if (!post) notFound();
+  return pageMeta({
     title: post.metaTitle,
     description: post.metaDescription,
-  };
+    path: `/blog/${post.slug}`,
+    type: "article",
+    publishedTime: post.publishedAt,
+  });
 }
 
 export default async function BlogPostPage({
@@ -34,9 +42,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
 
-  if (!post) {
-    return <div className="py-32 text-center text-xl">Post not found</div>;
-  }
+  if (!post) notFound();
 
   const category = blogCategories.find((c) => c.name === post.category);
   const relatedPosts = blogPosts
@@ -195,6 +201,10 @@ export default async function BlogPostPage({
       {/* JSON-LD Article Schema */}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([["Blog", "/blog"], [post.title, `/blog/${post.slug}`]])) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -202,16 +212,15 @@ export default async function BlogPostPage({
             headline: post.title,
             description: post.metaDescription,
             datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
             author: {
-              "@type": "Organization",
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url,
+              "@type": "Person",
+              name: SITE_CONFIG.owner,
+              jobTitle: `Licensed Pest Control Operator (CA SPCB ${SITE_CONFIG.license})`,
+              worksFor: { "@id": BUSINESS_ID },
             },
-            publisher: {
-              "@type": "Organization",
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url,
-            },
+            publisher: { "@id": BUSINESS_ID },
+            image: `${SITE_CONFIG.url}${DEFAULT_OG_IMAGE.url}`,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `${SITE_CONFIG.url}/blog/${post.slug}`,

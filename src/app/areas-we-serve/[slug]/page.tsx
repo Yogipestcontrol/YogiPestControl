@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Phone, ArrowRight, MapPin, CheckCircle } from "lucide-react";
 import { CITY_DATA } from "@/data/cities";
 import { CTABanner } from "@/components/CTABanner";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { getCityHeroImage } from "@/lib/images";
+import { pageMeta, breadcrumbJsonLd, BUSINESS_ID } from "@/lib/seo";
+
+// Only the slugs from generateStaticParams exist; anything else is a real 404.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return CITY_DATA.map((city) => ({ slug: city.slug }));
@@ -19,11 +24,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const city = CITY_DATA.find((c) => c.slug === slug);
-  if (!city) return {};
-  return {
-    title: city.metaTitle,
-    description: city.metaDescription,
-  };
+  if (!city) notFound();
+  return pageMeta({ title: city.metaTitle, description: city.metaDescription, path: `/areas-we-serve/${city.slug}` });
 }
 
 export default async function CityPage({
@@ -34,9 +36,7 @@ export default async function CityPage({
   const { slug } = await params;
   const city = CITY_DATA.find((c) => c.slug === slug);
 
-  if (!city) {
-    return <div className="py-32 text-center text-xl">City not found</div>;
-  }
+  if (!city) notFound();
 
   return (
     <>
@@ -210,14 +210,18 @@ export default async function CityPage({
       {/* JSON-LD */}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([["Areas We Serve", "/areas-we-serve"], [city.name, `/areas-we-serve/${city.slug}`]])) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: SITE_CONFIG.name,
-            telephone: SITE_CONFIG.phone,
-            email: SITE_CONFIG.email,
-            url: SITE_CONFIG.url,
+            "@type": "Service",
+            name: `Pest Control in ${city.name}, CA`,
+            serviceType: "Pest control",
+            url: `${SITE_CONFIG.url}/areas-we-serve/${city.slug}`,
+            provider: { "@id": BUSINESS_ID },
             areaServed: {
               "@type": "City",
               name: `${city.name}, CA`,
@@ -227,8 +231,6 @@ export default async function CityPage({
                 longitude: city.lng,
               },
             },
-            openingHours: "Mo-Su 08:00-20:00",
-            priceRange: "$$",
           }),
         }}
       />

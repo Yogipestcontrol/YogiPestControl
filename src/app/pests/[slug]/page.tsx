@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   Phone,
   ArrowRight,
@@ -8,13 +9,16 @@ import {
   AlertTriangle,
   Search,
   RefreshCw,
-  Bug,
 } from "lucide-react";
 import { pestsData } from "@/data/pests";
 import { CTABanner } from "@/components/CTABanner";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
 import { pestImages } from "@/lib/pest-images";
+import { pageMeta, breadcrumbJsonLd, BUSINESS_ID, DEFAULT_OG_IMAGE } from "@/lib/seo";
+
+// Only the slugs from generateStaticParams exist; anything else is a real 404.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return pestsData.map((pest) => ({ slug: pest.slug }));
@@ -27,11 +31,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const pest = pestsData.find((p) => p.slug === slug);
-  if (!pest) return {};
-  return {
-    title: `${pest.commonName} (${pest.scientificName}) - Identification & Control`,
-    description: `Learn how to identify ${pest.commonName} (${pest.scientificName}) in Orange County. Signs, lifecycle, health risks, and professional treatment options from Yogi's Pest Control.`,
-  };
+  if (!pest) notFound();
+  return pageMeta({
+    title: `${pest.commonName} in Orange County: Identification & Control`,
+    description: `How to identify ${pest.commonName} (${pest.scientificName}) in Orange County homes: signs, health risks and professional treatment options.`,
+    path: `/pests/${pest.slug}`,
+  });
 }
 
 export default async function PestPage({
@@ -42,9 +47,7 @@ export default async function PestPage({
   const { slug } = await params;
   const pest = pestsData.find((p) => p.slug === slug);
 
-  if (!pest) {
-    return <div className="py-32 text-center text-xl">Pest not found</div>;
-  }
+  if (!pest) notFound();
 
   const relatedService = SERVICES.find(
     (s) => s.slug === pest.relatedServiceSlug
@@ -308,22 +311,24 @@ export default async function PestPage({
       {/* JSON-LD Article Schema */}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([["Pest Library", "/pests"], [pest.commonName, `/pests/${pest.slug}`]])) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            headline: `${pest.commonName} (${pest.scientificName}) - Identification & Control`,
+            headline: `${pest.commonName} in Orange County: Identification & Control`,
             description: pest.description,
             author: {
-              "@type": "Organization",
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url,
+              "@type": "Person",
+              name: SITE_CONFIG.owner,
+              jobTitle: `Licensed Pest Control Operator (CA SPCB ${SITE_CONFIG.license})`,
+              worksFor: { "@id": BUSINESS_ID },
             },
-            publisher: {
-              "@type": "Organization",
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url,
-            },
+            publisher: { "@id": BUSINESS_ID },
+            image: `${SITE_CONFIG.url}${DEFAULT_OG_IMAGE.url}`,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `${SITE_CONFIG.url}/pests/${pest.slug}`,

@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
 import { SERVICES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
 import { servicePestImages } from "@/lib/pest-images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Pest Control Services in Orange County, CA",
   description:
-    "Complete pest control services for Orange County homes and businesses. Rodents, ants, cockroaches, bed bugs, wildlife removal, exclusion repairs & more. Call 714-323-8262.",
-};
+    "Pest control services for Orange County homes and businesses: rodents, ants, roaches, bed bugs, bees, mosquitoes, wildlife and exclusion repairs.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

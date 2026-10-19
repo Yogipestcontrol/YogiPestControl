@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, DollarSign, Home, Bug, Ruler, RotateCcw } from "lucide-react";
@@ -6,14 +5,14 @@ import { CTABanner } from "@/components/CTABanner";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "How Much Does Pest Control Cost in Orange County? | Pricing Guide",
+export const metadata = pageMeta({
+  title: "How Much Does Pest Control Cost in Orange County? (2026)",
   description:
-    "Find out how much pest control costs in Orange County, CA. Transparent pricing for rodents, ants, cockroaches, bed bugs, and more. Free inspections. Call 714-323-8262.",
-  keywords:
-    "how much does pest control cost orange county, pest control pricing, exterminator cost orange county ca",
-};
+    "2026 pest control prices in Orange County: rodents, ants, roaches, bed bugs, bees, mosquitoes and more, one-time vs. recurring. Free inspections.",
+  path: "/pest-control-cost",
+});
 
 const priceRanges = [
   { service: "General Pest Control", oneTime: "$150 – $250", recurring: "$80 – $150/mo" },

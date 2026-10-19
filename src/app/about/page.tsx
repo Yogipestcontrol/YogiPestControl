@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Shield, Heart, Leaf, Users, MapPin, Award } from "lucide-react";
@@ -7,12 +6,15 @@ import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG } from "@/lib/constants";
 import { GOOGLE_PROFILE } from "@/data/reviews";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "About Yogi's Pest Control | Owner Yobani Arreola, Tustin CA" },
+export const metadata = pageMeta({
+  title: "About Yogi's Pest Control | Owner Yobani Arreola, Tustin CA",
+  absoluteTitle: true,
   description:
-    "Yogi's Pest Control is owner-operated by Yobani Arreola, a CA Structural Pest Control Board licensed operator (OPR 14866) based in Tustin, serving all of Orange County.",
-};
+    "Owner-operated by Yobani Arreola, a CA Structural Pest Control Board licensed operator (OPR 14866) based in Tustin, serving all of Orange County.",
+  path: "/about",
+});
 
 const values = [
   {

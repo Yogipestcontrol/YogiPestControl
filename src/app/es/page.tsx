@@ -1,21 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta, BUSINESS_ID } from "@/lib/seo";
 import Image from "next/image";
 import { Phone, ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
-import { SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { SITE_CONFIG } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Control de Plagas en Orange County, CA | Yogi's Pest Control",
+  absoluteTitle: true,
   description:
-    "Servicios profesionales de control de plagas en Orange County, CA. Ratas, hormigas, cucarachas, chinches, vida silvestre y más. Servicio el mismo día. Llame al 714-323-8262.",
-  alternates: {
-    languages: {
-      en: "/",
-      es: "/es",
-    },
-  },
-};
+    "Control de plagas con licencia en Orange County, con base en Tustin. Ratas, hormigas, cucarachas, chinches, abejas y fauna silvestre. Llame al 714-323-8262.",
+  path: "/es",
+  locale: "es_US",
+  languages: { "en-US": "/", "es-US": "/es", "x-default": "/" },
+});
 
 const services = [
   { name: "Control de Roedores", desc: "Ratas, ratones y eliminación de roedores", slug: "rodent-control" },
@@ -32,7 +30,7 @@ const services = [
 
 export default function SpanishPage() {
   return (
-    <>
+    <div lang="es">
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary section-divider">
         <Image
@@ -167,20 +165,17 @@ export default function SpanishPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "PestControlService",
-            name: "Yogi's Pest Control",
+            "@type": "WebPage",
+            "@id": "https://yogispestcontrol.com/es",
             url: "https://yogispestcontrol.com/es",
-            telephone: "+1-714-323-8262",
+            inLanguage: "es-US",
+            name: "Control de Plagas en Orange County, CA",
             description:
-              "Servicios profesionales de control de plagas en Orange County, CA. Servicio el mismo día. Licenciado y asegurado.",
-            areaServed: {
-              "@type": "County",
-              name: "Orange County, California",
-            },
-            availableLanguage: ["English", "Spanish"],
+              "Control de plagas con licencia en Orange County, con base en Tustin. Servicio el mismo día.",
+            about: { "@id": BUSINESS_ID },
           }),
         }}
       />
-    </>
+    </div>
   );
 }

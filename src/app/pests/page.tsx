@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Search, Bug, Rat, Shield } from "lucide-react";
@@ -7,12 +6,14 @@ import { CTABanner } from "@/components/CTABanner";
 import { pestsData } from "@/data/pests";
 import { heroImages } from "@/lib/images";
 import { pestImages } from "@/lib/pest-images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Pest Library: Identify Common Orange County Pests",
   description:
-    "Identify common pests in Orange County, CA. Learn about ants, rats, cockroaches, spiders, wasps, bed bugs, wildlife, and more. Free pest identification help from Yogi's Pest Control.",
-};
+    "Identify common Orange County pests: roof rats, Argentine ants, German cockroaches, black widows, bed bugs, wildlife and more, with signs and treatment.",
+  path: "/pests",
+});
 
 // Group pests by category
 const pestCategories = [

@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Phone, ArrowRight, CheckCircle, AlertTriangle, Wrench, ShieldCheck } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { CTABanner } from "@/components/CTABanner";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { serviceHeroImages } from "@/lib/images";
+import { pageMeta, breadcrumbJsonLd, BUSINESS_ID } from "@/lib/seo";
+
+// Only the slugs from generateStaticParams exist; anything else is a real 404.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return servicesData.map((service) => ({ slug: service.slug }));
@@ -19,11 +24,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
-  if (!service) return {};
-  return {
-    title: service.metaTitle,
-    description: service.metaDescription,
-  };
+  if (!service) notFound();
+  return pageMeta({ title: service.metaTitle, description: service.metaDescription, path: `/services/${service.slug}` });
 }
 
 export default async function ServicePage({
@@ -34,9 +36,7 @@ export default async function ServicePage({
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
 
-  if (!service) {
-    return <div className="py-32 text-center text-xl">Service not found</div>;
-  }
+  if (!service) notFound();
 
   const relatedServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
 
@@ -250,21 +250,18 @@ export default async function ServicePage({
       {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([["Services", "/services"], [service.name, `/services/${service.slug}`]])) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
             name: service.name,
             description: service.metaDescription,
-            provider: {
-              "@type": "LocalBusiness",
-              name: SITE_CONFIG.name,
-              telephone: SITE_CONFIG.phone,
-              areaServed: {
-                "@type": "County",
-                name: "Orange County, CA",
-              },
-            },
+            url: `${SITE_CONFIG.url}/services/${service.slug}`,
+            provider: { "@id": BUSINESS_ID },
             areaServed: {
               "@type": "County",
               name: "Orange County, CA",

@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
 import { SITE_CONFIG } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Yogi's Pest Control",
+export const metadata = pageMeta({
+  title: "Pest Control FAQ",
   description:
-    "Get answers to common pest control questions. Learn about our services, pricing, process, and more. Serving Orange County, CA. Call 714-323-8262.",
-};
+    "Answers to common pest control questions: pricing, prep, safety around kids and pets, how treatments work, and what to expect. Serving Orange County.",
+  path: "/faq",
+});
 
 interface FAQ {
   question: string;

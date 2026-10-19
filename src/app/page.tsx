@@ -6,6 +6,16 @@ import { CTABanner } from "@/components/CTABanner";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
 import { GOOGLE_PROFILE, GOOGLE_REVIEWS } from "@/data/reviews";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "Pest Control in Orange County, CA | Yogi's Pest Control",
+  absoluteTitle: true,
+  description:
+    "Licensed, owner-operated pest control in Orange County, based in Tustin. Rodents, ants, roaches, bees, mosquitoes & wildlife. 5.0 on Google. Call 714-323-8262.",
+  path: "/",
+  languages: { "en-US": "/", "es-US": "/es", "x-default": "/" },
+});
 import { servicePestImages } from "@/lib/pest-images";
 
 const highPriorityCities = OC_CITIES.filter((c) => c.priority === "high");
