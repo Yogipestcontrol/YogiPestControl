@@ -29,7 +29,8 @@ export async function POST(request: Request) {
     const verdict = checkSpam({
       honeypot: _hp,
       startedAt: _t,
-      text: `${name} ${email} ${notes || ""}`,
+      message: String(notes || ""),
+      extra: `${name} ${email}`,
     });
     if (verdict === "drop") return NextResponse.json({ success: true });
 

@@ -35,53 +35,73 @@ export function subjectSafe(value: unknown, max = 80): string {
   return String(value ?? "").replace(/[\r\n]+/g, " ").trim().slice(0, max);
 }
 
-// Phrases that show up in vendor/solicitation messages, not in customers asking about pests.
-const SOLICITATION_PATTERNS = [
+// Phrases that show up in vendor/solicitation messages, not in customers asking about
+// pests. Tuned against the pitches the contact form actually received (lead-gen
+// sellers, "ChatGPT visibility", ad audits, brokers, partnerships, product samples).
+const PITCH_PATTERNS = [
   /\bseo\b/i,
-  /search engine/i,
+  /search engine|search results/i,
   /backlink/i,
-  /rank(ing)? (your|on) (website|google|page)/i,
+  /rank(ing)? (your|on|higher)/i,
   /first page of google/i,
-  /web ?(site)? ?(design|development|redesign)/i,
-  /virtual assistant/i,
-  /outsourc/i,
-  /lead generation/i,
+  /web ?(site)? ?(design|development|redesign)|hosting/i,
+  /virtual assistant|outsourc/i,
+  /lead[- ]?gen|generat(e|ing) (more |new )?(leads|customers|calls)|leads for your business/i,
   /appointment setting/i,
-  /business broker/i,
-  /(buy|acquir|sell)(ing)? your (business|company)/i,
-  /marketing (agency|services|team)/i,
-  /social media (management|marketing)/i,
-  /google (ads|reviews?) (management|service)/i,
-  /\bcrypto\b|\bbitcoin\b/i,
-  /\bloan\b|\bfunding\b|merchant cash/i,
-  /unsubscribe|opt[- ]out/i,
+  /chat ?gpt|\bai (search|visibility|overview)|generative engine|\bgeo\b/i,
+  /visibility gap|online (presence|visibility)/i,
+  /marketing|advertis|google ads|meta ads|facebook ads|\bppc\b/i,
+  /\baudit\b|conversion (rate|optimization|tracking)|remarketing|analytics/i,
+  /business broker|sell(ing)? your (business|company)|valuation|acquir/i,
+  /\bpartner(ship|ing)?\b|collaborat/i,
+  /bulk (pricing|order)|wholesale|send (you )?a sample|free (sample|trial|demo|consultation)/i,
+  /cold email|contact[- ]form outreach|deliverability/i,
+  /(i|we) (recently )?(noticed|came across|visited) your (website|site|business|company)/i,
+  /(i am|i'm|we are|we're) reaching out|reaching out from/i,
+  /are you interested in|would (it|you) be (alright|open|interested)|no commitment/i,
+  /our (clients|agency|services|team can)|\$\d+ ?\/ ?mo/i,
+  /\bcrypto\b|\bbitcoin\b|\bloan\b|\bfunding\b|merchant cash/i,
+  /unsubscribe|opt[- ]out|reply stop/i,
 ];
+
+// Words real customers use when they describe a problem.
+const PEST_WORDS =
+  /\b(rats?|mice|mouse|rodents?|ants?|roach(es)?|cockroach(es)?|bugs?|bees?|hive|wasps?|hornets?|yellow ?jackets?|termites?|spiders?|black widows?|fleas?|ticks?|mosquito(e?s)?|fl(y|ies)|raccoons?|skunks?|possums?|opossums?|squirrels?|gophers?|moles?|birds?|pigeons?|silverfish|earwigs?|scorpions?|attic|crawl ?space|garage|droppings|nest|infest\w*|smell|odor|scratching|noise|trap\w*|bait|spray\w*|bit(e|es|ten)|exterminat\w*|inspection)\b/i;
 
 export type SpamVerdict = "ok" | "suspect" | "drop";
 
 /**
- * - "drop": a bot filled the hidden honeypot field or submitted inhumanly fast.
- *   Pretend success, send nothing.
- * - "suspect": looks like a vendor pitch. Still forwarded to Yobani (flagged), but
- *   no branded confirmation email goes out to the sender.
+ * - "drop": bot behaviour (honeypot, inhumanly fast, empty/number-only message) or a
+ *   clear sales pitch. Pretend success, send nothing.
+ * - "suspect": a pitch signal but it also talks about pests, so a human should glance at
+ *   it. Forwarded to Yobani flagged, no confirmation email to the sender.
  */
 export function checkSpam(input: {
   honeypot?: unknown;
   startedAt?: unknown;
-  text: string;
+  /** The free-text message/notes the visitor typed. */
+  message: string;
+  /** Other fields (name, email) that can carry pitch signals too. */
+  extra?: string;
 }): SpamVerdict {
   if (typeof input.honeypot === "string" && input.honeypot.trim() !== "") return "drop";
 
   const started = Number(input.startedAt);
   if (Number.isFinite(started) && started > 0 && Date.now() - started < 3000) return "drop";
 
-  const text = input.text;
-  const links = (text.match(/https?:\/\/|www\./gi) || []).length;
-  if (links >= 2) return "suspect";
-  if (SOLICITATION_PATTERNS.some((re) => re.test(text))) return "suspect";
+  const message = input.message.trim();
+  // A "message" that is only a phone number, digits or a link is a scraper.
+  if (message && !/[a-z]{3,}/i.test(message.replace(/https?:\/\/\S+|www\.\S+/gi, ""))) return "drop";
+
+  const text = `${input.extra ?? ""} ${message}`;
+  const pitchHits = PITCH_PATTERNS.filter((re) => re.test(text)).length;
+  const links = (message.match(/https?:\/\/|www\./gi) || []).length;
+  const mentionsPests = PEST_WORDS.test(message);
+
+  if (pitchHits >= 2) return "drop";
+  if (pitchHits === 1 || links >= 2) return mentionsPests ? "suspect" : "drop";
   return "ok";
 }
-
 // Best-effort, per-instance rate limit. Serverless instances don't share memory,
 // so this only blunts bursts; the honeypot and timing checks do the real work.
 const hits = new Map<string, number[]>();
