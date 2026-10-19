@@ -120,6 +120,9 @@ export function contactLeadEmail(data: {
   phone: string;
   service: string;
   message: string;
+  /** Already escaped; empty when the visitor didn't give one. */
+  address?: string;
+  mapsUrl?: string;
   timestamp: string;
 }) {
   return emailWrapper(`
@@ -140,6 +143,7 @@ export function contactLeadEmail(data: {
             ${infoRow("Phone", data.phone, { type: "phone" })}
             ${infoRow("Email", data.email, { type: "email" })}
             ${infoRow("Service", data.service || "Not specified")}
+            ${data.address ? infoRow("Address", data.mapsUrl ? `<a href="${data.mapsUrl}" style="color: #2563eb; text-decoration: none; font-weight: 500;">${data.address}</a>` : data.address) : ""}
           </table>
 
           <!-- Message -->

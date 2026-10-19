@@ -10,7 +10,7 @@ const inputClass =
   "rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
 
 export function FreeInspectionForm() {
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", address: "", zip: "", service: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { guard, honeypot } = useFormGuard();
 
@@ -75,6 +75,34 @@ export function FreeInspectionForm() {
         onChange={(e) => updateField("phone", e.target.value)}
         className={inputClass}
       />
+      <div className="grid grid-cols-3 gap-3">
+        <input
+          type="text"
+          name="address"
+          aria-label="Street address"
+          placeholder="Street Address *"
+          required
+          minLength={5}
+          autoComplete="street-address"
+          value={formData.address}
+          onChange={(e) => updateField("address", e.target.value)}
+          className={`${inputClass} col-span-2`}
+        />
+        <input
+          type="text"
+          name="zip"
+          aria-label="ZIP code"
+          placeholder="ZIP *"
+          required
+          inputMode="numeric"
+          pattern="\d{5}"
+          maxLength={5}
+          autoComplete="postal-code"
+          value={formData.zip}
+          onChange={(e) => updateField("zip", e.target.value.replace(/\D/g, ""))}
+          className={inputClass}
+        />
+      </div>
       <input
         type="email"
         name="email"

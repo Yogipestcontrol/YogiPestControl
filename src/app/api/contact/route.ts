@@ -3,6 +3,7 @@ import { contactLeadEmail, contactConfirmationEmail } from "@/lib/email-template
 import {
   checkSpam,
   escapeFields,
+  escapeHtml,
   isRateLimited,
   isValidEmail,
   sendConfirmation,
@@ -20,7 +21,13 @@ export async function POST(request: Request) {
     const message =
       body.message || (source === "free-inspection" ? "Free inspection request (no details given)." : "");
 
-    if (!name || !phone || !message || (source === "contact" && !isValidEmail(email))) {
+    const address = typeof body.address === "string" ? body.address.trim() : "";
+    const zip = typeof body.zip === "string" ? body.zip.trim() : "";
+    // Free-inspection requests need the service address; on /contact it's optional.
+    const needsAddress = source === "free-inspection";
+    const addressOk = needsAddress ? address.length >= 5 && /^\d{5}$/.test(zip) : !zip || /^\d{5}$/.test(zip);
+
+    if (!name || !phone || !message || !addressOk || (source === "contact" && !isValidEmail(email))) {
       return NextResponse.json(
         { error: "Name, a valid email, phone, and message are required" },
         { status: 400 }
@@ -47,12 +54,16 @@ export async function POST(request: Request) {
     });
 
     const safe = escapeFields({ name, email: email || "(not provided)", phone, service: service || "", message });
+    const fullAddress = address ? `${address}${zip ? `, CA ${zip}` : ""}` : zip ? `ZIP ${zip}` : "";
+    const mapsUrl = address
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+      : "";
     const flag = verdict === "suspect" ? "[Likely sales pitch] " : "";
     const kind = source === "free-inspection" ? "Free Inspection Request" : "Contact Lead";
 
     await sendLeadNotification({
       subject: `${flag}New ${kind}: ${subjectSafe(name)}`,
-      html: contactLeadEmail({ ...safe, timestamp }),
+      html: contactLeadEmail({ ...safe, address: escapeHtml(fullAddress), mapsUrl, timestamp }),
       replyTo: hasEmail ? email : undefined,
     });
 

@@ -44,6 +44,8 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
+    address: "",
+    zip: "",
     service: "",
     message: "",
   });
@@ -66,7 +68,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error("Failed");
       trackContactFormSubmit(formData.service);
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", address: "", zip: "", service: "", message: "" });
     } catch {
       setStatus("error");
     }
@@ -201,6 +203,38 @@ export default function ContactPage() {
                         ))}
                         <option value="other">Other / Not Sure</option>
                       </select>
+                    </div>
+                  </div>
+                  <div className="grid gap-6 sm:grid-cols-3">
+                    <div className="sm:col-span-2">
+                      <label htmlFor="address" className="mb-1.5 block text-sm font-medium text-foreground">
+                        Property Address <span className="font-normal text-muted">(optional, helps us quote faster)</span>
+                      </label>
+                      <input
+                        id="address"
+                        type="text"
+                        autoComplete="street-address"
+                        value={formData.address}
+                        onChange={(e) => updateField("address", e.target.value)}
+                        placeholder="123 Main St, Apt 4"
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="zip" className="mb-1.5 block text-sm font-medium text-foreground">
+                        ZIP Code
+                      </label>
+                      <input
+                        id="zip"
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="postal-code"
+                        maxLength={5}
+                        value={formData.zip}
+                        onChange={(e) => updateField("zip", e.target.value.replace(/\D/g, ""))}
+                        placeholder="92780"
+                        className="w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      />
                     </div>
                   </div>
                   <div>
