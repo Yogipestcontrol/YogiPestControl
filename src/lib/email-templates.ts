@@ -165,6 +165,8 @@ export function bookingLeadEmail(data: {
   phone: string;
   pestType: string;
   city: string;
+  address: string;
+  mapsUrl: string;
   date: string;
   time: string;
   notes: string;
@@ -188,7 +190,7 @@ export function bookingLeadEmail(data: {
             ${infoRow("Phone", data.phone, { type: "phone" })}
             ${infoRow("Email", data.email, { type: "email" })}
             ${infoRow("Pest Type", `<span style="display: inline-block; background: #fef3c7; color: #92400e; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">${data.pestType}</span>`)}
-            ${infoRow("City", data.city)}
+            ${infoRow("Address", `<a href="${data.mapsUrl}" style="color: #2563eb; text-decoration: none; font-weight: 500;">${data.address}</a>`)}
           </table>
 
           ${data.notes ? `
