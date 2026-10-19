@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Phone, Mail, Clock, MapPin, CheckCircle, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
-import { trackContactFormSubmit, trackPhoneClick } from "@/lib/analytics";
+import { trackContactFormSubmit } from "@/lib/analytics";
+import { useFormGuard } from "@/components/FormGuard";
 
 const contactInfo = [
   {
@@ -47,6 +48,7 @@ export default function ContactPage() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { guard, honeypot } = useFormGuard();
 
   const updateField = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -59,7 +61,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ...guard }),
       });
       if (!res.ok) throw new Error("Failed");
       trackContactFormSubmit(formData.service);
@@ -122,7 +124,8 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="relative space-y-6">
+                  {honeypot}
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div>
                       <label
@@ -219,7 +222,10 @@ export default function ContactPage() {
                   </div>
 
                   {status === "error" && (
-                    <p className="text-sm text-red-600">Something went wrong. Please try again or call us directly.</p>
+                    <p className="text-sm text-red-600">
+                      Something went wrong sending your message. Please call us at{" "}
+                      <a href={SITE_CONFIG.phoneTel} className="font-semibold underline">{SITE_CONFIG.phone}</a>.
+                    </p>
                   )}
 
                   <button

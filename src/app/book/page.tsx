@@ -5,6 +5,13 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Phone, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
 import { trackBookingFormSubmit, trackPhoneClick } from "@/lib/analytics";
+import { useFormGuard } from "@/components/FormGuard";
+
+// Local date as YYYY-MM-DD, used as the earliest selectable booking date.
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
 
 const timeSlots = [
   "8:00 AM - 10:00 AM",
@@ -24,6 +31,8 @@ const steps = [
 export default function BookPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { guard, honeypot } = useFormGuard();
+  const [minDate] = useState(todayISO);
   const [formData, setFormData] = useState({
     pestType: "",
     city: "",
@@ -48,7 +57,7 @@ export default function BookPage() {
       const res = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ...guard }),
       });
       if (!res.ok) throw new Error("Failed");
       trackBookingFormSubmit({ pestType: formData.pestType, city: formData.city });
@@ -126,7 +135,8 @@ export default function BookPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
+          <div className="relative rounded-2xl border border-border bg-surface p-8 sm:p-10">
+            {honeypot}
             {/* Success State */}
             {status === "success" ? (
               <div className="py-8 text-center">
@@ -233,6 +243,8 @@ export default function BookPage() {
                     <input
                       id="date"
                       type="date"
+                      min={minDate}
+                      suppressHydrationWarning
                       value={formData.date}
                       onChange={(e) => updateField("date", e.target.value)}
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
@@ -359,7 +371,10 @@ export default function BookPage() {
                   </div>
                 </div>
                 {status === "error" && (
-                  <p className="text-sm text-red-600">Something went wrong. Please try again or call us directly.</p>
+                  <p className="text-sm text-red-600">
+                    Something went wrong sending your booking. Please call us at{" "}
+                    <a href={SITE_CONFIG.phoneTel} className="font-semibold underline">{SITE_CONFIG.phone}</a>.
+                  </p>
                 )}
                 <div className="mt-8 flex justify-between">
                   <button

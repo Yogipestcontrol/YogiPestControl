@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { EmergencyButton } from "@/components/EmergencyButton";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { SITE_CONFIG } from "@/lib/constants";
+import { SITE_CONFIG, OC_CITIES } from "@/lib/constants";
 
 const GA_ID = "G-NSXT0LW7GZ";
 
@@ -95,28 +95,45 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "PestControlService",
+              "@id": "https://yogispestcontrol.com/#business",
               name: "Yogi's Pest Control",
               url: "https://yogispestcontrol.com",
               logo: "https://yogispestcontrol.com/images/logo-transparent.png",
               image: "https://yogispestcontrol.com/images/logo-full.jpg",
               telephone: "+1-714-323-8262",
-              email: "yobani.a@yogispestcontrol.com",
+              email: SITE_CONFIG.email,
               description:
-                "Professional pest control services in Orange County, CA. Rodents, ants, cockroaches, bed bugs, wildlife removal & more. Licensed, eco-friendly, same-day service.",
+                "Family-run pest control based in Tustin, serving homes and businesses across Orange County, CA. Rodents, ants, cockroaches, bed bugs, wildlife removal & more. Licensed by the California Structural Pest Control Board (OPR 14866).",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Orange County",
+                addressLocality: "Tustin",
                 addressRegion: "CA",
                 addressCountry: "US",
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 33.7175,
-                longitude: -117.8311,
+                latitude: 33.7459,
+                longitude: -117.8261,
               },
-              areaServed: {
-                "@type": "County",
-                name: "Orange County, California",
+              areaServed: OC_CITIES.map((c) => ({
+                "@type": "City",
+                name: `${c.name}, CA`,
+              })),
+              founder: {
+                "@type": "Person",
+                name: SITE_CONFIG.owner,
+                jobTitle: "Owner & Licensed Pest Control Operator",
+              },
+              hasCredential: {
+                "@type": "EducationalOccupationalCredential",
+                credentialCategory: "license",
+                name: "Structural Pest Control Operator License",
+                identifier: SITE_CONFIG.license,
+                recognizedBy: {
+                  "@type": "GovernmentOrganization",
+                  name: "California Structural Pest Control Board",
+                  url: "https://www.pestboard.ca.gov",
+                },
               },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
@@ -133,13 +150,7 @@ export default function RootLayout({
                 closes: "20:00",
               },
               priceRange: "$$",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "200",
-                bestRating: "5",
-              },
-              sameAs: [],
+              sameAs: [SITE_CONFIG.social.google],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
                 name: "Pest Control Services",

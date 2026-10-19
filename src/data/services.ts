@@ -215,7 +215,7 @@ export const servicesData: ServiceData[] = [
     },
     faqs: [
       { question: "How often do I need mosquito treatment?", answer: "During peak season (May-October in Orange County), monthly treatments provide the best protection. The barrier spray typically lasts 3-4 weeks before needing reapplication." },
-      { question: "Is mosquito spray safe for kids and pets?", answer: "Yes. We use EPA-registered products that are safe for children and pets once dried, which typically takes 30-60 minutes. We recommend staying indoors during application." },
+      { question: "Is mosquito spray safe for kids and pets?", answer: "We use EPA-registered products applied according to the label. Kids and pets should stay indoors during application and off treated areas until the spray has dried, which typically takes 30-60 minutes." },
     ],
   },
   {
@@ -338,11 +338,11 @@ export const servicesData: ServiceData[] = [
     name: "Wildlife Trapping",
     shortDesc: "Humane wildlife capture",
     metaTitle: "Wildlife Removal in Orange County, CA",
-    metaDescription: "Humane wildlife trapping and removal in Orange County. Raccoons, opossums, squirrels safely captured and relocated. Call 714-323-8262.",
+    metaDescription: "Wildlife trapping and removal in Orange County. Raccoons, opossums, skunks and squirrels removed from attics and crawlspaces, entry points sealed. Call 714-323-8262.",
     heroHeadline: "Humane Wildlife Removal in Orange County",
     heroSubtext: "We humanely capture and remove nuisance wildlife like raccoons, opossums, and squirrels, keeping your home safe and your property protected.",
     content: {
-      overview: "Orange County's mix of suburban development and natural canyon areas brings wildlife into close contact with homes. Raccoons, opossums, squirrels, and skunks commonly enter attics, garages, and crawl spaces. At Yogi's Pest Control, we use humane trapping methods to safely capture and relocate nuisance wildlife in compliance with California wildlife regulations.",
+      overview: "Orange County's mix of suburban development and natural canyon areas brings wildlife into close contact with homes. Raccoons, opossums, squirrels, and skunks commonly enter attics, garages, and crawl spaces. At Yogi's Pest Control, we trap and remove nuisance wildlife in compliance with California Department of Fish and Wildlife regulations, then seal the entry points so new animals can't move in.",
       signs: ["Loud noises in the attic, especially at night (raccoons, opossums) or morning (squirrels)", "Damage to roofline, soffits, or attic vents", "Overturned trash cans or scattered garbage", "Animal droppings on the roof, in the attic, or around the property", "Strong odor from a den or nesting area"],
       risks: ["Raccoons carry rabies and raccoon roundworm", "Structural damage to roofing, insulation, and wiring", "Flea and tick introduction into your home", "Aggressive behavior when cornered, especially mothers with young", "Fire hazard from damaged electrical wiring"],
       process: ["Inspection to identify the species, entry points, and den locations", "Humane trap placement in strategic locations", "Daily trap monitoring and animal removal", "Exclusion repairs to prevent re-entry", "Attic cleanout if contaminated", "Ongoing monitoring during trapping period"],

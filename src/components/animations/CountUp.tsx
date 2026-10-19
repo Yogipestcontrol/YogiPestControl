@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, animate } from "motion/react";
+import { useInView, useReducedMotion, animate } from "motion/react";
 
 export function CountUp({
   target,
@@ -18,10 +18,13 @@ export function CountUp({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
-  const [value, setValue] = useState(0);
+  const reduceMotion = useReducedMotion();
+  // Start at the real number so server HTML (what crawlers and no-JS visitors see)
+  // shows it; the count-up only plays once the number scrolls into view.
+  const [value, setValue] = useState(target);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || reduceMotion) return;
 
     const controls = animate(0, target, {
       duration,
@@ -30,7 +33,7 @@ export function CountUp({
     });
 
     return () => controls.stop();
-  }, [isInView, target, duration]);
+  }, [isInView, reduceMotion, target, duration]);
 
   return (
     <span ref={ref} className={className}>

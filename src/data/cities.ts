@@ -88,7 +88,7 @@ export const CITY_DATA: CityData[] = [
     priority: "high",
     metaTitle: "Pest Control in Irvine, CA | Yogi's Pest Control",
     metaDescription:
-      "Top-rated Irvine pest control by Yogi's Pest Control. Effective solutions for ants, spiders, rodents, and termites in Irvine communities. Eco-friendly treatments safe for families and pets. Call for a free quote.",
+      "Irvine pest control by Yogi's Pest Control. Ants, spiders, roof rats and more in Irvine HOA communities. Licensed, owner-operated. Free quote: 714-323-8262.",
     content:
       "Irvine is a master-planned city known for its clean neighborhoods, excellent schools, and expansive open spaces, but even this well-maintained community faces persistent pest challenges driven by Orange County's warm Mediterranean climate. The city's numerous parks, nature preserves like Bommer Canyon and Shady Canyon, and miles of greenbelts create ideal habitat for a variety of pests that regularly move into residential areas. Argentine ants are the number one nuisance pest in Irvine, with massive colonies invading homes in communities like Woodbridge, Northwood, Turtle Rock, and Portola Springs, particularly during hot, dry weather when they seek indoor water sources. Roof rats have become increasingly problematic across Irvine, nesting in the dense ornamental landscaping, fruit trees, and ivy that are common in HOA-maintained communities. These rodents enter attics through gaps along rooflines and can cause significant damage to insulation and wiring. Black widow spiders are frequently found in garages, meter boxes, and block walls throughout Irvine's newer developments. The Irvine Spectrum and University Research Park areas see commercial pest issues including ants, occasional rodent problems, and spiders around exterior lighting that attracts flying insects. Homes bordering the San Joaquin Marsh and Upper Newport Bay nature preserves deal with elevated mosquito activity. The city's proximity to the Santa Ana Mountains also brings occasional encounters with wildlife including raccoons, skunks, and coyotes. Yogi's Pest Control understands Irvine's specific community needs and delivers discreet, effective pest management for both residential villages and commercial properties.",
     faqs: [
@@ -333,7 +333,7 @@ export const CITY_DATA: CityData[] = [
     name: "Newport Beach",
     county: "Orange County",
     state: "CA",
-    priority: "medium",
+    priority: "high",
     metaTitle: "Pest Control in Newport Beach, CA | Yogi's Pest Control",
     metaDescription:
       "Premium Newport Beach pest control by Yogi's Pest Control. Discreet, effective treatment for ants, rodents, spiders, and coastal pests. Serving Balboa Island, Corona del Mar, and all Newport areas.",
@@ -364,7 +364,7 @@ export const CITY_DATA: CityData[] = [
     name: "Buena Park",
     county: "Orange County",
     state: "CA",
-    priority: "medium",
+    priority: "high",
     metaTitle: "Pest Control in Buena Park, CA | Yogi's Pest Control",
     metaDescription:
       "Affordable Buena Park pest control from Yogi's Pest Control. Expert removal of ants, cockroaches, rodents, spiders, and bed bugs. Serving all Buena Park areas. Free inspections available.",
@@ -426,7 +426,7 @@ export const CITY_DATA: CityData[] = [
     name: "Tustin",
     county: "Orange County",
     state: "CA",
-    priority: "medium",
+    priority: "high",
     metaTitle: "Pest Control in Tustin, CA | Yogi's Pest Control",
     metaDescription:
       "Professional Tustin pest control by Yogi's Pest Control. Expert treatment for ants, rodents, spiders, and cockroaches in Old Town Tustin and surrounding areas. Same-day service and free inspections.",
@@ -953,7 +953,7 @@ export const CITY_DATA: CityData[] = [
     name: "Stanton",
     county: "Orange County",
     state: "CA",
-    priority: "low",
+    priority: "high",
     metaTitle: "Pest Control in Stanton, CA | Yogi's Pest Control",
     metaDescription:
       "Affordable Stanton pest control services from Yogi's Pest Control. Effective treatment for ants, cockroaches, rodents, and spiders across Stanton. Residential and commercial service. Free inspections.",

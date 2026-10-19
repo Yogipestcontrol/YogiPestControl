@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Phone, CheckCircle, Shield, Clock, Leaf, Star } from "lucide-react";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
-import { SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { FreeInspectionForm } from "@/components/FreeInspectionForm";
+import { SITE_CONFIG } from "@/lib/constants";
+import { GOOGLE_PROFILE } from "@/data/reviews";
 import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -13,10 +15,10 @@ export const metadata: Metadata = {
 
 const trustPoints = [
   { icon: Clock, text: "Same-Day Service Available" },
-  { icon: Shield, text: "Licensed & Insured Technicians" },
-  { icon: Leaf, text: "Eco-Friendly, Pet-Safe Products" },
+  { icon: Shield, text: `CA Licensed Operator (${SITE_CONFIG.license})` },
+  { icon: Leaf, text: "EPA-Registered Products, Applied Per Label" },
   { icon: CheckCircle, text: "100% Satisfaction Guarantee" },
-  { icon: Star, text: "4.9/5 Stars from 500+ Customers" },
+  { icon: Star, text: `${GOOGLE_PROFILE.rating.toFixed(1)} Stars on Google (${GOOGLE_PROFILE.reviewCount} reviews)` },
 ];
 
 export default function FreeInspectionPage() {
@@ -45,7 +47,7 @@ export default function FreeInspectionPage() {
                 <span className="text-accent">100% Free</span> Pest Inspection
               </h1>
               <p className="mb-8 max-w-lg text-lg leading-relaxed text-white/70">
-                Orange County&apos;s top-rated pest control company. We&apos;ll
+                Owner-operated, licensed pest control based in Tustin. We&apos;ll
                 inspect your property, identify the problem, and give you an exact
                 quote — all at no cost and with no obligation.
               </p>
@@ -82,48 +84,7 @@ export default function FreeInspectionPage() {
                 Fill out this quick form and we&apos;ll call you within 30 minutes to
                 confirm your appointment.
               </p>
-              <form className="flex flex-col gap-4">
-                <input
-                  type="text"
-                  placeholder="Full Name *"
-                  required
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number *"
-                  required
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
-                <select className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-                  <option value="">What pest are you dealing with?</option>
-                  {SERVICES.map((s) => (
-                    <option key={s.slug} value={s.slug}>
-                      {s.name}
-                    </option>
-                  ))}
-                  <option value="other">Other / Not Sure</option>
-                </select>
-                <textarea
-                  placeholder="Describe your pest problem (optional)"
-                  rows={3}
-                  className="rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
-                <button
-                  type="submit"
-                  className="rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-primary-dark transition-all hover:bg-accent-light hover:shadow-lg"
-                >
-                  Get My Free Inspection
-                </button>
-                <p className="text-center text-xs text-muted">
-                  No obligation. No credit card required. 100% free.
-                </p>
-              </form>
+              <FreeInspectionForm />
             </div>
           </div>
         </div>
@@ -145,14 +106,17 @@ export default function FreeInspectionPage() {
               ))}
             </div>
             <p className="mb-2 text-2xl font-bold text-foreground">
-              4.9 out of 5 Stars
+              {GOOGLE_PROFILE.rating.toFixed(1)} out of 5 Stars on Google
             </p>
             <p className="mb-6 text-muted">
-              Rated by 500+ homeowners across Orange County
+              From {GOOGLE_PROFILE.reviewCount} verified Google reviews.{" "}
+              <a href={GOOGLE_PROFILE.mapsUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:text-primary-light">
+                Read them on Google
+              </a>
             </p>
             <div className="grid gap-6 sm:grid-cols-3">
               {[
-                { stat: "500+", label: "Happy Customers" },
+                { stat: SITE_CONFIG.license, label: "CA SPCB License" },
                 { stat: "34", label: "OC Cities Served" },
                 { stat: "Same Day", label: "Response Time" },
               ].map(({ stat, label }) => (

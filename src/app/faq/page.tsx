@@ -42,9 +42,9 @@ const faqCategories: FAQCategory[] = [
           "Yes, we offer same-day and emergency services for urgent pest situations. Call us at 714-323-8262 and we will dispatch a technician as quickly as possible.",
       },
       {
-        question: "Are your treatments safe for kids and pets?",
+        question: "Are your treatments safe around kids and pets?",
         answer:
-          "Absolutely. We use EPA-approved, eco-friendly products that are safe for your family and pets. Our technicians will provide specific safety instructions for each treatment.",
+          "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you exactly how long kids and pets should stay off treated areas (usually until sprays have dried).",
       },
     ],
   },

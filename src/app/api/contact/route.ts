@@ -1,21 +1,43 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-import { supabase } from "@/lib/supabase";
 import { contactLeadEmail, contactConfirmationEmail } from "@/lib/email-templates";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import {
+  checkSpam,
+  escapeFields,
+  isRateLimited,
+  isValidEmail,
+  sendConfirmation,
+  sendLeadNotification,
+  subjectSafe,
+} from "@/lib/leads";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message } = body;
+    const { name, phone, service, _hp, _t } = body;
+    const source = body.source === "free-inspection" ? "free-inspection" : "contact";
+    // The free-inspection landing page only requires name + phone.
+    const email = typeof body.email === "string" ? body.email.trim() : "";
+    const message =
+      body.message || (source === "free-inspection" ? "Free inspection request (no details given)." : "");
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !phone || !message || (source === "contact" && !isValidEmail(email))) {
       return NextResponse.json(
-        { error: "Name, email, phone, and message are required" },
+        { error: "Name, a valid email, phone, and message are required" },
         { status: 400 }
       );
     }
+    const hasEmail = isValidEmail(email);
+
+    if (isRateLimited(request)) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
+    const verdict = checkSpam({
+      honeypot: _hp,
+      startedAt: _t,
+      text: `${name} ${email} ${message}`,
+    });
+    if (verdict === "drop") return NextResponse.json({ success: true });
 
     const timestamp = new Date().toLocaleString("en-US", {
       timeZone: "America/Los_Angeles",
@@ -23,30 +45,23 @@ export async function POST(request: Request) {
       timeStyle: "short",
     });
 
-    // Save to Supabase
-    const { error: dbError } = await supabase
-      .from("contact_leads")
-      .insert({ name, email, phone, service, message });
+    const safe = escapeFields({ name, email: email || "(not provided)", phone, service: service || "", message });
+    const flag = verdict === "suspect" ? "[Likely sales pitch] " : "";
+    const kind = source === "free-inspection" ? "Free Inspection Request" : "Contact Lead";
 
-    if (dbError) {
-      console.error("Supabase error:", dbError);
+    await sendLeadNotification({
+      subject: `${flag}New ${kind}: ${subjectSafe(name)}`,
+      html: contactLeadEmail({ ...safe, timestamp }),
+      replyTo: hasEmail ? email : undefined,
+    });
+
+    if (verdict === "ok" && hasEmail) {
+      await sendConfirmation({
+        to: email,
+        subject: "We received your message — Yogi's Pest Control",
+        html: contactConfirmationEmail({ name: safe.name }),
+      });
     }
-
-    // Send email notification to Yobani
-    await resend.emails.send({
-      from: "Yogi's Pest Control <leads@yogispestcontrol.com>",
-      to: "yobani.a@yogispestcontrol.com",
-      subject: `New Contact Lead: ${name}`,
-      html: contactLeadEmail({ name, email, phone, service, message, timestamp }),
-    });
-
-    // Send confirmation to customer
-    await resend.emails.send({
-      from: "Yogi's Pest Control <noreply@yogispestcontrol.com>",
-      to: email,
-      subject: "We received your message — Yogi's Pest Control",
-      html: contactConfirmationEmail({ name }),
-    });
 
     return NextResponse.json({ success: true });
   } catch (error) {

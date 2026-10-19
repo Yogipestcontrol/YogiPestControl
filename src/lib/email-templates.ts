@@ -1,4 +1,4 @@
-const LOGO_URL = "https://yogis-pest-control.vercel.app/images/logo-full.jpg";
+const LOGO_URL = "https://yogispestcontrol.com/images/logo-full.jpg";
 const BRAND = {
   dark: "#1a2332",
   gold: "#d4a843",

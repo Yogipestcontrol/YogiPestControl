@@ -1,160 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ArrowRight } from "lucide-react";
+import { Star, ArrowRight, ExternalLink } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
-import { SITE_CONFIG } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { GOOGLE_PROFILE, GOOGLE_REVIEWS, HOMEADVISOR_PROFILE, reviewMonth } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "Customer Reviews | Yogi's Pest Control Orange County",
+  title: "Customer Reviews: 5.0 on Google",
   description:
-    "See what Orange County homeowners say about Yogi's Pest Control. 4.9/5 star rating from verified customers. Read reviews and book your free inspection today.",
+    "Real Google reviews from Orange County homeowners. Rated 5.0 on Google: roof rats, rodent exclusion, fleas, skunks and monthly service by owner Yobani Arreola.",
 };
 
-interface Review {
-  name: string;
-  city: string;
-  date: string;
-  rating: number;
-  text: string;
-}
-
-const reviews: Review[] = [
-  {
-    name: "Sarah M.",
-    city: "Irvine",
-    date: "2025-11-15",
-    rating: 5,
-    text: "Yogi's was incredibly responsive. They came the same day I called and took care of our ant problem quickly. The technician was professional, explained everything, and the ants haven't come back since.",
-  },
-  {
-    name: "David L.",
-    city: "Huntington Beach",
-    date: "2025-10-28",
-    rating: 5,
-    text: "Had a serious rodent issue in our attic. They did a thorough inspection, sealed all the entry points, and set up traps. Problem solved within a week. Highly recommend their exclusion repair service.",
-  },
-  {
-    name: "Jennifer K.",
-    city: "Anaheim",
-    date: "2025-10-10",
-    rating: 5,
-    text: "We had wasps building nests around our patio every summer. Yogi's removed all the nests and treated the area so they wouldn't come back. Great service at a fair price.",
-  },
-  {
-    name: "Michael R.",
-    city: "Costa Mesa",
-    date: "2025-09-22",
-    rating: 5,
-    text: "Finally found a pest control company I can trust. Transparent pricing, eco-friendly products, and they actually follow up to make sure the treatment worked. Five stars all the way.",
-  },
-  {
-    name: "Lisa T.",
-    city: "Fullerton",
-    date: "2025-09-05",
-    rating: 5,
-    text: "Called about a cockroach problem and they had someone out within hours. The technician was thorough and explained what products he was using and why. Haven't seen a single roach since.",
-  },
-  {
-    name: "Robert H.",
-    city: "Newport Beach",
-    date: "2025-08-18",
-    rating: 4,
-    text: "Very professional service. They handled our spider issue effectively. The only reason for 4 stars is scheduling took a couple of days, but the actual service was excellent.",
-  },
-  {
-    name: "Amanda P.",
-    city: "Orange",
-    date: "2025-08-01",
-    rating: 5,
-    text: "We had bed bugs and were losing our minds. Yogi's came in, did a heat treatment, and completely eradicated them. Worth every penny. The peace of mind alone is priceless.",
-  },
-  {
-    name: "Carlos G.",
-    city: "Santa Ana",
-    date: "2025-07-15",
-    rating: 5,
-    text: "As a restaurant owner, pest control is critical. Yogi's handles our commercial account and they are always reliable, discreet, and effective. Best pest control company in OC.",
-  },
-  {
-    name: "Patricia W.",
-    city: "Mission Viejo",
-    date: "2025-07-02",
-    rating: 5,
-    text: "Had a family of raccoons in our attic. Yogi's humanely trapped and relocated them, then sealed up all the entry points. They even cleaned out the attic afterward. Amazing service.",
-  },
-  {
-    name: "James D.",
-    city: "Garden Grove",
-    date: "2025-06-20",
-    rating: 5,
-    text: "I appreciate that they use eco-friendly products. With young kids in the house, that was a top priority for us. The flea treatment worked perfectly and my kids and dog are safe.",
-  },
-];
-
-const totalReviews = reviews.length;
-const averageRating =
-  Math.round((reviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews) * 10) /
-  10;
-
-function StarRating({ rating }: { rating: number }) {
+function StarRating({ rating, size = "h-4 w-4" }: { rating: number; size?: string }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
           key={star}
-          className={`h-4 w-4 ${
-            star <= rating
-              ? "fill-accent text-accent"
-              : "fill-border text-border"
-          }`}
+          className={`${size} ${star <= rating ? "fill-accent text-accent" : "fill-border text-border"}`}
         />
       ))}
     </div>
   );
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export default function ReviewsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: SITE_CONFIG.name,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: averageRating.toString(),
-      reviewCount: totalReviews.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      datePublished: r.date,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: r.rating.toString(),
-        bestRating: "5",
-      },
-      reviewBody: r.text,
-    })),
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary section-divider">
         <Image
@@ -170,8 +43,8 @@ export default function ReviewsPage() {
             Customer Reviews
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-white/70">
-            See why Orange County homeowners and businesses trust Yogi&apos;s Pest
-            Control to keep their properties pest-free.
+            Real reviews from real Orange County customers, straight from our Google
+            Business Profile.
           </p>
         </div>
       </section>
@@ -182,26 +55,25 @@ export default function ReviewsPage() {
           <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-8">
             <div>
               <div className="text-5xl font-extrabold text-foreground">
-                {averageRating}
+                {GOOGLE_PROFILE.rating.toFixed(1)}
               </div>
-              <div className="mt-1 text-sm text-muted">out of 5</div>
+              <div className="mt-1 text-sm text-muted">out of 5 on Google</div>
             </div>
             <div>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`h-7 w-7 ${
-                      star <= Math.round(averageRating)
-                        ? "fill-accent text-accent"
-                        : "fill-border text-border"
-                    }`}
-                  />
-                ))}
-              </div>
+              <StarRating rating={Math.round(GOOGLE_PROFILE.rating)} size="h-7 w-7" />
               <div className="mt-1 text-sm text-muted">
-                Based on {totalReviews} verified reviews
+                {GOOGLE_PROFILE.reviewCount} Google reviews &middot; also{" "}
+                {HOMEADVISOR_PROFILE.rating.toFixed(1)} from {HOMEADVISOR_PROFILE.reviewCount} reviews on
+                HomeAdvisor
               </div>
+              <a
+                href={GOOGLE_PROFILE.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-primary-light"
+              >
+                See all reviews on Google <ExternalLink className="h-3.5 w-3.5" />
+              </a>
             </div>
           </div>
         </div>
@@ -210,25 +82,30 @@ export default function ReviewsPage() {
       {/* Reviews Grid */}
       <section className="bg-background py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <div
+          <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
+            {GOOGLE_REVIEWS.map((review) => (
+              <figure
                 key={review.name + review.date}
-                className="rounded-xl border border-border bg-surface p-6 transition-shadow hover:shadow-lg"
+                className="mb-6 break-inside-avoid rounded-xl border border-border bg-surface p-6 transition-shadow hover:shadow-lg"
               >
-                <StarRating rating={review.rating} />
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="mt-4 border-t border-border pt-4">
-                  <div className="text-sm font-semibold text-foreground">
-                    {review.name}
-                  </div>
-                  <div className="text-xs text-muted">
-                    {review.city}, CA &middot; {formatDate(review.date)}
-                  </div>
+                <div className="flex items-center justify-between gap-3">
+                  <StarRating rating={review.rating} />
+                  {review.service && (
+                    <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      {review.service}
+                    </span>
+                  )}
                 </div>
-              </div>
+                <blockquote className="mt-4 text-sm leading-relaxed text-muted">
+                  &ldquo;{review.text}&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 border-t border-border pt-4">
+                  <div className="text-sm font-semibold text-foreground">{review.name}</div>
+                  <div className="text-xs text-muted">
+                    Google review &middot; {reviewMonth(review.date)}
+                  </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
@@ -241,12 +118,12 @@ export default function ReviewsPage() {
             Had a Great Experience?
           </h2>
           <p className="mb-8 text-lg text-muted">
-            We&apos;d love to hear from you! Leave us a review and help other Orange
-            County homeowners find trusted pest control.
+            We&apos;re a small, owner-run business and every review helps other Orange
+            County homeowners find us. It takes about a minute.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href={SITE_CONFIG.social.google || "#"}
+              href={GOOGLE_PROFILE.writeReviewUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-primary-light hover:shadow-lg"

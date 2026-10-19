@@ -5,29 +5,15 @@ import { AnimateIn, CountUp, StaggerGrid, StaggerItem } from "@/components/anima
 import { CTABanner } from "@/components/CTABanner";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
 import { heroImages } from "@/lib/images";
+import { GOOGLE_PROFILE, GOOGLE_REVIEWS } from "@/data/reviews";
 import { servicePestImages } from "@/lib/pest-images";
 
 const highPriorityCities = OC_CITIES.filter((c) => c.priority === "high");
 const featuredServices = SERVICES.slice(0, 3);
 const remainingServices = SERVICES.slice(3);
 
-const reviews = [
-  {
-    text: "Yogi's team responded the same day and completely eliminated our ant problem. Professional, friendly, and the price was very fair. Highly recommend to anyone in Orange County!",
-    name: "Sarah M.",
-    city: "Irvine",
-  },
-  {
-    text: "We had a serious rodent issue in our attic. They sealed every entry point and cleaned everything out. Haven't seen a single mouse since.",
-    name: "David R.",
-    city: "Anaheim",
-  },
-  {
-    text: "Fast, effective, and they actually care about doing the job right. Our go-to pest control company now.",
-    name: "Jennifer L.",
-    city: "Huntington Beach",
-  },
-];
+// Real Google reviews, picked for the homepage (see src/data/reviews.ts).
+const featuredReviews = [GOOGLE_REVIEWS[4], GOOGLE_REVIEWS[7], GOOGLE_REVIEWS[1]];
 
 export default function Home() {
   return (
@@ -52,7 +38,7 @@ export default function Home() {
 
           <AnimateIn delay={0.3}>
             <h1 className="max-w-5xl font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              Pest-Free Living
+              Pest-Free Living{" "}
               <br className="hidden sm:block" />
               <span className="text-accent">Starts Here</span>
             </h1>
@@ -89,19 +75,19 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/10 bg-black/30 backdrop-blur-lg">
           <div className="mx-auto grid max-w-4xl grid-cols-3 px-4 py-6">
             <div className="flex flex-col items-center gap-1 border-r border-white/10">
-              <CountUp target={500} suffix="+" className="text-3xl font-extrabold text-accent sm:text-4xl" />
-              <p className="text-xs font-medium text-white/60 sm:text-sm">Homes Protected</p>
+              <span className="text-3xl font-extrabold text-accent sm:text-4xl">Same Day</span>
+              <p className="text-xs font-medium text-white/60 sm:text-sm">Response</p>
             </div>
             <div className="flex flex-col items-center gap-1 border-r border-white/10">
               <div className="flex items-center gap-1.5">
-                <span className="text-3xl font-extrabold text-accent sm:text-4xl">4.9</span>
+                <span className="text-3xl font-extrabold text-accent sm:text-4xl">{GOOGLE_PROFILE.rating.toFixed(1)}</span>
                 <Star className="h-5 w-5 fill-accent text-accent sm:h-6 sm:w-6" />
               </div>
-              <p className="text-xs font-medium text-white/60 sm:text-sm">Star Rating</p>
+              <p className="text-xs font-medium text-white/60 sm:text-sm">Google Rating</p>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-3xl font-extrabold text-accent sm:text-4xl">24/7</span>
-              <p className="text-xs font-medium text-white/60 sm:text-sm">Availability</p>
+              <span className="text-3xl font-extrabold text-accent sm:text-4xl">7 Days</span>
+              <p className="text-xs font-medium text-white/60 sm:text-sm">8AM – 8PM</p>
             </div>
           </div>
         </div>
@@ -112,17 +98,17 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
             {[
-              { target: 500, suffix: "+", label: "Homes Protected" },
-              { label: "Star Rating", custom: "4.9" },
+              { label: "Google Rating", custom: `${GOOGLE_PROFILE.rating.toFixed(1)}★` },
               { target: 14, label: "Services" },
               { target: 34, label: "Cities Served" },
-              { target: 100, suffix: "%", label: "Satisfaction" },
+              { label: "Days a Week", custom: "7" },
+              { label: "CA License", custom: SITE_CONFIG.license },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 {stat.custom ? (
                   <span className="text-3xl font-extrabold text-accent sm:text-4xl">{stat.custom}</span>
                 ) : (
-                  <CountUp target={stat.target!} suffix={stat.suffix || ""} className="text-3xl font-extrabold text-accent sm:text-4xl" />
+                  <CountUp target={stat.target!} className="text-3xl font-extrabold text-accent sm:text-4xl" />
                 )}
                 <p className="mt-1 text-sm text-muted">{stat.label}</p>
               </div>
@@ -260,16 +246,16 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {[
-              { target: 500, suffix: "+", label: "Homes Protected" },
-              { label: "Average Rating", custom: "4.9/5" },
-              { label: "Availability", custom: "24/7" },
-              { target: 100, suffix: "%", label: "Satisfaction Rate" },
+              { label: "Google Rating", custom: `${GOOGLE_PROFILE.rating.toFixed(1)}/5` },
+              { target: GOOGLE_PROFILE.reviewCount, label: "Five-Star Google Reviews" },
+              { label: "Days a Week, 8AM–8PM", custom: "7" },
+              { label: "Free Inspections", custom: "$0" },
             ].map((stat) => (
               <AnimateIn key={stat.label} className="text-center">
                 {stat.custom ? (
                   <span className="text-4xl font-extrabold text-accent sm:text-5xl">{stat.custom}</span>
                 ) : (
-                  <CountUp target={stat.target!} suffix={stat.suffix} className="text-4xl font-extrabold text-accent sm:text-5xl" />
+                  <CountUp target={stat.target!} className="text-4xl font-extrabold text-accent sm:text-5xl" />
                 )}
                 <p className="mt-2 text-sm font-medium text-white/70">{stat.label}</p>
               </AnimateIn>
@@ -292,14 +278,14 @@ export default function Home() {
             <AnimateIn direction="left" className="lg:col-span-7">
               <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
                 <span className="font-serif text-[100px] leading-[0.8] text-primary/10">&ldquo;</span>
-                <p className="mt-[-20px] text-xl leading-relaxed text-foreground sm:text-2xl">{reviews[0].text}</p>
+                <p className="mt-[-20px] text-xl leading-relaxed text-foreground sm:text-2xl">{featuredReviews[0].text}</p>
                 <div className="mt-8 flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
-                    {reviews[0].name[0]}
+                    {featuredReviews[0].name[0]}
                   </div>
                   <div>
-                    <p className="font-bold text-foreground">{reviews[0].name}</p>
-                    <p className="text-sm text-muted">{reviews[0].city}, CA</p>
+                    <p className="font-bold text-foreground">{featuredReviews[0].name}</p>
+                    <p className="text-sm text-muted">Google review</p>
                   </div>
                   <div className="ml-auto flex gap-0.5">
                     {Array.from({ length: 5 }).map((_, i) => (
@@ -311,7 +297,7 @@ export default function Home() {
             </AnimateIn>
 
             <div className="flex flex-col gap-6 lg:col-span-5">
-              {reviews.slice(1).map((review, i) => (
+              {featuredReviews.slice(1).map((review, i) => (
                 <AnimateIn key={review.name} direction="right" delay={i * 0.15}>
                   <div className="rounded-2xl border border-border bg-surface p-6">
                     <div className="mb-3 flex gap-0.5">
@@ -320,7 +306,7 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-sm leading-relaxed text-foreground">{review.text}</p>
-                    <p className="mt-4 text-sm font-semibold text-muted">{review.name} — {review.city}, CA</p>
+                    <p className="mt-4 text-sm font-semibold text-muted">{review.name} — Google review</p>
                   </div>
                 </AnimateIn>
               ))}
@@ -329,7 +315,7 @@ export default function Home() {
 
           <AnimateIn className="mt-10 text-center">
             <Link href="/reviews" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light">
-              Read All Reviews <ArrowRight className="h-5 w-5" />
+              Read All {GOOGLE_PROFILE.reviewCount} Google Reviews <ArrowRight className="h-5 w-5" />
             </Link>
           </AnimateIn>
         </div>
@@ -484,8 +470,8 @@ export default function Home() {
                 a: "Yes, Yogi's Pest Control offers same-day and emergency pest control service across all 34 cities in Orange County. We're available 7 days a week from 8 AM to 8 PM. For urgent infestations like rodents, bed bugs, or wasps, call (714) 323-8262 for immediate assistance.",
               },
               {
-                q: "Are your pest control treatments safe for kids and pets?",
-                a: "Yes. We use EPA-approved, eco-friendly products and Integrated Pest Management (IPM) techniques that minimize chemical exposure. Our treatments are safe for children, pets, and the environment. Our licensed technicians follow all California Department of Pesticide Regulation guidelines.",
+                q: "Are your treatments safe around kids and pets?",
+                a: "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you exactly how long kids and pets should stay off treated areas (usually until sprays have dried).",
               },
               {
                 q: "What areas does Yogi's Pest Control serve?",
@@ -545,10 +531,10 @@ export default function Home() {
               },
               {
                 "@type": "Question",
-                name: "Are your pest control treatments safe for kids and pets?",
+                name: "Are your treatments safe around kids and pets?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. We use EPA-approved, eco-friendly products and Integrated Pest Management (IPM) techniques that minimize chemical exposure. Our treatments are safe for children, pets, and the environment.",
+                  text: "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you exactly how long kids and pets should stay off treated areas (usually until sprays have dried).",
                 },
               },
               {

@@ -5,12 +5,13 @@ import { ArrowRight, Shield, Heart, Leaf, Users, MapPin, Award } from "lucide-re
 import { CTABanner } from "@/components/CTABanner";
 import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG } from "@/lib/constants";
+import { GOOGLE_PROFILE } from "@/data/reviews";
 import { heroImages } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "About Yogi's Pest Control | Orange County's Trusted Exterminators",
+  title: { absolute: "About Yogi's Pest Control | Owner Yobani Arreola, Tustin CA" },
   description:
-    "Learn about Yogi's Pest Control — Orange County's trusted pest control company. Licensed, insured, eco-friendly treatments. Serving all 34 OC cities. Call 714-323-8262.",
+    "Yogi's Pest Control is owner-operated by Yobani Arreola, a CA Structural Pest Control Board licensed operator (OPR 14866) based in Tustin, serving all of Orange County.",
 };
 
 const values = [
@@ -18,7 +19,7 @@ const values = [
     icon: Shield,
     title: "Safety First",
     description:
-      "Every treatment we use is EPA-approved and safe for your family, pets, and the environment. We never cut corners on safety.",
+      "We use EPA-registered products applied according to the label, and we walk you through prep and re-entry times for kids and pets.",
   },
   {
     icon: Heart,
@@ -36,7 +37,7 @@ const values = [
     icon: Award,
     title: "Excellence",
     description:
-      "Our technicians are licensed, trained, and committed to delivering the highest standard of pest control service.",
+      "Every job is handled under a California Structural Pest Control Board license (OPR 14866). No call centers, no hand-offs.",
   },
   {
     icon: Users,
@@ -70,8 +71,8 @@ export default function AboutPage() {
             About Yogi&apos;s Pest Control
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-white/70">
-            Orange County&apos;s trusted, locally owned pest control company.
-            Licensed, insured, and committed to keeping your home pest-free.
+            Owner-operated pest control from Tustin. When you call Yogi&apos;s, you
+            get Yobani: the licensed operator who does the inspection and the work.
           </p>
         </div>
       </section>
@@ -85,49 +86,54 @@ export default function AboutPage() {
                 Our Story
               </div>
               <h2 className="mb-6 text-3xl font-bold text-foreground sm:text-4xl">
-                Built on Trust, Driven by Results
+                A Local Business, Not a Call Center
               </h2>
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  Yogi&apos;s Pest Control was founded with a simple mission: provide
-                  Orange County homeowners and businesses with honest, effective, and
-                  affordable pest control solutions. We saw too many families getting
-                  overcharged for subpar service, and we knew there was a better way.
+                  Yogi&apos;s Pest Control is run by {SITE_CONFIG.owner}, a pest
+                  control operator licensed by the California Structural Pest Control
+                  Board (license {SITE_CONFIG.license}). The business is based in
+                  Tustin and serves homes and businesses across Orange County.
                 </p>
                 <p>
-                  Today, we proudly serve all 34 cities across Orange County with a
-                  team of licensed, trained technicians who treat every home like their
-                  own. From Anaheim to San Clemente, our reputation has been built one
-                  satisfied customer at a time.
+                  Customers deal with Yobani directly, from the first call through the
+                  inspection, treatment and follow-up visits. That&apos;s why so many
+                  of our reviews mention him by name: same-day responses, honest
+                  pricing, and work that holds up.
                 </p>
                 <p>
-                  We specialize in eco-friendly treatments that are safe for families
-                  and pets, using integrated pest management (IPM) techniques that
-                  deliver lasting results without harsh chemicals.
+                  Most of our work is rodent control and exclusion (sealing the gaps
+                  rats use to get into attics, crawlspaces and garages), recurring
+                  home pest service, mosquitoes, fleas, bees and wasps, and wildlife
+                  problems like skunks under the house.
                 </p>
               </div>
-            </div>
-            <div className="rounded-2xl border border-border bg-surface p-8">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
-                  { stat: "500+", label: "Happy Customers" },
-                  { stat: "34", label: "OC Cities Served" },
-                  { stat: "4.9/5", label: "Average Rating" },
-                  { stat: "Same Day", label: "Response Time" },
+                  { stat: `${GOOGLE_PROFILE.rating.toFixed(1)}★`, label: `${GOOGLE_PROFILE.reviewCount} Google reviews` },
+                  { stat: SITE_CONFIG.license, label: "CA SPCB license" },
+                  { stat: "Tustin", label: "Home base" },
+                  { stat: "7 days", label: "8AM – 8PM" },
                 ].map(({ stat, label }) => (
-                  <div key={label} className="text-center">
-                    <div className="mb-1 text-3xl font-extrabold text-primary">
-                      {stat}
-                    </div>
-                    <div className="text-sm text-muted">{label}</div>
+                  <div key={label} className="rounded-xl border border-border bg-surface p-4 text-center">
+                    <div className="mb-1 text-xl font-extrabold text-primary">{stat}</div>
+                    <div className="text-xs text-muted">{label}</div>
                   </div>
                 ))}
               </div>
             </div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border">
+              <Image
+                src="/images/heroes/real-photo-2.jpg"
+                alt="Yobani Arreola, owner of Yogi's Pest Control, with his branded Yogi's Pest Control truck"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-[50%_85%]"
+              />
+            </div>
           </div>
         </div>
       </section>
-
       {/* Mission & Values */}
       <section className="bg-surface-alt py-20">
         <div className="mx-auto max-w-7xl px-4">
@@ -151,53 +157,6 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-foreground">{title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section Placeholder */}
-      <section className="bg-background py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-foreground sm:text-4xl">
-              Meet Our Team
-            </h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted">
-              Our licensed technicians are the backbone of Yogi&apos;s Pest Control.
-              Every team member is background-checked, trained, and passionate about
-              keeping Orange County pest-free.
-            </p>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: "Licensed Technicians",
-                role: "Field Operations",
-                desc: "Certified pest management professionals with years of hands-on experience in Orange County.",
-              },
-              {
-                name: "Customer Support",
-                role: "Scheduling & Support",
-                desc: "Friendly, knowledgeable staff ready to answer your questions and schedule service at your convenience.",
-              },
-              {
-                name: "Quality Assurance",
-                role: "Inspections & Follow-Up",
-                desc: "Dedicated team ensuring every treatment meets our high standards and your satisfaction is guaranteed.",
-              },
-            ].map(({ name, role, desc }) => (
-              <div
-                key={name}
-                className="rounded-xl border border-border bg-surface p-8 text-center transition-shadow hover:shadow-lg"
-              >
-                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                  <Users className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="mb-1 text-lg font-bold text-foreground">{name}</h3>
-                <p className="mb-3 text-sm font-medium text-primary">{role}</p>
-                <p className="text-sm leading-relaxed text-muted">{desc}</p>
               </div>
             ))}
           </div>

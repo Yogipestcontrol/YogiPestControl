@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ShieldCheck, Star } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
+import { GOOGLE_PROFILE } from "@/data/reviews";
 
 const highPriorityCities = OC_CITIES.filter((c) => c.priority === "high");
 
@@ -15,7 +16,7 @@ export function Footer() {
               Yogi&apos;s<span className="text-accent"> Pest Control</span>
             </h3>
             <p className="mb-6 text-sm leading-relaxed text-white/70">
-              Comprehensive pest management solutions for homes and businesses throughout Orange County, CA.
+              Owner-operated pest control for homes and businesses throughout Orange County, CA.
             </p>
             <div className="flex flex-col gap-3 text-sm">
               <a href={SITE_CONFIG.phoneTel} className="flex items-center gap-2 transition-colors hover:text-accent">
@@ -28,8 +29,21 @@ export function Footer() {
               </a>
               <div className="flex items-center gap-2 text-white/70">
                 <MapPin className="h-4 w-4 shrink-0" />
-                Orange County, CA
+                Based in Tustin &middot; Serving all of Orange County
               </div>
+              <div className="flex items-center gap-2 text-white/70">
+                <ShieldCheck className="h-4 w-4 shrink-0" />
+                CA SPCB License {SITE_CONFIG.license}
+              </div>
+              <a
+                href={GOOGLE_PROFILE.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 transition-colors hover:text-accent"
+              >
+                <Star className="h-4 w-4 shrink-0 fill-accent text-accent" />
+                {GOOGLE_PROFILE.rating.toFixed(1)} on Google ({GOOGLE_PROFILE.reviewCount} reviews)
+              </a>
               <div className="flex items-center gap-2 text-white/70">
                 <Clock className="h-4 w-4 shrink-0" />
                 {SITE_CONFIG.hours}
@@ -100,7 +114,9 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-white/50 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {SITE_CONFIG.licenseLabel}.
+          </p>
           <div className="flex gap-4">
             <Link href="/sitemap.xml" className="hover:text-white/70">Sitemap</Link>
           </div>
