@@ -4,6 +4,7 @@ export const SITE_CONFIG = {
   phoneTel: "tel:7143238262",
   email: "yobani.a@yogispestcontrol.com",
   owner: "Yobani Arreola",
+  founded: "2025",
   // Service-area business based in Tustin; no public street address.
   address: {
     street: "",

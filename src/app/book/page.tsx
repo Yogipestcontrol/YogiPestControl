@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft, CheckCircle, Phone, Loader2 } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
@@ -13,6 +13,7 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
+// Keep in sync with TIME_SLOTS in src/lib/inspection-request.ts (the API checks them).
 const timeSlots = [
   "8:00 AM - 10:00 AM",
   "10:00 AM - 12:00 PM",
@@ -21,6 +22,44 @@ const timeSlots = [
   "4:00 PM - 6:00 PM",
   "6:00 PM - 8:00 PM",
 ];
+
+type BookingForm = {
+  pestType: string;
+  city: string;
+  address: string;
+  zip: string;
+  date: string;
+  time: string;
+  name: string;
+  email: string;
+  phone: string;
+  notes: string;
+};
+
+const EMPTY_FORM: BookingForm = {
+  pestType: "",
+  city: "",
+  address: "",
+  zip: "",
+  date: "",
+  time: "",
+  name: "",
+  email: "",
+  phone: "",
+  notes: "",
+};
+
+// Unsent answers survive a reload or a trip back to this page (people and browser
+// agents both do this mid-form). Session-only, cleared after a successful booking.
+const DRAFT_KEY = "yogis-book-draft";
+
+/** Match ?pest= / ?city= by slug or name, e.g. ?pest=rodent-control or ?city=Santa%20Ana. */
+function matchOption<T extends { slug: string; name: string }>(list: readonly T[], value: string | null) {
+  if (!value) return "";
+  const norm = (v: string) => v.trim().toLowerCase().replace(/[\s_-]+/g, " ");
+  const k = norm(value);
+  return list.find((o) => norm(o.slug) === k || norm(o.name) === k)?.slug ?? "";
+}
 
 const steps = [
   { number: 1, label: "Service Details" },
@@ -33,20 +72,46 @@ export default function BookPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const { guard, honeypot } = useFormGuard();
   const [minDate] = useState(todayISO);
-  const [formData, setFormData] = useState({
-    pestType: "",
-    city: "",
-    address: "",
-    zip: "",
-    date: "",
-    time: "",
-    name: "",
-    email: "",
-    phone: "",
-    notes: "",
-  });
+  const [formData, setFormData] = useState<BookingForm>(EMPTY_FORM);
 
-  const updateField = (field: string, value: string) => {
+  // Restore a saved draft, then apply any ?pest= / ?city= / ?zip= from the link.
+  useEffect(() => {
+    let draft: Partial<BookingForm> = {};
+    try {
+      const saved = sessionStorage.getItem(DRAFT_KEY);
+      if (saved) draft = JSON.parse(saved) as Partial<BookingForm>;
+    } catch {
+      // Storage blocked or bad JSON: start fresh.
+    }
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl: Partial<BookingForm> = {};
+    const pest = params.get("pest") === "other" ? "other" : matchOption(SERVICES, params.get("pest"));
+    const city = matchOption(OC_CITIES, params.get("city"));
+    const zip = (params.get("zip") || "").replace(/\D/g, "").slice(0, 5);
+    if (pest) fromUrl.pestType = pest;
+    if (city) fromUrl.city = city;
+    if (zip) fromUrl.zip = zip;
+    if (!Object.keys(draft).length && !Object.keys(fromUrl).length) return;
+    setFormData((prev) => {
+      const next = { ...prev };
+      for (const k of Object.keys(EMPTY_FORM) as (keyof BookingForm)[]) {
+        const v = fromUrl[k] ?? draft[k];
+        if (typeof v === "string") next[k] = v;
+      }
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (status === "success") sessionStorage.removeItem(DRAFT_KEY);
+      else sessionStorage.setItem(DRAFT_KEY, JSON.stringify(formData));
+    } catch {
+      // Storage unavailable; the in-memory state still carries between steps.
+    }
+  }, [formData, status]);
+
+  const updateField = (field: keyof BookingForm, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -73,6 +138,14 @@ export default function BookPage() {
   const canProceedStep1 = formData.pestType && formData.city && formData.address.trim().length >= 5 && zipValid;
   const canProceedStep2 = formData.date && formData.time;
   const canSubmit = formData.name && formData.email && formData.phone;
+
+  // Enter key / native submit: advance a step when it's complete, book on the last step.
+  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (currentStep === 1 && canProceedStep1) nextStep();
+    else if (currentStep === 2 && canProceedStep2) nextStep();
+    else if (currentStep === 3 && canSubmit && status !== "loading") void handleSubmit();
+  };
 
   return (
     <>
@@ -158,7 +231,13 @@ export default function BookPage() {
                   Back to Home
                 </Link>
               </div>
-            ) : <>
+            ) : <form
+              id="booking-form"
+              name="booking"
+              aria-label="Book a free pest inspection"
+              noValidate
+              onSubmit={onFormSubmit}
+            >
             {/* Step 1: Pest Type + City */}
             {currentStep === 1 && (
               <div>
@@ -178,11 +257,14 @@ export default function BookPage() {
                     </label>
                     <select
                       id="pestType"
+                      name="pestType"
+                      required
+                      autoComplete="off"
                       value={formData.pestType}
                       onChange={(e) => updateField("pestType", e.target.value)}
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     >
-                      <option value="">Select a pest type</option>
+                      <option value="" disabled>Select a pest type</option>
                       {SERVICES.map((s) => (
                         <option key={s.slug} value={s.slug}>
                           {s.name}
@@ -200,11 +282,14 @@ export default function BookPage() {
                     </label>
                     <select
                       id="city"
+                      name="city"
+                      required
+                      autoComplete="address-level2"
                       value={formData.city}
                       onChange={(e) => updateField("city", e.target.value)}
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     >
-                      <option value="">Select your city</option>
+                      <option value="" disabled>Select your city</option>
                       {OC_CITIES.map((c) => (
                         <option key={c.slug} value={c.slug}>
                           {c.name}
@@ -222,7 +307,11 @@ export default function BookPage() {
                       </label>
                       <input
                         id="address"
+                        name="address"
                         type="text"
+                        required
+                        minLength={5}
+                        maxLength={200}
                         autoComplete="street-address"
                         value={formData.address}
                         onChange={(e) => updateField("address", e.target.value)}
@@ -239,7 +328,10 @@ export default function BookPage() {
                       </label>
                       <input
                         id="zip"
+                        name="zip"
                         type="text"
+                        required
+                        pattern="[0-9]{5}"
                         inputMode="numeric"
                         autoComplete="postal-code"
                         maxLength={5}
@@ -251,13 +343,17 @@ export default function BookPage() {
                     </div>
                   </div>
                 </div>
+                <p id="step1-hint" className="sr-only">
+                  Choose a pest type and city, and enter a street address and 5-digit ZIP code to continue.
+                </p>
                 <div className="mt-8 flex justify-end">
                   <button
-                    onClick={nextStep}
+                    type="submit"
                     disabled={!canProceedStep1}
+                    aria-describedby="step1-hint"
                     className="flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-light hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Next Step <ArrowRight className="h-5 w-5" />
+                    Next: Date &amp; Time <ArrowRight className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
               </div>
@@ -282,49 +378,67 @@ export default function BookPage() {
                     </label>
                     <input
                       id="date"
+                      name="date"
                       type="date"
+                      required
+                      aria-describedby="date-format"
                       min={minDate}
                       suppressHydrationWarning
                       value={formData.date}
                       onChange={(e) => updateField("date", e.target.value)}
                       className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     />
+                    <span id="date-format" className="sr-only">Date format: year-month-day, today or later.</span>
                   </div>
-                  <div>
-                    <label className="mb-1.5 block text-sm font-medium text-foreground">
+                  <fieldset>
+                    <legend className="mb-1.5 block text-sm font-medium text-foreground">
                       Preferred Time Window *
-                    </label>
+                    </legend>
                     <div className="grid gap-3 sm:grid-cols-2">
-                      {timeSlots.map((slot) => (
-                        <button
+                      {timeSlots.map((slot, i) => (
+                        <label
                           key={slot}
-                          type="button"
-                          onClick={() => updateField("time", slot)}
-                          className={`rounded-lg border px-4 py-3 text-sm font-medium transition-all ${
+                          htmlFor={`time-${i}`}
+                          className={`cursor-pointer rounded-lg border px-4 py-3 text-center text-sm font-medium transition-all focus-within:ring-2 focus-within:ring-primary/20 ${
                             formData.time === slot
                               ? "border-primary bg-primary/10 text-primary"
                               : "border-border bg-background text-foreground hover:border-primary/30"
                           }`}
                         >
+                          <input
+                            id={`time-${i}`}
+                            type="radio"
+                            name="time"
+                            value={slot}
+                            required
+                            checked={formData.time === slot}
+                            onChange={() => updateField("time", slot)}
+                            className="sr-only"
+                          />
                           {slot}
-                        </button>
+                        </label>
                       ))}
                     </div>
-                  </div>
+                  </fieldset>
                 </div>
+                <p id="step2-hint" className="sr-only">
+                  Pick a preferred date and a time window to continue.
+                </p>
                 <div className="mt-8 flex justify-between">
                   <button
+                    type="button"
                     onClick={prevStep}
                     className="flex items-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:bg-surface-alt"
                   >
-                    <ArrowLeft className="h-4 w-4" /> Back
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
                   </button>
                   <button
-                    onClick={nextStep}
+                    type="submit"
                     disabled={!canProceedStep2}
+                    aria-describedby="step2-hint"
                     className="flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-white transition-all hover:bg-primary-light hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Next Step <ArrowRight className="h-5 w-5" />
+                    Next: Contact Info <ArrowRight className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
               </div>
@@ -349,8 +463,11 @@ export default function BookPage() {
                     </label>
                     <input
                       id="name"
+                      name="name"
                       type="text"
                       required
+                      maxLength={100}
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => updateField("name", e.target.value)}
                       placeholder="John Smith"
@@ -367,8 +484,12 @@ export default function BookPage() {
                       </label>
                       <input
                         id="contactEmail"
+                        name="email"
                         type="email"
                         required
+                        maxLength={254}
+                        autoComplete="email"
+                        inputMode="email"
                         value={formData.email}
                         onChange={(e) => updateField("email", e.target.value)}
                         placeholder="john@example.com"
@@ -384,8 +505,12 @@ export default function BookPage() {
                       </label>
                       <input
                         id="contactPhone"
+                        name="phone"
                         type="tel"
                         required
+                        maxLength={30}
+                        autoComplete="tel"
+                        inputMode="tel"
                         value={formData.phone}
                         onChange={(e) => updateField("phone", e.target.value)}
                         placeholder="(714) 555-0123"
@@ -402,7 +527,9 @@ export default function BookPage() {
                     </label>
                     <textarea
                       id="notes"
+                      name="notes"
                       rows={3}
+                      maxLength={2000}
                       value={formData.notes}
                       onChange={(e) => updateField("notes", e.target.value)}
                       placeholder="Anything else we should know about your pest problem?"
@@ -411,34 +538,34 @@ export default function BookPage() {
                   </div>
                 </div>
                 {status === "error" && (
-                  <p className="text-sm text-red-600">
+                  <p role="alert" className="text-sm text-red-600">
                     Something went wrong sending your booking. Please call us at{" "}
                     <a href={SITE_CONFIG.phoneTel} className="font-semibold underline">{SITE_CONFIG.phone}</a>.
                   </p>
                 )}
                 <div className="mt-8 flex justify-between">
                   <button
+                    type="button"
                     onClick={prevStep}
                     className="flex items-center gap-2 rounded-lg border border-border px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:bg-surface-alt"
                   >
-                    <ArrowLeft className="h-4 w-4" /> Back
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
                   </button>
                   <button
-                    type="button"
-                    onClick={handleSubmit}
+                    type="submit"
                     disabled={!canSubmit || status === "loading"}
                     className="flex items-center gap-2 rounded-lg bg-accent px-8 py-3.5 text-base font-semibold text-primary-dark transition-all hover:bg-accent-light hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {status === "loading" ? (
-                      <><Loader2 className="h-5 w-5 animate-spin" /> Booking...</>
+                      <><Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> Booking...</>
                     ) : (
-                      <>Book My Free Inspection <CheckCircle className="h-5 w-5" /></>
+                      <>Book My Free Inspection <CheckCircle className="h-5 w-5" aria-hidden="true" /></>
                     )}
                   </button>
                 </div>
               </div>
             )}
-            </>}
+            </form>}
           </div>
 
           {/* Phone CTA */}

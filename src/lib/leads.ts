@@ -108,16 +108,41 @@ const hits = new Map<string, number[]>();
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 
-export function isRateLimited(request: Request): boolean {
-  const ip =
+export type RateLimitOptions = {
+  /** Separate counters per use, e.g. "web" vs "chatgpt". Default: shared bucket. */
+  bucket?: string;
+  max?: number;
+  windowMs?: number;
+};
+
+/** Count a hit against an arbitrary key (IP, email, phone) and report whether it is over the limit. */
+export function isRateLimitedKey(key: string, opts: RateLimitOptions = {}): boolean {
+  const windowMs = opts.windowMs ?? WINDOW_MS;
+  const max = opts.max ?? MAX_PER_WINDOW;
+  const mapKey = `${opts.bucket ?? ""}|${key}`;
+  const now = Date.now();
+  const recent = (hits.get(mapKey) || []).filter((t) => now - t < windowMs);
+  recent.push(now);
+  hits.set(mapKey, recent);
+  // Keep the map from growing without bound on a long-lived instance.
+  if (hits.size > 5000) {
+    for (const [k, times] of hits) {
+      if (!times.some((t) => now - t < windowMs)) hits.delete(k);
+    }
+  }
+  return recent.length > max;
+}
+
+export function clientIp(request: Request): string {
+  return (
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.headers.get("x-real-ip") ||
-    "unknown";
-  const now = Date.now();
-  const recent = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  return recent.length > MAX_PER_WINDOW;
+    "unknown"
+  );
+}
+
+export function isRateLimited(request: Request, opts?: RateLimitOptions): boolean {
+  return isRateLimitedKey(clientIp(request), opts);
 }
 
 export function isValidEmail(value: unknown): value is string {

@@ -20,6 +20,7 @@ export function GET() {
 - Phone: ${SITE_CONFIG.phone}
 - Email: ${SITE_CONFIG.email}
 - Hours: ${SITE_CONFIG.hours}
+- Established: ${SITE_CONFIG.founded}
 - Based in: Tustin, CA (service-area business, no storefront)
 - License: CA Structural Pest Control Board ${SITE_CONFIG.license} (verify at https://www.pestboard.ca.gov)
 - Google rating: ${GOOGLE_PROFILE.rating.toFixed(1)} from ${GOOGLE_PROFILE.reviewCount} reviews (${GOOGLE_PROFILE.mapsUrl})

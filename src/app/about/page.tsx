@@ -94,7 +94,7 @@ export default function AboutPage() {
                 <p>
                   Yogi&apos;s Pest Control is run by {SITE_CONFIG.owner}, a pest
                   control operator licensed by the California Structural Pest Control
-                  Board (license {SITE_CONFIG.license}). The business is based in
+                  Board (license {SITE_CONFIG.license}). Established in {SITE_CONFIG.founded}, the business is based in
                   Tustin and serves homes and businesses across Orange County.
                 </p>
                 <p>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 {[
                   { stat: `${GOOGLE_PROFILE.rating.toFixed(1)}★`, label: `${GOOGLE_PROFILE.reviewCount} Google reviews` },
                   { stat: SITE_CONFIG.license, label: "CA SPCB license" },
-                  { stat: "Tustin", label: "Home base" },
+                  { stat: `Est. ${SITE_CONFIG.founded}`, label: "Based in Tustin" },
                   { stat: "7 days", label: "8AM – 8PM" },
                 ].map(({ stat, label }) => (
                   <div key={label} className="rounded-xl border border-border bg-surface p-4 text-center">

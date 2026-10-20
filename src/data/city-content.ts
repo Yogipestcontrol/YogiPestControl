@@ -1,4 +1,7 @@
 import type { CityContent } from "./local-seo-types";
+import { CITY_CONTENT_2 } from "./city-content-2";
+import { CITY_CONTENT_3 } from "./city-content-3";
+import { CITY_CONTENT_4 } from "./city-content-4";
 
 // Upgraded content for priority city pages. Pages without an entry render the base CITY_DATA content.
 // Prices must stay consistent with /pest-control-cost.
@@ -923,4 +926,6 @@ export const CITY_CONTENT: CityContent[] = [
   },
 ];
 
-export const getCityContent = (slug: string) => CITY_CONTENT.find((c) => c.slug === slug);
+const ALL_CITY_CONTENT = [...CITY_CONTENT, ...CITY_CONTENT_2, ...CITY_CONTENT_3, ...CITY_CONTENT_4];
+
+export const getCityContent = (slug: string) => ALL_CITY_CONTENT.find((c) => c.slug === slug);

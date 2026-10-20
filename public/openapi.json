@@ -1,0 +1,261 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Yogi's Pest Control — Free Inspection Requests",
+    "version": "1.0.0",
+    "description": "Send a free pest inspection request to Yogi's Pest Control, a licensed (CA Structural Pest Control Board OPR 14866), owner-operated pest control company based in Tustin and serving all of Orange County, California. Open 7 days, 8 AM to 8 PM; phone 714-323-8262. The owner receives each request by email and calls the customer to confirm the appointment time."
+  },
+  "servers": [
+    {
+      "url": "https://yogispestcontrol.com"
+    }
+  ],
+  "paths": {
+    "/api/inspection": {
+      "post": {
+        "operationId": "requestInspection",
+        "summary": "Request a free pest inspection",
+        "description": "Submits a free inspection request on the customer's behalf. Before calling: (1) collect the customer's full name, 10-digit phone, email, street address, Orange County city, 5-digit ZIP, the pest problem, a preferred date and a preferred 2-hour time window — ask for anything missing and never guess; (2) read every detail back in one short summary and ask the customer to confirm; (3) call only after the customer explicitly says yes, with customerConfirmed=true. Never submit without explicit consent and never submit the same request twice. If the response has success=false, explain the error to the customer, fix the field with their help, and ask again before resubmitting.",
+        "x-openai-isConsequential": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The request was delivered to Yogi's Pest Control. Relay `message` to the customer.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A field is missing or invalid, or the request couldn't be accepted automatically. `error` says what to fix.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Failure"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. Ask the customer to call 714-323-8262 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Failure"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Temporary server problem. Ask the customer to call 714-323-8262 or book at https://yogispestcontrol.com/book.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Failure"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "InspectionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "phone",
+          "email",
+          "address",
+          "city",
+          "zip",
+          "pestType",
+          "date",
+          "time",
+          "customerConfirmed"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "Customer's full name."
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 30,
+            "description": "Customer's 10-digit US phone number, e.g. 714-555-0123.",
+            "examples": [
+              "714-555-0123"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 254,
+            "description": "Customer's email address. A confirmation email is sent here."
+          },
+          "address": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 200,
+            "description": "Street address with unit number if any, e.g. '123 Main St, Apt 4'. Do not include the city or ZIP.",
+            "examples": [
+              "123 Main St, Apt 4"
+            ]
+          },
+          "city": {
+            "type": "string",
+            "enum": [
+              "Anaheim",
+              "Santa Ana",
+              "Irvine",
+              "Huntington Beach",
+              "Garden Grove",
+              "Orange",
+              "Fullerton",
+              "Costa Mesa",
+              "Mission Viejo",
+              "Westminster",
+              "Newport Beach",
+              "Buena Park",
+              "Lake Forest",
+              "Tustin",
+              "Yorba Linda",
+              "San Clemente",
+              "Laguna Niguel",
+              "La Habra",
+              "Fountain Valley",
+              "Placentia",
+              "Rancho Santa Margarita",
+              "Aliso Viejo",
+              "Cypress",
+              "Brea",
+              "Dana Point",
+              "San Juan Capistrano",
+              "Laguna Beach",
+              "Laguna Hills",
+              "Seal Beach",
+              "Los Alamitos",
+              "Stanton",
+              "La Palma",
+              "Villa Park",
+              "Ladera Ranch"
+            ],
+            "description": "Orange County city where the property is. If the customer's city is not listed, ask them to call 714-323-8262."
+          },
+          "zip": {
+            "type": "string",
+            "pattern": "^[0-9]{5}$",
+            "description": "5-digit ZIP code of the property.",
+            "examples": [
+              "92780"
+            ]
+          },
+          "pestType": {
+            "type": "string",
+            "enum": [
+              "Rodent Control",
+              "Cockroach Control",
+              "Ant Control",
+              "Wasp Control",
+              "Bee Removal",
+              "Mosquito Control",
+              "Fly Control",
+              "Spider Control",
+              "Tick & Flea Treatment",
+              "Exclusion Repairs",
+              "Attic Cleanouts",
+              "Bed Bug Treatment",
+              "Wildlife Trapping",
+              "Dead Animal Removal",
+              "Commercial Pest Control",
+              "Gopher Control",
+              "Other / Not sure"
+            ],
+            "description": "Service that best matches the problem. Use 'Other / Not sure' when nothing fits and describe the problem in notes."
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "description": "Preferred inspection date as YYYY-MM-DD, today or later in Orange County (Pacific time), within the next 12 months.",
+            "examples": [
+              "2026-10-25"
+            ]
+          },
+          "time": {
+            "type": "string",
+            "enum": [
+              "8:00 AM - 10:00 AM",
+              "10:00 AM - 12:00 PM",
+              "12:00 PM - 2:00 PM",
+              "2:00 PM - 4:00 PM",
+              "4:00 PM - 6:00 PM",
+              "6:00 PM - 8:00 PM"
+            ],
+            "description": "Preferred 2-hour arrival window."
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Optional. What the customer is seeing, in their own words: where, how long, pets on site, gate codes."
+          },
+          "customerConfirmed": {
+            "type": "boolean",
+            "description": "Must be true: the customer reviewed a summary of these details and explicitly asked you to send the request."
+          }
+        }
+      },
+      "Success": {
+        "type": "object",
+        "required": [
+          "success",
+          "message"
+        ],
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Always true here."
+          },
+          "message": {
+            "type": "string",
+            "description": "Confirmation to read back to the customer."
+          }
+        }
+      },
+      "Failure": {
+        "type": "object",
+        "required": [
+          "success",
+          "error"
+        ],
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Always false here."
+          },
+          "error": {
+            "type": "string",
+            "description": "What went wrong and how to fix it."
+          }
+        }
+      }
+    }
+  }
+}

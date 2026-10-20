@@ -131,6 +131,7 @@ export default function RootLayout({
                 "@type": "City",
                 name: `${c.name}, CA`,
               })),
+              foundingDate: SITE_CONFIG.founded,
               founder: {
                 "@type": "Person",
                 name: SITE_CONFIG.owner,
