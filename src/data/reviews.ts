@@ -4,9 +4,9 @@
 
 export const GOOGLE_PROFILE = {
   rating: 5.0,
-  reviewCount: 10,
+  reviewCount: 11,
   // Last checked against the live profile.
-  asOf: "2026-10-19",
+  asOf: "2026-10-20",
   mapsUrl: "https://maps.google.com/?cid=4805882550525726242",
   writeReviewUrl: "https://g.page/r/CSKOVZC37LFCEBM/review",
 } as const;
@@ -30,6 +30,13 @@ export interface Review {
 }
 
 export const GOOGLE_REVIEWS: Review[] = [
+  {
+    name: "Lee P.",
+    date: "2026-10",
+    rating: 5,
+    text: "Requested an inspection to help us with a foul smell coming out from our walls. The company was able to come immediately to inspect. They were very honest and upfront about the pricing and what they would be doing step by step while providing commentary on their thought process. Extremely professional. Would request their service again.",
+    service: "Odor inspection",
+  },
   {
     name: "Chad P.",
     date: "2026-10",
