@@ -229,8 +229,9 @@ body {
       animation-timeline: --cine-card;
       animation-range: exit 0% exit 100%;
       transform-origin: 50% 0%;
+      will-change: transform, opacity;
     }
   }
 }
 
-@keyframes cine-recede { to { transform: scale(0.92); filter: brightness(0.45); } }
+@keyframes cine-recede { to { transform: scale(0.93); opacity: 0.5; } }

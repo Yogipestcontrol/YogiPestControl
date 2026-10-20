@@ -76,8 +76,11 @@ export function NightToDayHero({ rating, reviewCount }: { rating: number; review
         <div aria-hidden className="cine-grain absolute inset-0" />
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-14 sm:px-8 sm:pb-20">
-          <h1 className="mb-5 max-w-lg text-base font-semibold text-[#D4A843] sm:text-lg">
-            Pest control in Orange County, run by the licensed owner you&apos;ll actually meet
+          <h1 className="mb-6 max-w-xl">
+            <span className="block text-sm font-semibold text-[#D4A843] sm:text-base">Yogi&apos;s Pest Control</span>
+            <span className="mt-1 block text-xl font-bold leading-snug text-white sm:text-3xl">
+              Licensed Orange County pest control, run by the owner who shows up
+            </span>
           </h1>
 
           {/* Both lines share one grid cell and crossfade, so they never overlap. */}
@@ -88,11 +91,11 @@ export function NightToDayHero({ rating, reviewCount }: { rating: number; review
                 day ? "-translate-y-6 opacity-0" : "translate-y-0 opacity-100"
               }`}
             >
-              It&apos;s 2&nbsp;a.m.
+              Rats in
               <br />
-              Something&apos;s in
+              the attic
               <br />
-              the attic.
+              at 2&nbsp;a.m.?
             </p>
             <p
               aria-hidden={!day}
@@ -123,7 +126,7 @@ export function NightToDayHero({ rating, reviewCount }: { rating: number; review
             </Link>
           </div>
           <p className="mt-5 text-sm text-white/70">
-            {rating.toFixed(1)} stars from {reviewCount} Google reviews. CA license {SITE_CONFIG.license}. Open 7 days, 8AM to 8PM.
+            {rating.toFixed(1)} stars from {reviewCount} reviews on Google and HomeAdvisor. CA license {SITE_CONFIG.license}. Open 7 days, 8AM to 8PM.
           </p>
         </div>
       </div>

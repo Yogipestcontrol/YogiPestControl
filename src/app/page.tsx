@@ -7,7 +7,7 @@ import { JobSteps } from "@/components/home/JobSteps";
 import { CoverageMap } from "@/components/home/CoverageMap";
 import { faqJsonLd } from "@/components/ContentBlocks";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
-import { GOOGLE_PROFILE, GOOGLE_REVIEWS, HOMEADVISOR_PROFILE } from "@/data/reviews";
+import { GOOGLE_PROFILE, GOOGLE_REVIEWS, HOMEADVISOR_PROFILE, TOTAL_REVIEWS } from "@/data/reviews";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -57,7 +57,7 @@ const FAQS = [
 export default function Home() {
   return (
     <>
-      <NightToDayHero rating={GOOGLE_PROFILE.rating} reviewCount={GOOGLE_PROFILE.reviewCount} />
+      <NightToDayHero rating={GOOGLE_PROFILE.rating} reviewCount={TOTAL_REVIEWS} />
 
       <ThreatDeck />
 
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-[family-name:var(--font-condensed)] text-[clamp(2.25rem,5vw,4rem)] font-extrabold uppercase leading-[0.95] [font-stretch:75%]">
-              {GOOGLE_PROFILE.rating.toFixed(1)} on Google, every review five stars
+              {TOTAL_REVIEWS} reviews, every one five stars
             </h2>
             <a
               href={GOOGLE_PROFILE.mapsUrl}

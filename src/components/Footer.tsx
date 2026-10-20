@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock, ShieldCheck, Star } from "lucide-react";
 import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
-import { GOOGLE_PROFILE } from "@/data/reviews";
+import { GOOGLE_PROFILE, TOTAL_REVIEWS } from "@/data/reviews";
 
 const highPriorityCities = OC_CITIES.filter((c) => c.priority === "high");
 
@@ -42,7 +42,7 @@ export function Footer() {
                 className="flex items-center gap-2 transition-colors hover:text-accent"
               >
                 <Star className="h-4 w-4 shrink-0 fill-accent text-accent" />
-                {GOOGLE_PROFILE.rating.toFixed(1)} on Google ({GOOGLE_PROFILE.reviewCount} reviews)
+                {GOOGLE_PROFILE.rating.toFixed(1)} stars, {TOTAL_REVIEWS} reviews
               </a>
               <div className="flex items-center gap-2 text-white/70">
                 <Clock className="h-4 w-4 shrink-0" />

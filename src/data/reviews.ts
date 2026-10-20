@@ -16,6 +16,9 @@ export const HOMEADVISOR_PROFILE = {
   reviewCount: 13,
 } as const;
 
+/** All verified five-star reviews across Google and HomeAdvisor. */
+export const TOTAL_REVIEWS = GOOGLE_PROFILE.reviewCount + HOMEADVISOR_PROFILE.reviewCount;
+
 export interface Review {
   name: string;
   /** Month the review was posted, YYYY-MM. */

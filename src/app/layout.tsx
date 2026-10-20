@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { EmergencyButton } from "@/components/EmergencyButton";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { SITE_CONFIG, OC_CITIES } from "@/lib/constants";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 
@@ -183,6 +184,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <SmoothScroll />
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>
