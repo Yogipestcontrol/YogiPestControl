@@ -117,5 +117,37 @@
     "shape": "bytesBase64Encoded/durationSeconds:number",
     "usd": 1.2,
     "at": "2026-10-20T01:21:31.596Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-ants",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-20T01:26:02.934Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-mosquitoes",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-20T01:26:03.432Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-wildlife",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-20T01:26:03.686Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-bed-bugs",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-20T01:26:05.584Z"
   }
 ]

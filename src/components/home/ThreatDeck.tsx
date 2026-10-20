@@ -22,7 +22,7 @@ const THREATS: Threat[] = [
     href: "/services/rodent-control",
     linkLabel: "Rodent control",
     image: "/cine/deck-roof-rats-poster.jpg",
-    video: { src: "/cine/deck-roof-rats.mp4", poster: "/cine/deck-roof-rats-poster.jpg", loop: false },
+    video: { src: "/cine/deck-roof-rats.mp4", poster: "/cine/deck-roof-rats-poster.jpg", loop: true },
   },
   {
     symptom: "A trail across the counter after it rains",
@@ -30,7 +30,8 @@ const THREATS: Threat[] = [
     detail: "One colony can run under a whole block. Spraying the trail scatters them; baiting takes the colony out.",
     href: "/services/ant-control",
     linkLabel: "Ant control",
-    image: "/cine/deck-ants.jpg",
+    image: "/cine/deck-ants-poster.jpg",
+    video: { src: "/cine/deck-ants.mp4", poster: "/cine/deck-ants-poster.jpg", loop: true },
   },
   {
     symptom: "Bites at your ankles in broad daylight",
@@ -38,7 +39,8 @@ const THREATS: Threat[] = [
     detail: "They breed in a bottle cap of water: saucers, drains, toys. Night spraying alone misses them.",
     href: "/services/mosquito-control",
     linkLabel: "Mosquito control",
-    image: "/cine/deck-mosquitoes.jpg",
+    image: "/cine/deck-mosquitoes-poster.jpg",
+    video: { src: "/cine/deck-mosquitoes.mp4", poster: "/cine/deck-mosquitoes-poster.jpg", loop: true },
   },
   {
     symptom: "A buzzing cluster on the eave",
@@ -55,7 +57,8 @@ const THREATS: Threat[] = [
     detail: "We find the source in the crawlspace, remove the animal, and close the way in.",
     href: "/services/wildlife-trapping",
     linkLabel: "Wildlife trapping",
-    image: "/cine/deck-wildlife.jpg",
+    image: "/cine/deck-wildlife-poster.jpg",
+    video: { src: "/cine/deck-wildlife.mp4", poster: "/cine/deck-wildlife-poster.jpg", loop: true },
   },
   {
     symptom: "Tiny dark spots on the mattress seam",
@@ -63,7 +66,8 @@ const THREATS: Threat[] = [
     detail: "Common in apartments and after travel. Early treatment is faster and cheaper.",
     href: "/services/bed-bug-treatment",
     linkLabel: "Bed bug treatment",
-    image: "/cine/deck-bed-bugs.jpg",
+    image: "/cine/deck-bed-bugs-poster.jpg",
+    video: { src: "/cine/deck-bed-bugs.mp4", poster: "/cine/deck-bed-bugs-poster.jpg", loop: true },
   },
 ];
 
