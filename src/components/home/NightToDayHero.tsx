@@ -49,9 +49,9 @@ export function NightToDayHero({ rating, reviewCount }: { rating: number; review
         {/* Night: the film */}
         <div className={`absolute inset-0 ${fade} ${day ? "scale-105 opacity-0" : "scale-100 opacity-100"}`}>
           <CineVideo
-            src="/cine/hero-night.mp4"
-            tallSrc="/cine/hero-night-tall.mp4"
-            poster="/cine/hero-night-poster.jpg"
+            src="/cine/hero-rat.mp4"
+            tallSrc="/cine/hero-rat-tall.mp4"
+            poster="/cine/hero-rat-poster.jpg"
             eager
             className="h-full w-full object-cover"
           />
