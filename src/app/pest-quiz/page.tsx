@@ -219,11 +219,11 @@ export default function PestQuizPage() {
               </div>
 
               <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                <Link href={`/pests/${result.slug}`} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light">
+                <Link href={`/pests/${result.slug}`} className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light">
                   Learn About {result.name} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <span className="hidden text-muted sm:inline">|</span>
-                <Link href={`/services/${result.serviceSlug}`} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light">
+                <Link href={`/services/${result.serviceSlug}`} className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light">
                   View {result.serviceName} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

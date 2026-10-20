@@ -83,11 +83,11 @@ export default async function BlogPostPage({
         <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-16 sm:pb-32 sm:pt-20">
           {/* Breadcrumbs */}
           <nav className="mb-6 text-sm text-white/50">
-            <Link href="/" className="hover:text-white/70">
+            <Link href="/" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-white/70">
+            <Link href="/blog" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">
               Blog
             </Link>
             <span className="mx-2">/</span>
@@ -160,7 +160,7 @@ export default async function BlogPostPage({
                         <li key={rp.slug}>
                           <Link
                             href={`/blog/${rp.slug}`}
-                            className="group flex items-start justify-between gap-2"
+                            className="group flex min-h-11 items-start justify-between gap-2 py-1"
                           >
                             <span className="text-sm text-muted transition-colors group-hover:text-primary">
                               {rp.title}
@@ -184,7 +184,7 @@ export default async function BlogPostPage({
                     </p>
                     <Link
                       href={`/blog/category/${category.slug}`}
-                      className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+                      className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
                     >
                       View All <ArrowRight className="h-4 w-4" />
                     </Link>

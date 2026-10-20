@@ -448,7 +448,7 @@ export default function BookPage() {
             </p>
             <a
               href={SITE_CONFIG.phoneTel}
-              className="inline-flex items-center gap-2 text-lg font-bold text-primary hover:text-primary-light"
+              className="inline-flex min-h-11 items-center gap-2 text-lg font-bold text-primary hover:text-primary-light"
             >
               <Phone className="h-5 w-5" />
               {SITE_CONFIG.phone}

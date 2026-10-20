@@ -75,9 +75,9 @@ export default async function ServicePage({
         <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-16 sm:pb-32 sm:pt-20">
           {/* Breadcrumbs */}
           <nav className="mb-6 text-sm text-white/50">
-            <Link href="/" className="hover:text-white/70">Home</Link>
+            <Link href="/" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/services" className="hover:text-white/70">Services</Link>
+            <Link href="/services" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Services</Link>
             <span className="mx-2">/</span>
             <span className="text-white/80">{service.name}</span>
           </nav>
@@ -219,7 +219,7 @@ export default async function ServicePage({
                       <li key={rs.slug}>
                         <Link
                           href={`/services/${rs.slug}`}
-                          className="flex items-center justify-between text-sm text-muted transition-colors hover:text-primary"
+                          className="flex min-h-11 items-center justify-between text-sm text-muted transition-colors hover:text-primary md:min-h-0"
                         >
                           {rs.name}
                           <ArrowRight className="h-4 w-4" />
@@ -235,7 +235,7 @@ export default async function ServicePage({
                   <p className="mb-4 text-sm text-muted">Take our quick quiz to identify your pest.</p>
                   <Link
                     href="/pest-quiz"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+                    className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
                   >
                     Take the Quiz <ArrowRight className="h-4 w-4" />
                   </Link>

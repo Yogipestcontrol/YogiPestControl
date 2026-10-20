@@ -46,14 +46,14 @@ export function CoverageMap() {
               <li key={c.slug}>
                 <Link
                   href={`/areas-we-serve/${c.slug}`}
-                  className="text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]"
+                  className="inline-flex min-h-11 items-center md:min-h-0 text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]"
                 >
                   {c.name}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/areas-we-serve" className="mt-6 inline-block text-sm font-semibold text-[#10201A]/70 hover:text-[#10201A]">
+          <Link href="/areas-we-serve" className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold md:min-h-0 text-[#10201A]/70 hover:text-[#10201A]">
             See every city we serve
           </Link>
         </div>
@@ -78,6 +78,8 @@ export function CoverageMap() {
               const isPriority = p.priority === "high";
               return (
                 <a key={p.slug} href={`/areas-we-serve/${p.slug}`} aria-label={`Pest control in ${p.name}`}>
+                  {/* Invisible larger hit area: the SVG scales down ~45% on phones */}
+                  <circle cx={p.x} cy={p.y} r={28} fill="transparent" />
                   <circle
                     cx={p.x}
                     cy={p.y}

@@ -298,7 +298,7 @@ export default function ContactPage() {
                   {href ? (
                     <a
                       href={href}
-                      className="text-base font-medium text-primary hover:text-primary-light"
+                      className="inline-flex min-h-11 items-center text-base font-medium text-primary hover:text-primary-light"
                     >
                       {value}
                     </a>

@@ -52,11 +52,11 @@ export default async function CityServicePage({ params }: { params: Params }) {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/50" />
         <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-16 sm:pb-32 sm:pt-20">
           <nav className="mb-6 text-sm text-white/50" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/70">Home</Link>
+            <Link href="/" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/areas-we-serve" className="hover:text-white/70">Areas We Serve</Link>
+            <Link href="/areas-we-serve" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Areas We Serve</Link>
             <span className="mx-2">/</span>
-            <Link href={`/areas-we-serve/${city.slug}`} className="hover:text-white/70">{city.name}</Link>
+            <Link href={`/areas-we-serve/${city.slug}`} className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">{city.name}</Link>
             <span className="mx-2">/</span>
             <span className="text-white/80">{service.name}</span>
           </nav>

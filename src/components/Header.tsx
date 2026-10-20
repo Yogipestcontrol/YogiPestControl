@@ -72,7 +72,7 @@ export function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex min-h-11 items-center gap-2.5">
             <Image
               src="/images/logo-icon.png"
               alt="Yogi's Pest Control"
@@ -192,7 +192,7 @@ export function Header() {
             {/* Dark mode toggle */}
             <button
               onClick={toggleTheme}
-              className="rounded-full p-2 text-muted transition-colors hover:bg-surface-alt hover:text-foreground"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-muted transition-colors hover:bg-surface-alt hover:text-foreground"
               aria-label="Toggle dark mode"
             >
               {theme === "light" ? (
@@ -223,7 +223,7 @@ export function Header() {
             {/* Animated hamburger - mobile only */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+              className="relative flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
               aria-label="Toggle menu"
             >
               <span

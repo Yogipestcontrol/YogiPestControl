@@ -90,10 +90,10 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-              <Link href="/about" className="text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
+              <Link href="/about" className="inline-flex min-h-11 items-center md:min-h-0 text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
                 More about Yobani
               </Link>
-              <Link href="/reviews" className="text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
+              <Link href="/reviews" className="inline-flex min-h-11 items-center md:min-h-0 text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
                 Customer reviews
               </Link>
             </div>
@@ -112,7 +112,7 @@ export default function Home() {
               href={GOOGLE_PROFILE.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 text-base font-semibold text-[#D4A843] hover:text-[#E5BE5F]"
+              className="inline-flex min-h-11 items-center md:min-h-0 shrink-0 text-base font-semibold text-[#D4A843] hover:text-[#E5BE5F]"
             >
               Read all {GOOGLE_PROFILE.reviewCount} on Google
             </a>
@@ -149,20 +149,20 @@ export default function Home() {
             <ul className="mt-5 space-y-2">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="text-white/85 hover:text-[#D4A843] hover:underline">
+                  <Link href={`/services/${s.slug}`} className="inline-flex min-h-11 items-center md:min-h-0 text-white/85 hover:text-[#D4A843] hover:underline">
                     {s.name}
                   </Link>
                 </li>
               ))}
             </ul>
             <div className="mt-8 space-y-2 text-sm">
-              <Link href="/pest-control-cost" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline">
+              <Link href="/pest-control-cost" className="flex min-h-11 items-center font-semibold text-white/85 md:min-h-0 hover:text-[#D4A843] hover:underline">
                 Pricing guide
               </Link>
-              <Link href="/pest-quiz" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline">
+              <Link href="/pest-quiz" className="flex min-h-11 items-center font-semibold text-white/85 md:min-h-0 hover:text-[#D4A843] hover:underline">
                 Not sure what you have? Take the 3-question quiz
               </Link>
-              <Link href="/es" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline" hrefLang="es">
+              <Link href="/es" className="flex min-h-11 items-center font-semibold text-white/85 md:min-h-0 hover:text-[#D4A843] hover:underline" hrefLang="es">
                 Servicio en español
               </Link>
             </div>
@@ -174,7 +174,7 @@ export default function Home() {
             <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
               {FAQS.map((f) => (
                 <details key={f.question} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#D4A843]">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#D4A843]">
                     {f.question}
                     <span aria-hidden className="text-2xl leading-none text-[#D4A843] transition-transform group-open:rotate-45">
                       +

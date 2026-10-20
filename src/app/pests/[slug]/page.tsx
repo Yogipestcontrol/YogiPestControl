@@ -276,7 +276,7 @@ export default async function PestPage({
                   </p>
                   <Link
                     href="/pest-quiz"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+                    className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
                   >
                     Take the Quiz <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -292,7 +292,7 @@ export default async function PestPage({
                   </p>
                   <Link
                     href="/pests"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+                    className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
                   >
                     Pest Library <ArrowRight className="h-4 w-4" />
                   </Link>

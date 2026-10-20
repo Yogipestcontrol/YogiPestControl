@@ -27,7 +27,7 @@ export function ContentSections({ sections }: { sections: ContentSection[] }) {
           {s.link && (
             <Link
               href={s.link.href}
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+              className="mt-4 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light md:min-h-0"
             >
               {s.link.label} <ArrowRight className="h-4 w-4" />
             </Link>

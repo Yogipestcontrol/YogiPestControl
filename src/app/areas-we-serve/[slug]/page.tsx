@@ -67,9 +67,9 @@ export default async function CityPage({
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/65 to-primary/50" />
         <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-16 sm:pb-32 sm:pt-20">
           <nav className="mb-6 text-sm text-white/50">
-            <Link href="/" className="hover:text-white/70">Home</Link>
+            <Link href="/" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/areas-we-serve" className="hover:text-white/70">Areas We Serve</Link>
+            <Link href="/areas-we-serve" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Areas We Serve</Link>
             <span className="mx-2">/</span>
             <span className="text-white/80">{city.name}</span>
           </nav>
@@ -192,7 +192,7 @@ export default async function CityPage({
                       <Link
                         key={n.slug}
                         href={`/areas-we-serve/${n.slug}`}
-                        className="text-sm font-medium text-primary hover:text-primary-light"
+                        className="inline-flex min-h-11 items-center md:min-h-0 text-sm font-medium text-primary hover:text-primary-light"
                       >
                         Pest control in {n.name}
                       </Link>
@@ -231,7 +231,7 @@ export default async function CityPage({
                   <p className="mb-4 text-sm text-muted">Take our quick quiz to identify your pest.</p>
                   <Link
                     href="/pest-quiz"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
+                    className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light"
                   >
                     Take the Quiz <ArrowRight className="h-4 w-4" />
                   </Link>

@@ -19,11 +19,11 @@ export function Footer() {
               Owner-operated pest control for homes and businesses throughout Orange County, CA.
             </p>
             <div className="flex flex-col gap-3 text-sm">
-              <a href={SITE_CONFIG.phoneTel} className="flex items-center gap-2 transition-colors hover:text-accent">
+              <a href={SITE_CONFIG.phoneTel} className="flex min-h-11 items-center gap-2 transition-colors hover:text-accent md:min-h-0">
                 <Phone className="h-4 w-4 shrink-0" />
                 {SITE_CONFIG.phone}
               </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 transition-colors hover:text-accent">
+              <a href={`mailto:${SITE_CONFIG.email}`} className="flex min-h-11 items-center gap-2 transition-colors hover:text-accent md:min-h-0">
                 <Mail className="h-4 w-4 shrink-0" />
                 {SITE_CONFIG.email}
               </a>
@@ -39,7 +39,7 @@ export function Footer() {
                 href={GOOGLE_PROFILE.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 transition-colors hover:text-accent"
+                className="flex min-h-11 items-center gap-2 transition-colors hover:text-accent md:min-h-0"
               >
                 <Star className="h-4 w-4 shrink-0 fill-accent text-accent" />
                 {GOOGLE_PROFILE.rating.toFixed(1)} stars, {TOTAL_REVIEWS} reviews
@@ -54,12 +54,12 @@ export function Footer() {
           {/* Services */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Services</h4>
-            <ul className="flex flex-col gap-2">
+            <ul className="grid grid-cols-2 gap-x-4 md:flex md:flex-col md:gap-2">
               {SERVICES.map((service) => (
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {service.name}
                   </Link>
@@ -71,12 +71,12 @@ export function Footer() {
           {/* Service areas */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Service Areas</h4>
-            <ul className="flex flex-col gap-2">
+            <ul className="grid grid-cols-2 gap-x-4 md:flex md:flex-col md:gap-2">
               {highPriorityCities.map((city) => (
                 <li key={city.slug}>
                   <Link
                     href={`/areas-we-serve/${city.slug}`}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
+                    className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white"
                   >
                     {city.name}
                   </Link>
@@ -85,7 +85,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/areas-we-serve"
-                  className="text-sm font-medium text-accent transition-colors hover:text-accent-light"
+                  className="inline-flex min-h-11 items-center md:min-h-0 text-sm font-medium text-accent transition-colors hover:text-accent-light"
                 >
                   View All Areas →
                 </Link>
@@ -96,16 +96,16 @@ export function Footer() {
           {/* Quick links */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">Quick Links</h4>
-            <ul className="flex flex-col gap-2">
-              <li><Link href="/about" className="text-sm text-white/70 transition-colors hover:text-white">About Us</Link></li>
-              <li><Link href="/blog" className="text-sm text-white/70 transition-colors hover:text-white">Blog</Link></li>
-              <li><Link href="/pests" className="text-sm text-white/70 transition-colors hover:text-white">Pest Library</Link></li>
-              <li><Link href="/pest-control-cost" className="text-sm text-white/70 transition-colors hover:text-white">Pricing Guide</Link></li>
-              <li><Link href="/pest-quiz" className="text-sm text-white/70 transition-colors hover:text-white">Pest Identifier Quiz</Link></li>
-              <li><Link href="/faq" className="text-sm text-white/70 transition-colors hover:text-white">FAQ</Link></li>
-              <li><Link href="/reviews" className="text-sm text-white/70 transition-colors hover:text-white">Reviews</Link></li>
-              <li><Link href="/contact" className="text-sm text-white/70 transition-colors hover:text-white">Contact</Link></li>
-              <li><Link href="/book" className="text-sm font-medium text-accent transition-colors hover:text-accent-light">Book Free Inspection →</Link></li>
+            <ul className="grid grid-cols-2 gap-x-4 md:flex md:flex-col md:gap-2">
+              <li><Link href="/about" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">About Us</Link></li>
+              <li><Link href="/blog" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Blog</Link></li>
+              <li><Link href="/pests" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Pest Library</Link></li>
+              <li><Link href="/pest-control-cost" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Pricing Guide</Link></li>
+              <li><Link href="/pest-quiz" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Pest Identifier Quiz</Link></li>
+              <li><Link href="/faq" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">FAQ</Link></li>
+              <li><Link href="/reviews" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Reviews</Link></li>
+              <li><Link href="/contact" className="inline-flex min-h-11 items-center md:min-h-0 text-sm text-white/70 transition-colors hover:text-white">Contact</Link></li>
+              <li><Link href="/book" className="inline-flex min-h-11 items-center md:min-h-0 text-sm font-medium text-accent transition-colors hover:text-accent-light">Book Free Inspection →</Link></li>
             </ul>
           </div>
         </div>
@@ -118,9 +118,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {SITE_CONFIG.licenseLabel}.
           </p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white/70">Privacy</Link>
-            <Link href="/terms" className="hover:text-white/70">Terms</Link>
-            <Link href="/sitemap.xml" className="hover:text-white/70">Sitemap</Link>
+            <Link href="/privacy" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Privacy</Link>
+            <Link href="/terms" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Terms</Link>
+            <Link href="/sitemap.xml" className="inline-flex min-h-11 items-center md:min-h-0 hover:text-white/70">Sitemap</Link>
           </div>
         </div>
       </div>
