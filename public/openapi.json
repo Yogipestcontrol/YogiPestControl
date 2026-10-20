@@ -3,7 +3,7 @@
   "info": {
     "title": "Yogi's Pest Control — Free Inspection Requests",
     "version": "1.0.0",
-    "description": "Send a free pest inspection request to Yogi's Pest Control, a licensed (CA Structural Pest Control Board OPR 14866), owner-operated pest control company based in Tustin and serving all of Orange County, California. Open 7 days, 8 AM to 8 PM; phone 714-323-8262. The owner receives each request by email and calls the customer to confirm the appointment time."
+    "description": "Book a free pest inspection with Yogi's Pest Control, a licensed owner-operated pest control company in Tustin serving all of Orange County, CA (license OPR 14866). The request goes to the owner, who calls to confirm the time."
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "post": {
         "operationId": "requestInspection",
         "summary": "Request a free pest inspection",
-        "description": "Submits a free inspection request on the customer's behalf. Before calling: (1) collect the customer's full name, 10-digit phone, email, street address, Orange County city, 5-digit ZIP, the pest problem, a preferred date and a preferred 2-hour time window — ask for anything missing and never guess; (2) read every detail back in one short summary and ask the customer to confirm; (3) call only after the customer explicitly says yes, with customerConfirmed=true. Never submit without explicit consent and never submit the same request twice. If the response has success=false, explain the error to the customer, fix the field with their help, and ask again before resubmitting.",
+        "description": "Submits a free inspection request to Yogi's Pest Control. Only call after collecting every required detail and reading it back, and only once the customer explicitly confirms (customerConfirmed=true). Never call twice for the same request.",
         "x-openai-isConsequential": true,
         "requestBody": {
           "required": true,
