@@ -9,6 +9,9 @@ import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { getCityHeroImage } from "@/lib/images";
 import { pageMeta, breadcrumbJsonLd, BUSINESS_ID } from "@/lib/seo";
+import { getCityContent } from "@/data/city-content";
+import { cityServicePagesFor } from "@/data/city-services";
+import { ContentSections, FAQList, LinkGrid, PriceTable, faqJsonLd } from "@/components/ContentBlocks";
 
 // Only the slugs from generateStaticParams exist; anything else is a real 404.
 export const dynamicParams = false;
@@ -25,7 +28,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const city = CITY_DATA.find((c) => c.slug === slug);
   if (!city) notFound();
-  return pageMeta({ title: city.metaTitle, description: city.metaDescription, path: `/areas-we-serve/${city.slug}` });
+  const extra = getCityContent(slug);
+  return pageMeta({
+    title: extra?.metaTitle ?? city.metaTitle,
+    description: extra?.metaDescription ?? city.metaDescription,
+    path: `/areas-we-serve/${city.slug}`,
+  });
 }
 
 export default async function CityPage({
@@ -37,6 +45,13 @@ export default async function CityPage({
   const city = CITY_DATA.find((c) => c.slug === slug);
 
   if (!city) notFound();
+
+  const extra = getCityContent(slug);
+  const localPages = cityServicePagesFor(slug);
+  const allFaqs = [...city.faqs, ...(extra?.extraFaqs ?? [])];
+  const nearby = (extra?.nearby ?? [])
+    .map((s) => CITY_DATA.find((c) => c.slug === s))
+    .filter((c): c is (typeof CITY_DATA)[number] => Boolean(c));
 
   return (
     <>
@@ -66,7 +81,8 @@ export default async function CityPage({
             Pest Control in {city.name}, CA
           </h1>
           <p className="mb-8 max-w-2xl text-lg text-white/70">
-            Professional pest control services for homes and businesses in {city.name}. Same-day service, eco-friendly treatments, 100% satisfaction guaranteed.
+            {extra?.heroSubtext ??
+              `Licensed, owner-operated pest control for homes and businesses in ${city.name}, based nearby in Tustin. Free inspections and same-day service when available.`}
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
@@ -99,7 +115,34 @@ export default async function CityPage({
                   Pest Control Services in {city.name}
                 </h2>
                 <p className="text-base leading-relaxed text-muted">{city.content}</p>
+                {extra && extra.neighborhoods.length > 0 && (
+                  <div className="mt-6">
+                    <p className="mb-2 text-sm font-semibold text-foreground">Neighborhoods we serve in {city.name}</p>
+                    <ul className="flex flex-wrap gap-2">
+                      {extra.neighborhoods.map((n) => (
+                        <li key={n} className="rounded-full border border-border bg-surface px-3 py-1 text-xs text-muted">
+                          {n}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
+
+              {extra && <ContentSections sections={extra.sections} />}
+
+              {localPages.length > 0 && (
+                <LinkGrid
+                  heading={`${city.name} Service Guides`}
+                  links={localPages.map((p) => ({ href: `/areas-we-serve/${p.citySlug}/${p.serviceSlug}`, anchor: p.h1 }))}
+                />
+              )}
+
+              {extra && (
+                <LinkGrid heading={`Most Requested in ${city.name}`} links={extra.topServices.map((l) => ({ href: l.href, anchor: l.anchor }))} />
+              )}
+
+              {extra && <PriceTable rows={extra.pricing} heading={`Pest Control Cost in ${city.name}`} />}
 
               {/* Services available */}
               <div className="mb-12">
@@ -139,29 +182,26 @@ export default async function CityPage({
                 </div>
               </div>
 
-              {/* FAQs */}
-              <div>
-                <h2 className="mb-6 text-2xl font-bold text-foreground">
-                  Pest Control FAQs for {city.name}
-                </h2>
-                <div className="space-y-4">
-                  {city.faqs.map((faq, i) => (
-                    <details
-                      key={i}
-                      className="group rounded-lg border border-border bg-surface"
-                    >
-                      <summary className="cursor-pointer px-6 py-4 text-base font-semibold text-foreground">
-                        {faq.question}
-                      </summary>
-                      <div className="px-6 pb-4 text-sm leading-relaxed text-muted">
-                        {faq.answer}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            </div>
+              <FAQList faqs={allFaqs} heading={`Pest Control FAQs for ${city.name}`} />
 
+              {nearby.length > 0 && (
+                <div className="mb-4">
+                  <p className="mb-3 text-sm font-semibold text-foreground">Also serving nearby</p>
+                  <div className="flex flex-wrap gap-3">
+                    {nearby.map((n) => (
+                      <Link
+                        key={n.slug}
+                        href={`/areas-we-serve/${n.slug}`}
+                        className="text-sm font-medium text-primary hover:text-primary-light"
+                      >
+                        Pest control in {n.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {extra && <p className="text-xs text-muted">Page updated {extra.updated}</p>}
+            </div>
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-32 space-y-6">
@@ -236,17 +276,7 @@ export default async function CityPage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: city.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: { "@type": "Answer", text: faq.answer },
-            })),
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(allFaqs)) }}
       />
     </>
   );

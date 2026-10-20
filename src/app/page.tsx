@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone, Star, Bug, Shield, CheckCircle } from "lucide-react";
-import { AnimateIn, CountUp, StaggerGrid, StaggerItem } from "@/components/animations";
-import { CTABanner } from "@/components/CTABanner";
-import { SITE_CONFIG, SERVICES, OC_CITIES } from "@/lib/constants";
-import { heroImages } from "@/lib/images";
-import { GOOGLE_PROFILE, GOOGLE_REVIEWS } from "@/data/reviews";
+import { Phone, Star } from "lucide-react";
+import { NightToDayHero } from "@/components/home/NightToDayHero";
+import { ThreatDeck } from "@/components/home/ThreatDeck";
+import { JobSteps } from "@/components/home/JobSteps";
+import { CoverageMap } from "@/components/home/CoverageMap";
+import { faqJsonLd } from "@/components/ContentBlocks";
+import { SITE_CONFIG, SERVICES } from "@/lib/constants";
+import { GOOGLE_PROFILE, GOOGLE_REVIEWS, HOMEADVISOR_PROFILE } from "@/data/reviews";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -16,565 +18,198 @@ export const metadata = pageMeta({
   path: "/",
   languages: { "en-US": "/", "es-US": "/es", "x-default": "/" },
 });
-import { servicePestImages } from "@/lib/pest-images";
 
-const highPriorityCities = OC_CITIES.filter((c) => c.priority === "high");
-const featuredServices = SERVICES.slice(0, 3);
-const remainingServices = SERVICES.slice(3);
+// Short reviews read well side by side; the long rodent stories are used in JobSteps.
+const wallReviews = GOOGLE_REVIEWS.filter((r) => r.text.length < 260);
 
-// Real Google reviews, picked for the homepage (see src/data/reviews.ts).
-const featuredReviews = [GOOGLE_REVIEWS[4], GOOGLE_REVIEWS[7], GOOGLE_REVIEWS[1]];
+const FAQS = [
+  {
+    question: "How much does pest control cost in Orange County?",
+    answer:
+      "A one-time treatment in Orange County typically runs $150 to $300 depending on the pest and the size of the property. Recurring plans typically run $100 to $200 per visit. Inspections are free, so you get an exact quote before any work starts.",
+  },
+  {
+    question: "Do you offer same-day service?",
+    answer:
+      "Often, yes. We're based in Tustin and work 7 days a week, 8 AM to 8 PM, so same-day visits are usually possible across Orange County. For rodents, bees or wasps, call (714) 323-8262 and we'll tell you the soonest time we can be there.",
+  },
+  {
+    question: "Are your treatments safe around kids and pets?",
+    answer:
+      "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you how long kids and pets should stay off treated areas (usually until sprays have dried).",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "All 34 cities in Orange County, from our base in Tustin. We work most often in Irvine, Costa Mesa, Newport Beach, Santa Ana, Orange, Garden Grove, Anaheim, Fullerton, Buena Park, Stanton and Huntington Beach, for homes and businesses.",
+  },
+  {
+    question: "What pests do you handle?",
+    answer:
+      "Roof rats, Norway rats and mice, Argentine ants and fire ants, German and American cockroaches, bed bugs, black widows and other spiders, wasps and bees, mosquitoes, flies, fleas and ticks, and wildlife such as raccoons, opossums, skunks and squirrels.",
+  },
+  {
+    question: "Is Yogi's Pest Control licensed?",
+    answer: `Yes. Owner Yobani Arreola is licensed by the California Structural Pest Control Board (operator license ${SITE_CONFIG.license}). You can verify any license at pestboard.ca.gov.`,
+  },
+];
 
 export default function Home() {
   return (
     <>
-      {/* ═══ HERO — Full Viewport ═══ */}
-      <section className="relative min-h-[90vh] overflow-hidden bg-primary">
-        <Image
-          src={heroImages.homepage}
-          alt="Yogi's Pest Control serving Orange County"
-          fill
-          className="object-cover opacity-50"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-primary/50 to-primary/90" />
+      <NightToDayHero rating={GOOGLE_PROFILE.rating} reviewCount={GOOGLE_PROFILE.reviewCount} />
 
-        <div className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 pb-28 pt-16 text-center">
-          <AnimateIn delay={0.1} direction="none">
-            <span className="mb-6 inline-block rounded-full border border-accent/30 bg-accent/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-accent">
-              Orange County&apos;s Trusted Pest Experts
-            </span>
-          </AnimateIn>
+      <ThreatDeck />
 
-          <AnimateIn delay={0.3}>
-            <h1 className="max-w-5xl font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              Pest-Free Living{" "}
-              <br className="hidden sm:block" />
-              <span className="text-accent">Starts Here</span>
-            </h1>
-          </AnimateIn>
+      <JobSteps />
 
-          <AnimateIn delay={0.5}>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
-              Professional pest control for homes and businesses across all of
-              Orange County. Safe, effective, eco-friendly — with same-day service.
-            </p>
-          </AnimateIn>
-
-          <AnimateIn delay={0.7}>
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-              <Link
-                href="/book"
-                className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-bold text-primary-dark shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-light hover:shadow-[0_8px_25px_rgba(212,168,67,0.4)]"
-              >
-                Book Free Inspection
-                <ArrowRight className="h-5 w-5" />
+      {/* Meet Yobani */}
+      <section className="cine-curtain bg-[#EEF2EC] py-20 text-[#10201A] sm:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg lg:order-2">
+            <Image
+              src="/images/heroes/real-photo-1.jpg"
+              alt="Yobani in a protective bee suit removing a honey bee colony from inside a wall"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="font-[family-name:var(--font-condensed)] text-[clamp(2.25rem,5vw,4rem)] font-extrabold uppercase leading-[0.95] [font-stretch:75%]">
+              The person you call is the person who shows up
+            </h2>
+            <div className="mt-6 max-w-xl space-y-4 text-lg leading-relaxed text-[#10201A]/75">
+              <p>
+                Yogi&apos;s Pest Control is Yobani Arreola, a pest control operator licensed by the California Structural
+                Pest Control Board ({SITE_CONFIG.license}). He answers the phone, does the inspection and does the work.
+              </p>
+              <p>
+                That&apos;s why customers mention him by name: a skunk smell traced the same day at no charge, 16 roof rats
+                cleared from an attic, a monthly plan that finally felt personal after years with a big company.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+              <Link href="/about" className="text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
+                More about Yobani
               </Link>
-              <a
-                href={SITE_CONFIG.phoneTel}
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
-              >
-                <Phone className="h-5 w-5" />
-                Call {SITE_CONFIG.phone}
-              </a>
-            </div>
-          </AnimateIn>
-        </div>
-
-        {/* Trust strip */}
-        <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/10 bg-black/30 backdrop-blur-lg">
-          <div className="mx-auto grid max-w-4xl grid-cols-3 px-4 py-6">
-            <div className="flex flex-col items-center gap-1 border-r border-white/10">
-              <span className="text-3xl font-extrabold text-accent sm:text-4xl">Same Day</span>
-              <p className="text-xs font-medium text-white/60 sm:text-sm">Response</p>
-            </div>
-            <div className="flex flex-col items-center gap-1 border-r border-white/10">
-              <div className="flex items-center gap-1.5">
-                <span className="text-3xl font-extrabold text-accent sm:text-4xl">{GOOGLE_PROFILE.rating.toFixed(1)}</span>
-                <Star className="h-5 w-5 fill-accent text-accent sm:h-6 sm:w-6" />
-              </div>
-              <p className="text-xs font-medium text-white/60 sm:text-sm">Google Rating</p>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <span className="text-3xl font-extrabold text-accent sm:text-4xl">7 Days</span>
-              <p className="text-xs font-medium text-white/60 sm:text-sm">8AM – 8PM</p>
+              <Link href="/reviews" className="text-base font-semibold text-[#1B4332] underline decoration-[#1B4332]/25 underline-offset-4 hover:decoration-[#1B4332]">
+                Customer reviews
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ SOCIAL PROOF ═══ */}
-      <section className="border-b border-border bg-surface py-10 sm:py-14">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-            {[
-              { label: "Google Rating", custom: `${GOOGLE_PROFILE.rating.toFixed(1)}★` },
-              { target: 14, label: "Services" },
-              { target: 34, label: "Cities Served" },
-              { label: "Days a Week", custom: "7" },
-              { label: "CA License", custom: SITE_CONFIG.license },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                {stat.custom ? (
-                  <span className="text-3xl font-extrabold text-accent sm:text-4xl">{stat.custom}</span>
-                ) : (
-                  <CountUp target={stat.target!} className="text-3xl font-extrabold text-accent sm:text-4xl" />
-                )}
-                <p className="mt-1 text-sm text-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ HOW IT WORKS ═══ */}
-      <section className="relative overflow-hidden bg-primary-dark py-20 sm:py-28 lg:py-36">
-        <Image
-          src={heroImages.about}
-          alt=""
-          fill
-          className="object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-dark/80 to-primary/70" />
-        <div className="relative mx-auto max-w-7xl px-4">
-          <AnimateIn>
-            <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">The Process</span>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Three Steps to a Pest-Free Home
+      {/* Reviews */}
+      <section className="relative bg-[#1B4332] pb-28 pt-20 text-white sm:pb-36 sm:pt-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-[family-name:var(--font-condensed)] text-[clamp(2.25rem,5vw,4rem)] font-extrabold uppercase leading-[0.95] [font-stretch:75%]">
+              {GOOGLE_PROFILE.rating.toFixed(1)} on Google, every review five stars
             </h2>
-          </AnimateIn>
-
-          <StaggerGrid className="mt-12 grid gap-8 md:grid-cols-3">
-            {[
-              { step: "01", icon: Phone, title: "Call or Book Online", desc: "Schedule your free inspection at a time that works for you. Same-day appointments available." },
-              { step: "02", icon: Bug, title: "Expert Inspection", desc: "Our licensed technicians inspect your property, identify the problem, and create a custom treatment plan." },
-              { step: "03", icon: Shield, title: "Pest-Free Guarantee", desc: "We treat your home with eco-friendly products and back it with our 100% satisfaction guarantee." },
-            ].map(({ step, icon: Icon, title, desc }) => (
-              <StaggerItem key={step}>
-                <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-xl">
-                  <span className="font-[family-name:var(--font-display)] text-5xl font-extrabold text-accent/25">{step}</span>
-                  <div className="mt-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15">
-                    <Icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-bold text-white">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">{desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* ═══ SERVICES SHOWCASE ═══ */}
-      <section className="bg-surface-alt py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <AnimateIn>
-            <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Our Services</span>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Comprehensive Pest Solutions
-            </h2>
-          </AnimateIn>
-
-          {/* Featured — large horizontal cards */}
-          <div className="mt-12 flex flex-col gap-8">
-            {featuredServices.map((service, i) => (
-              <AnimateIn key={service.slug} delay={i * 0.15} direction={i % 2 === 0 ? "left" : "right"}>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className={`group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-500 hover:-translate-y-1 hover:shadow-xl md:h-80 ${
-                    i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                  }`}
-                >
-                  <div className="relative h-64 w-full overflow-hidden md:h-auto md:w-[55%]">
-                    <Image
-                      src={servicePestImages[service.slug] || "/images/pests/rat.jpg"}
-                      alt={service.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-center p-8 md:p-12">
-                    <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Featured Service</span>
-                    <h3 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-bold text-foreground transition-colors group-hover:text-primary md:text-3xl">
-                      {service.name}
-                    </h3>
-                    <p className="mt-3 text-base leading-relaxed text-muted">{service.shortDesc}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      Learn More <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
-              </AnimateIn>
-            ))}
-          </div>
-
-          {/* Remaining — compact grid */}
-          <StaggerGrid className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {remainingServices.map((service) => (
-              <StaggerItem key={service.slug}>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="relative h-44 w-full overflow-hidden">
-                    <Image
-                      src={servicePestImages[service.slug] || "/images/pests/rat.jpg"}
-                      alt={service.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    <h3 className="absolute bottom-4 left-5 right-5 text-base font-bold text-white">{service.name}</h3>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-sm text-muted">{service.shortDesc}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                      Learn More <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
-
-          <AnimateIn className="mt-12 text-center">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-lg"
+            <a
+              href={GOOGLE_PROFILE.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 text-base font-semibold text-[#D4A843] hover:text-[#E5BE5F]"
             >
-              View All Services <ArrowRight className="h-5 w-5" />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══ IMPACT STATS (dark section) ═══ */}
-      <section className="relative overflow-hidden bg-primary-dark py-20 sm:py-24">
-        <Image src={heroImages.services} alt="" fill className="object-cover opacity-15" />
-        <div className="absolute inset-0 bg-primary-dark/70" />
-        <div className="relative mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {[
-              { label: "Google Rating", custom: `${GOOGLE_PROFILE.rating.toFixed(1)}/5` },
-              { target: GOOGLE_PROFILE.reviewCount, label: "Five-Star Google Reviews" },
-              { label: "Days a Week, 8AM–8PM", custom: "7" },
-              { label: "Free Inspections", custom: "$0" },
-            ].map((stat) => (
-              <AnimateIn key={stat.label} className="text-center">
-                {stat.custom ? (
-                  <span className="text-4xl font-extrabold text-accent sm:text-5xl">{stat.custom}</span>
-                ) : (
-                  <CountUp target={stat.target!} className="text-4xl font-extrabold text-accent sm:text-5xl" />
-                )}
-                <p className="mt-2 text-sm font-medium text-white/70">{stat.label}</p>
-              </AnimateIn>
+              Read all {GOOGLE_PROFILE.reviewCount} on Google
+            </a>
+          </div>
+          <div className="mt-12 columns-1 gap-6 md:columns-2 lg:columns-3">
+            {wallReviews.map((r) => (
+              <figure key={r.name + r.date} className="mb-6 break-inside-avoid rounded-lg bg-white/[0.06] p-6">
+                <div className="flex gap-0.5" aria-label={`${r.rating} out of 5 stars`}>
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[#D4A843] text-[#D4A843]" />
+                  ))}
+                </div>
+                <blockquote className="mt-3 leading-relaxed text-white/90">&ldquo;{r.text}&rdquo;</blockquote>
+                <figcaption className="mt-3 text-sm text-white/55">{r.name}</figcaption>
+              </figure>
             ))}
           </div>
+          <p className="mt-4 text-sm text-white/60">
+            Also rated {HOMEADVISOR_PROFILE.rating.toFixed(1)} from {HOMEADVISOR_PROFILE.reviewCount} reviews on HomeAdvisor.{" "}
+            <Link href="/reviews" className="font-semibold text-white underline underline-offset-4">
+              See all reviews
+            </Link>
+          </p>
         </div>
       </section>
 
-      {/* ═══ TESTIMONIALS ═══ */}
-      <section className="bg-background py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <AnimateIn>
-            <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">What Clients Say</span>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Trusted by Orange County Homeowners
+      <CoverageMap />
+
+      {/* Services index + FAQ */}
+      <section className="relative bg-[#0B1A14] pb-28 pt-20 text-white sm:pb-36 sm:pt-28">
+        <div className="mx-auto grid max-w-7xl gap-16 px-5 sm:px-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
+          <div>
+            <h2 className="text-2xl font-bold">Services</h2>
+            <ul className="mt-5 space-y-2">
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`} className="text-white/85 hover:text-[#D4A843] hover:underline">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 space-y-2 text-sm">
+              <Link href="/pest-control-cost" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline">
+                Pricing guide
+              </Link>
+              <Link href="/pest-quiz" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline">
+                Not sure what you have? Take the 3-question quiz
+              </Link>
+              <Link href="/es" className="block font-semibold text-white/85 hover:text-[#D4A843] hover:underline" hrefLang="es">
+                Servicio en español
+              </Link>
+            </div>
+          </div>
+          <div>
+            <h2 className="font-[family-name:var(--font-condensed)] text-[clamp(2rem,4vw,3.25rem)] font-extrabold uppercase leading-[0.95] [font-stretch:75%]">
+              Questions people ask first
             </h2>
-          </AnimateIn>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-12">
-            <AnimateIn direction="left" className="lg:col-span-7">
-              <div className="rounded-2xl border border-border bg-surface p-8 sm:p-10">
-                <span className="font-serif text-[100px] leading-[0.8] text-primary/10">&ldquo;</span>
-                <p className="mt-[-20px] text-xl leading-relaxed text-foreground sm:text-2xl">{featuredReviews[0].text}</p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
-                    {featuredReviews[0].name[0]}
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">{featuredReviews[0].name}</p>
-                    <p className="text-sm text-muted">Google review</p>
-                  </div>
-                  <div className="ml-auto flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </AnimateIn>
-
-            <div className="flex flex-col gap-6 lg:col-span-5">
-              {featuredReviews.slice(1).map((review, i) => (
-                <AnimateIn key={review.name} direction="right" delay={i * 0.15}>
-                  <div className="rounded-2xl border border-border bg-surface p-6">
-                    <div className="mb-3 flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, j) => (
-                        <Star key={j} className="h-4 w-4 fill-accent text-accent" />
-                      ))}
-                    </div>
-                    <p className="text-sm leading-relaxed text-foreground">{review.text}</p>
-                    <p className="mt-4 text-sm font-semibold text-muted">{review.name} — Google review</p>
-                  </div>
-                </AnimateIn>
+            <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
+              {FAQS.map((f) => (
+                <details key={f.question} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#D4A843]">
+                    {f.question}
+                    <span aria-hidden className="text-2xl leading-none text-[#D4A843] transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-white/70">{f.answer}</p>
+                </details>
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          <AnimateIn className="mt-10 text-center">
-            <Link href="/reviews" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light">
-              Read All {GOOGLE_PROFILE.reviewCount} Google Reviews <ArrowRight className="h-5 w-5" />
+      {/* Closing call */}
+      <section className="cine-curtain bg-[#D4A843] py-20 text-[#0B1A14] sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <p className="max-w-xl text-lg text-[#0B1A14]/75">Hearing it again tonight? Call now and we&apos;ll tell you the soonest we can be there.</p>
+          <a
+            href={SITE_CONFIG.phoneTel}
+            className="mt-4 inline-flex items-center gap-4 font-[family-name:var(--font-condensed)] text-[clamp(3rem,10vw,8rem)] font-extrabold leading-none text-[#1B4332] [font-stretch:70%] hover:text-[#0B1A14] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0B1A14]"
+          >
+            <Phone className="h-[0.6em] w-[0.6em]" aria-hidden />
+            {SITE_CONFIG.phone}
+          </a>
+          <p className="mt-6 text-[#0B1A14]/75">
+            Or{" "}
+            <Link href="/book" className="font-semibold text-[#0B1A14] underline underline-offset-4">
+              book a free inspection online
             </Link>
-          </AnimateIn>
+            . Open 7 days, 8AM to 8PM.
+          </p>
         </div>
       </section>
 
-      {/* ═══ AREAS WE SERVE ═══ */}
-      <section className="bg-surface-alt py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <AnimateIn>
-            <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Service Areas</span>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Proudly Serving Orange County
-            </h2>
-          </AnimateIn>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {highPriorityCities.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/areas-we-serve/${city.slug}`}
-                className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                {city.name}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-8">
-            <Link href="/areas-we-serve" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light">
-              View All 34 Cities <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ PEST QUIZ CTA ═══ */}
-      <section className="bg-background py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="overflow-hidden rounded-3xl border border-border bg-surface">
-            <div className="grid items-center lg:grid-cols-2">
-              {/* Image side */}
-              <div className="relative h-64 lg:h-full lg:min-h-[400px]">
-                <Image
-                  src={heroImages.quiz || heroImages.homepage}
-                  alt="Identify your pest"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20 lg:bg-gradient-to-l" />
-              </div>
-              {/* Text side */}
-              <div className="p-8 sm:p-12 lg:p-16">
-                <AnimateIn>
-                  <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Interactive Tool</span>
-                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                    Not Sure What Pest You Have?
-                  </h2>
-                  <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
-                    Take our quick 3-question quiz to identify your pest and get personalized treatment recommendations.
-                  </p>
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Link
-                      href="/pest-quiz"
-                      className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-xl"
-                    >
-                      Take the Pest Quiz <ArrowRight className="h-5 w-5" />
-                    </Link>
-                    <Link
-                      href="/pests"
-                      className="inline-flex items-center gap-2 rounded-xl border-2 border-border px-8 py-4 text-base font-semibold text-foreground transition-all duration-300 hover:border-primary hover:text-primary"
-                    >
-                      Browse Pest Library
-                    </Link>
-                  </div>
-                </AnimateIn>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ GEO: ABOUT SNIPPET ═══ */}
-      <section className="bg-surface py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <AnimateIn direction="left">
-              <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">About Yogi&apos;s Pest Control</span>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Orange County&apos;s Local Pest Control Experts
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted">
-                Yogi&apos;s Pest Control is a licensed and insured pest control company serving all 34 cities in Orange County, California. We specialize in residential and commercial pest management using Integrated Pest Management (IPM) techniques and eco-friendly, EPA-approved products that are safe for families and pets.
-              </p>
-              <p className="mt-3 text-base leading-relaxed text-muted">
-                Our licensed technicians handle over 14 types of pest problems including rodents, cockroaches, ants, bed bugs, spiders, mosquitoes, wasps, bees, wildlife, and more. We offer same-day service, free inspections, and a 100% satisfaction guarantee on every job.
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {[
-                  "Licensed & Insured in CA",
-                  "EPA-Approved Products",
-                  "Same-Day Service Available",
-                  "Free Inspections",
-                  "100% Satisfaction Guarantee",
-                  "Eco-Friendly Treatments",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-foreground">
-                    <CheckCircle className="h-4 w-4 shrink-0 text-accent" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light"
-                >
-                  Learn More About Us <ArrowRight className="h-5 w-5" />
-                </Link>
-              </div>
-            </AnimateIn>
-            <AnimateIn direction="right">
-              <div className="relative h-96 overflow-hidden rounded-2xl">
-                <Image
-                  src={heroImages.team}
-                  alt="Yogi's Pest Control team serving Orange County"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ GEO: HOMEPAGE FAQ ═══ */}
-      <section className="bg-background py-20 sm:py-28">
-        <div className="mx-auto max-w-4xl px-4">
-          <AnimateIn>
-            <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-[0.1em] text-accent">Common Questions</span>
-              <h2 className="mt-2 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Frequently Asked Questions
-              </h2>
-            </div>
-          </AnimateIn>
-          <div className="mt-12 space-y-6">
-            {[
-              {
-                q: "How much does pest control cost in Orange County?",
-                a: "Pest control in Orange County typically costs between $150 and $300 for a one-time treatment, depending on the type of pest and size of the property. Quarterly maintenance plans range from $100 to $200 per visit. Yogi's Pest Control offers free inspections so you get an accurate quote before any work begins.",
-              },
-              {
-                q: "Does Yogi's Pest Control offer same-day service?",
-                a: "Yes, Yogi's Pest Control offers same-day and emergency pest control service across all 34 cities in Orange County. We're available 7 days a week from 8 AM to 8 PM. For urgent infestations like rodents, bed bugs, or wasps, call (714) 323-8262 for immediate assistance.",
-              },
-              {
-                q: "Are your treatments safe around kids and pets?",
-                a: "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you exactly how long kids and pets should stay off treated areas (usually until sprays have dried).",
-              },
-              {
-                q: "What areas does Yogi's Pest Control serve?",
-                a: "Yogi's Pest Control serves all 34 cities in Orange County, California, including Anaheim, Irvine, Huntington Beach, Santa Ana, Costa Mesa, Fullerton, Orange, Newport Beach, Mission Viejo, Lake Forest, Yorba Linda, and more. We provide residential and commercial pest control throughout the entire county.",
-              },
-              {
-                q: "What types of pests do you handle?",
-                a: "We handle all common Orange County pests including rats, mice, cockroaches, ants (Argentine ants, fire ants), bed bugs, spiders (black widows, brown recluses), wasps, bees, mosquitoes, flies, fleas, ticks, raccoons, opossums, squirrels, and more. We offer 14+ specialized pest control services.",
-              },
-              {
-                q: "Do you offer a guarantee on your pest control services?",
-                a: "Yes. Yogi's Pest Control offers a 100% satisfaction guarantee. If pests return between scheduled treatments, we'll come back and re-treat your property at no additional cost. We stand behind every job we do.",
-              },
-            ].map(({ q, a }, i) => (
-              <AnimateIn key={i} delay={i * 0.05}>
-                <div className="rounded-xl border border-border bg-surface p-6">
-                  <h3 className="text-base font-bold text-foreground">{q}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{a}</p>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
-          <AnimateIn className="mt-10 text-center">
-            <Link href="/faq" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary-light">
-              View All FAQs <ArrowRight className="h-5 w-5" />
-            </Link>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ═══ CTA BANNER ═══ */}
-      <CTABanner />
-
-      {/* GEO: Homepage FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "How much does pest control cost in Orange County?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Pest control in Orange County typically costs between $150 and $300 for a one-time treatment, depending on the type of pest and size of the property. Quarterly maintenance plans range from $100 to $200 per visit. Yogi's Pest Control offers free inspections so you get an accurate quote before any work begins.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Does Yogi's Pest Control offer same-day service?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, Yogi's Pest Control offers same-day and emergency pest control service across all 34 cities in Orange County. We're available 7 days a week from 8 AM to 8 PM.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Are your treatments safe around kids and pets?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "We use EPA-registered products and Integrated Pest Management (IPM) techniques that keep chemical use to what the job needs. Every product is applied according to its label and California Department of Pesticide Regulation rules, and we tell you exactly how long kids and pets should stay off treated areas (usually until sprays have dried).",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What areas does Yogi's Pest Control serve?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yogi's Pest Control serves all 34 cities in Orange County, California, including Anaheim, Irvine, Huntington Beach, Santa Ana, Costa Mesa, Fullerton, Orange, Newport Beach, Mission Viejo, Lake Forest, Yorba Linda, and more.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What types of pests do you handle?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "We handle all common Orange County pests including rats, mice, cockroaches, ants, bed bugs, spiders, wasps, bees, mosquitoes, flies, fleas, ticks, raccoons, opossums, squirrels, and more. We offer 14+ specialized pest control services.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Do you offer a guarantee on your pest control services?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes. Yogi's Pest Control offers a 100% satisfaction guarantee. If pests return between scheduled treatments, we'll come back and re-treat your property at no additional cost.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { Bug, Rat, Antenna, Shield, Home, Bed, TreePine, Skull, Droplets, Wind, Scissors, Sparkles, PawPrint, Search } from "lucide-react";
+import { Bug, Rat, Antenna, Shield, Home, Bed, TreePine, Skull, Droplets, Wind, Scissors, Sparkles, PawPrint, Search, Building2, Shovel } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
   "rodent-control": Rat,
@@ -15,6 +15,8 @@ const iconMap: Record<string, React.ElementType> = {
   "bed-bug-treatment": Bed,
   "wildlife-trapping": TreePine,
   "dead-animal-removal": Skull,
+  "commercial-pest-control": Building2,
+  "gopher-control": Shovel,
 };
 
 export function ServiceIcon({

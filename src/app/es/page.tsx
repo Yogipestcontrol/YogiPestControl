@@ -86,7 +86,7 @@ export default function SpanishPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: Clock, title: "Servicio el Mismo Día", desc: "Respondemos rápidamente a emergencias de plagas. Disponible 7 días a la semana." },
-              { icon: Shield, title: "Licenciado y Asegurado", desc: "Técnicos certificados con productos seguros y ecológicos." },
+              { icon: Shield, title: "Licenciado y Asegurado", desc: "Operador con licencia de California (OPR 14866). Productos aplicados según las indicaciones de la etiqueta." },
               { icon: CheckCircle, title: "Satisfacción Garantizada", desc: "Si las plagas regresan, nosotros también. Sin costo adicional." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-xl border border-border bg-surface p-8 text-center transition-shadow hover:shadow-lg">

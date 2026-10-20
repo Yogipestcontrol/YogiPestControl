@@ -2,6 +2,7 @@ import { SITE_CONFIG, OC_CITIES } from "@/lib/constants";
 import { servicesData } from "@/data/services";
 import { blogPosts } from "@/data/blog-posts";
 import { GOOGLE_PROFILE, HOMEADVISOR_PROFILE } from "@/data/reviews";
+import { CITY_SERVICE_PAGES } from "@/data/city-services";
 
 export const dynamic = "force-static";
 
@@ -32,6 +33,7 @@ ${servicesData.map((s) => `- [${s.name}](${url}/services/${s.slug}): ${s.metaDes
 ## Service area
 Primary cities: ${priority.map((c) => `[${c.name}](${url}/areas-we-serve/${c.slug})`).join(", ")}.
 Also serving: ${others.map((c) => c.name).join(", ")}.
+${CITY_SERVICE_PAGES.length ? `\nLocal service guides:\n${CITY_SERVICE_PAGES.map((p) => `- [${p.h1}](${url}/areas-we-serve/${p.citySlug}/${p.serviceSlug})`).join("\n")}\n` : ""}
 
 ## Pricing and help
 - [Pest control cost guide for Orange County](${url}/pest-control-cost)

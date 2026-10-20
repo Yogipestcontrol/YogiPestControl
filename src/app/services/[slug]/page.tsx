@@ -9,6 +9,9 @@ import { GuaranteeBadges } from "@/components/GuaranteeBadges";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 import { serviceHeroImages } from "@/lib/images";
 import { pageMeta, breadcrumbJsonLd, BUSINESS_ID } from "@/lib/seo";
+import { getServiceContent } from "@/data/service-content";
+import { cityServicePagesForService } from "@/data/city-services";
+import { ContentSections, FAQList, LinkGrid, PriceTable, faqJsonLd } from "@/components/ContentBlocks";
 
 // Only the slugs from generateStaticParams exist; anything else is a real 404.
 export const dynamicParams = false;
@@ -25,7 +28,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
   if (!service) notFound();
-  return pageMeta({ title: service.metaTitle, description: service.metaDescription, path: `/services/${service.slug}` });
+  const extra = getServiceContent(slug);
+  return pageMeta({
+    title: extra?.metaTitle ?? service.metaTitle,
+    description: extra?.metaDescription ?? service.metaDescription,
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({
@@ -39,6 +47,16 @@ export default async function ServicePage({
   if (!service) notFound();
 
   const relatedServices = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
+  const extra = getServiceContent(slug);
+  const allFaqs = [...service.faqs, ...(extra?.extraFaqs ?? [])];
+  const cityGuides = cityServicePagesForService(slug).map((p) => ({
+    href: `/areas-we-serve/${p.citySlug}/${p.serviceSlug}`,
+    anchor: p.h1,
+  }));
+  const cityLinks = [
+    ...cityGuides,
+    ...(extra?.cityLinks ?? []).filter((l) => !cityGuides.some((g) => g.href === l.href)),
+  ];
 
   return (
     <>
@@ -97,6 +115,9 @@ export default async function ServicePage({
                 <h2 className="mb-4 text-2xl font-bold text-foreground">About {service.name}</h2>
                 <p className="text-base leading-relaxed text-muted">{service.content.overview}</p>
               </div>
+
+              {extra && <ContentSections sections={extra.sections} />}
+              {extra && <PriceTable rows={extra.pricing} heading={`${service.name} Cost in Orange County`} />}
 
               {/* Signs */}
               <div className="mb-12">
@@ -161,29 +182,12 @@ export default async function ServicePage({
                 </ul>
               </div>
 
-              {/* FAQs */}
-              <div>
-                <h2 className="mb-6 text-2xl font-bold text-foreground">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  {service.faqs.map((faq, i) => (
-                    <details
-                      key={i}
-                      className="group rounded-lg border border-border bg-surface"
-                    >
-                      <summary className="cursor-pointer px-6 py-4 text-base font-semibold text-foreground">
-                        {faq.question}
-                      </summary>
-                      <div className="px-6 pb-4 text-sm leading-relaxed text-muted">
-                        {faq.answer}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            </div>
+              <FAQList faqs={allFaqs} heading="Frequently Asked Questions" />
 
+              <LinkGrid heading={`${service.name} Near You`} links={cityLinks} />
+              {extra && <LinkGrid heading="Related Guides" links={extra.related} />}
+              {extra && <p className="text-xs text-muted">Page updated {extra.updated}</p>}
+            </div>
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Quick contact card */}
@@ -271,20 +275,7 @@ export default async function ServicePage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: service.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-              },
-            })),
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(allFaqs)) }}
       />
     </>
   );

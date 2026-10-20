@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Archivo, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -14,6 +14,14 @@ const GA_ID = "G-NSXT0LW7GZ";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Condensed display face for the homepage headlines (echoes the lettering on the truck).
+const archivo = Archivo({
+  variable: "--font-condensed",
+  subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
@@ -60,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${jakarta.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${manrope.variable} ${jakarta.variable} ${archivo.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         {/* Prevent flash of wrong theme */}
         <script

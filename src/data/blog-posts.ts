@@ -756,9 +756,9 @@ Call 714-323-8262 to schedule your termite inspection today.`,
     excerpt:
       "Black widow spiders are one of the most feared pests in Orange County, and encounters are more common than you think. Learn where they hide, how to identify them, and when to call for help.",
     category: "Pest Identification",
-    metaTitle: "Black Widow Spiders in Orange County: What You Need to Know",
+    metaTitle: "Black Widows in Orange County: Where They Hide (2026)",
     metaDescription:
-      "Everything Orange County homeowners need to know about black widow spiders, including identification, habitats, and safe removal. Yogi's Pest Control: 714-323-8262.",
+      "How to spot a black widow, where they hide in Orange County garages, yards and meter boxes, what to do if bitten, and when to call for spider control.",
     publishedAt: "2025-10-20",
     content: `Black widow spiders are among the most recognizable and feared arachnids in North America, and they are well-established throughout Orange County. These venomous spiders are not aggressive by nature, but their tendency to build webs in areas where humans reach, step, or sit makes encounters surprisingly common. At Yogi's Pest Control, we remove black widows from properties across all of OC, from coastal Newport Beach to inland Yorba Linda, and want every homeowner to understand how to stay safe.
 
@@ -1074,9 +1074,9 @@ Call Yogi's Pest Control at 714-323-8262 for spider control in your Orange Count
     excerpt:
       "Fleas and ticks are a year-round concern in Southern California's mild climate. Learn when peak activity occurs and how to protect your Orange County family and pets.",
     category: "Seasonal Pest Guides",
-    metaTitle: "Flea and Tick Season in Southern California: What to Know",
+    metaTitle: "When Is Flea and Tick Season in Orange County? (2026)",
     metaDescription:
-      "Understand flea and tick season in Orange County. Protect your pets and family with prevention tips from Yogi's Pest Control. Call 714-323-8262.",
+      "Fleas and ticks stay active year-round in Orange County. See the 2026 peak months, where pets pick them up, and how to stop an infestation before it grows.",
     publishedAt: "2025-05-08",
     content: `Unlike much of the country where harsh winters kill off flea and tick populations, Southern California's mild climate allows these parasites to remain active year-round. Orange County residents with pets face a constant battle, and even homes without pets can experience flea infestations from wildlife. At Yogi's Pest Control, we treat flea and tick problems across all OC cities and educate pet owners about the unique seasonal patterns in our region.
 
@@ -1312,9 +1312,9 @@ Call 714-323-8262 for effective, safe pest control throughout Orange County.`,
     excerpt:
       "Stay ahead of summer pest problems with this updated guide to the most common pests affecting Orange County homes in 2026. Know what to watch for and how to prevent each one.",
     category: "Orange County Pest News",
-    metaTitle: "Orange County's Most Common Summer Pests (2026 Update)",
+    metaTitle: "What Pests Are Worst in Orange County Summers? (2026)",
     metaDescription:
-      "2026 guide to summer pests in Orange County including ants, rodents, mosquitoes, and more. Prevention tips from Yogi's Pest Control. Call 714-323-8262.",
+      "The pests OC homes see most in summer 2026: Argentine ants, daytime-biting mosquitoes, roof rats, roaches and wasps, plus what to do about each one now.",
     publishedAt: "2026-03-20",
     content: `As Orange County heads into another warm summer, homeowners should prepare for the pest pressures that peak during the hottest months of the year. Based on our service data from the past 12 months and current conditions, here is Yogi's Pest Control's updated guide to the most common summer pests across OC for 2026.
 
@@ -1357,5 +1357,425 @@ Paper wasp and yellowjacket colonies reach peak size by late summer, and nest re
 The most effective approach to summer pest control is proactive preparation rather than reactive treatment. Schedule a professional inspection to identify vulnerabilities, seal entry points before pest pressure peaks, and establish regular service to maintain barriers throughout the season.
 
 Contact Yogi's Pest Control at 714-323-8262 for summer pest prevention throughout Orange County.`,
+  },
+  {
+    slug: "mosquito-control-cost-orange-county-2026",
+    title: "How Much Does Mosquito Control Cost in Orange County? (2026)",
+    excerpt:
+      "Mosquito control in Orange County typically costs $150 to $300 for a one-time yard treatment or $100 to $175 per month during the season. Here is what drives the price, what you get, and what is free from the county.",
+    category: "Pest Prevention Tips",
+    metaTitle: "Mosquito Control Cost in Orange County (2026 Prices)",
+    metaDescription:
+      "2026 mosquito control prices in Orange County: $150–$300 one-time, $100–$175/mo in season. What affects cost, what's included, and free county services.",
+    publishedAt: "2026-10-19",
+    content: `Professional mosquito control in Orange County typically costs $150 to $300 for a one-time yard treatment and $100 to $175 per month for a recurring plan during the May through October season. The inspection is usually free, and the final price depends mostly on yard size, how much shaded landscaping needs treatment, and how many water features are on the property.
+
+Those numbers are the same ranges we publish on our Orange County pest control cost page, and they are what most single-family homes in cities like Costa Mesa, Garden Grove and Orange end up paying. Below is what goes into the price, what a treatment should include, and how to spend as little as possible.
+
+## Mosquito Control Prices at a Glance (2026)
+
+Free inspection: Most reputable local companies, including Yogi's Pest Control, inspect the yard and quote at no charge. Be cautious about a company that wants to spray before anyone has looked for breeding sites.
+
+One-time yard treatment, $150 to $300: A single visit that includes a breeding-site survey, dumping and scrubbing containers, larvicide in water that can't be removed, and a barrier spray on shaded resting areas. Good for an event or a first knockdown.
+
+Monthly seasonal plan, $100 to $175 per month: Repeat visits roughly every three to four weeks from late spring through fall. Each visit includes a fresh barrier treatment and a recheck of water sources. This is the best value for homes that are getting bitten all season.
+
+Large, hillside or equestrian properties, quoted on inspection: Acreage, troughs, ponds and long slopes of ivy take more time and product, so expect a custom quote rather than a standard range.
+
+## What Affects the Price
+
+Yard size is the biggest factor, but not in the way most people expect. A small yard packed with potted plants, a fountain and a tangle of shrubs can take longer than a larger yard of mostly lawn. What really drives the cost is how much vegetation and shade needs to be treated and how many places hold water.
+
+Water features add time. Fountains, ponds, birdbaths, rain barrels and pool covers all need attention. Some can be dumped and scrubbed, some need a larvicide applied according to the label, and ponds with fish need a different approach entirely.
+
+Neighborhood pressure matters too. Invasive Aedes mosquitoes usually stay close to where they hatch, so if a neighbor has an untreated breeding source, your yard will keep receiving new mosquitoes. That is why monthly service tends to outperform a single treatment in dense neighborhoods.
+
+Season length affects the total. Inland cities stay warm later into fall, so a homeowner in Orange may want service into October, while a coastal Costa Mesa homeowner might start a little later in spring.
+
+## What a Treatment Should Include
+
+A good mosquito treatment is more than a spray. When you compare quotes, ask whether these steps are included:
+
+A walk of the entire property to find breeding sites, including side yards, behind AC units and under decks.
+
+Dumping and scrubbing containers. Invasive Aedes eggs stick to the inside of containers above the waterline and can survive drying out for months, so rinsing alone is not enough.
+
+Larvicide for water you want to keep, such as fountains and ornamental ponds without fish, applied according to the product label.
+
+A barrier treatment on resting areas: the underside of shrubs, ivy, hedges, fences and shaded walls. Adult mosquitoes rest in these places during the day.
+
+Clear re-entry guidance. Products should be EPA-registered and applied per the label, and you should be told how long to keep people and pets off treated areas, usually until the spray has dried.
+
+## Typical Costs in Three Orange County Cities
+
+Costa Mesa: Many Eastside and Westside lots are small, which keeps a one-time treatment toward the lower end of the $150 to $300 range. The mosquitoes biting during the day here usually come from containers close to home rather than from Upper Newport Bay or the Santa Ana River, which are monitored by the county vector control district. Our Costa Mesa mosquito control page covers the local breeding spots we find most often.
+
+Garden Grove: Invasive Aedes were confirmed in Garden Grove in 2015 after residents reported daytime leg bites. Backyard gardens with buckets, pots and rain barrels are common sources, and closely spaced lots mean neighbors' yards matter. Most homes fall in the standard range, while duplexes and multi-unit properties are quoted on inspection. See our Garden Grove mosquito control page for details.
+
+Orange: Standard lots in Old Towne and El Modena fall in the normal range, but horse properties and larger lots in Orange Park Acres and the eastern hills often need a custom quote because of troughs, ponds and slopes. Our Orange mosquito control page explains how we handle equestrian properties.
+
+## What the County Does for Free
+
+Before you pay anyone, know what the Orange County Mosquito and Vector Control District provides at no charge. The district is funded through property taxes and serves the whole county. You can request an inspection, report a neglected green pool, and request mosquitofish for ponds and other water on your own property. The district can be reached at ocvector.org or 714-971-2421.
+
+The district focuses on public wetlands, channels and reported problem sources. What it does not do is treat your yard on a schedule so you can use your patio. That is the gap private mosquito control fills, and the two work best together.
+
+## How to Keep Costs Down
+
+The cheapest mosquito control is removing water. Once a week, tip out plant saucers, buckets, toys and anything else holding water, and scrub the inside walls. Clean gutters, extend downspouts away from low spots, and cover or screen rain barrels. Change birdbath water at least weekly.
+
+Fix screens on windows and doors so mosquitoes stay outside. Use a fan on the patio; mosquitoes are weak fliers. If you only need relief for a single party or event, a one-time treatment a few days before is enough. If you are getting bitten every afternoon from June through October, a monthly plan usually costs less per visit than repeated one-time treatments and works better.
+
+Ask for a written quote after the inspection, and make sure it lists what is included. A low price that skips breeding-site removal is not a bargain if the mosquitoes are back in a week.
+
+## Is Monthly Mosquito Service Worth It?
+
+For most Orange County homes that get bitten regularly, yes. A barrier treatment typically lasts three to four weeks, and invasive Aedes keep emerging as long as there is warm weather and small amounts of water nearby. Monthly visits keep the treatment fresh and catch new breeding sources before they become a problem.
+
+If your mosquito problem is mild or limited to a short stretch of summer, start with a one-time treatment and the habits above. You can always add monthly service later.
+
+## Get a Free Mosquito Quote
+
+Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the California Structural Pest Control Board (OPR 14866), and based in Tustin. We serve all of Orange County 7 days a week from 8 AM to 8 PM. For our full price list across all services, see the pest control cost page, or read about how our mosquito control service works. Call 714-323-8262 to schedule a free inspection.`,
+  },
+  {
+    slug: "why-mosquitoes-bite-during-the-day-orange-county-aedes",
+    title: "Why Mosquitoes Bite During the Day in Orange County (Invasive Aedes)",
+    excerpt:
+      "If mosquitoes are biting your ankles in the middle of the afternoon, you are almost certainly dealing with invasive Aedes mosquitoes. Here is why they bite during the day, where they breed, and how to stop them.",
+    category: "Pest Identification",
+    metaTitle: "Why Do Mosquitoes Bite During the Day in Orange County?",
+    metaDescription:
+      "Daytime mosquito bites in Orange County usually mean invasive Aedes. Learn how to identify them, where they breed in your yard, and how to stop the bites.",
+    publishedAt: "2026-10-19",
+    content: `Mosquitoes that bite during the day in Orange County are almost always invasive Aedes mosquitoes, either Aedes aegypti (the yellow fever mosquito) or Aedes albopictus (the Asian tiger mosquito). Unlike the native mosquitoes most of us grew up with, which bite mainly at dusk and at night, these species are active during daylight hours and breed in tiny amounts of water close to homes. The solution is less about spraying and more about finding the small containers in your own yard where they breed.
+
+## How Invasive Aedes Arrived in Orange County
+
+The Orange County Mosquito and Vector Control District first collected invasive Aedes in Mission Viejo in 2015. Later that same year, residents in Garden Grove called the district about aggressive mosquitoes biting their legs during the day, and the district confirmed the invasive species there. By 2018, the district had documented infestations in more than 20 cities across the county, including Anaheim, Costa Mesa, Garden Grove, Huntington Beach, Irvine, Orange, Santa Ana and Tustin.
+
+These mosquitoes spread mostly by hitchhiking. Their eggs can survive dry for months on the inside walls of containers, so a plant pot, tire or bucket moved from one place to another can carry them to a new neighborhood. Once established, they are very hard to eliminate from an area.
+
+## How to Tell Invasive Aedes From Native Mosquitoes
+
+Invasive Aedes are small, dark, and marked with bright white stripes or bands on their legs and body. Native Culex mosquitoes, the main West Nile virus carriers in California, are usually brown and plain by comparison.
+
+Here is a quick comparison:
+
+When they bite: Aedes bite throughout the day and into the evening. Culex mostly bite from dusk through the night.
+
+Where they bite: Aedes tend to go after ankles, lower legs and the backs of arms, often approaching from behind. Culex bite wherever skin is exposed.
+
+How they behave: Aedes are persistent and will follow you around the yard. Culex are more likely to be noticed buzzing around at night indoors.
+
+Where they breed: Aedes use small containers, sometimes as little as a bottle cap of water. Culex prefer larger standing water such as catch basins, storm drains and neglected pools.
+
+If you are getting bitten at lunch on the patio, while gardening in the afternoon, or while sitting in the shade on a weekend morning, Aedes are the likely culprit.
+
+## Why They Bite During the Day
+
+Aedes aegypti evolved to live closely alongside people. It prefers human blood, rests in shaded spots close to homes, and is active when people are outside, which is during the day. Aedes albopictus is similarly a daytime biter. Both species do much of their biting in the morning and late afternoon, but in shaded yards they will bite at almost any hour.
+
+This behavior is why traditional evening fogging or bug zappers do little against them. They are resting in your shrubs during the times those tools run, and they are attracted to people rather than light.
+
+## Where They Breed in Orange County Yards
+
+Because invasive Aedes need so little water, the sources are usually close to where you are being bitten, often in your own yard or the yard next door. The most common breeding spots we find in Orange County include:
+
+Plant saucers, potted plants and planters without drainage holes.
+
+Buckets, watering cans, toys and pet water bowls left outside.
+
+Clogged gutters and the low spot at the end of a downspout.
+
+Birdbaths and fountains that are topped off but not scrubbed.
+
+Rain barrels without tight lids or fine mesh screens.
+
+Tarps, pool covers, tires and anything stored outdoors that collects a little water.
+
+Air conditioner condensate lines dripping into a low spot.
+
+Bromeliads and other plants that hold water where leaves meet.
+
+## Why Emptying Water Is Not Enough
+
+Invasive Aedes lay their eggs on the inside walls of containers, just above the waterline. When the container dries out, the eggs survive and wait. The next time the container fills, from rain, a sprinkler or hand watering, they hatch. That means simply tipping out a bucket does not get rid of the eggs. Containers need to be scrubbed with a brush, turned upside down, thrown away, or covered.
+
+A weekly routine works best: walk your yard once a week, tip and scrub anything holding water, and store buckets and pots upside down or under cover.
+
+## Health Risks
+
+Invasive Aedes can transmit viruses such as dengue, Zika and chikungunya in parts of the world where those viruses circulate. In Orange County, these viruses are not regularly transmitted locally, but health officials watch for cases because a traveler infected abroad could be bitten by a local Aedes mosquito and start local spread. These mosquitoes can also transmit dog heartworm. For most residents, the main issue is the constant itchy bites that make it hard to use outdoor space.
+
+If you have symptoms such as fever, rash or joint pain after travel, talk to a doctor and mention where you traveled.
+
+## Local Examples: Costa Mesa and Garden Grove
+
+In Costa Mesa, many people assume their mosquitoes come from Upper Newport Bay or the Santa Ana River. Those wetlands are monitored by the vector control district, and the daytime biters on Eastside patios and Mesa Verde backyards usually come from potted plants, fountains and clogged drains much closer to home. Our Costa Mesa mosquito control page lists the breeding spots we find most often there.
+
+In Garden Grove, where invasive Aedes were confirmed in 2015, the flat, closely spaced lots and productive backyard gardens with buckets and rain barrels give these mosquitoes plenty of places to breed. Our Garden Grove mosquito control page explains why neighbors' yards matter so much in that city.
+
+## Do Citronella Candles, Zappers and Traps Help?
+
+Most backyard gadgets do little against invasive Aedes. Bug zappers attract insects with light, but Aedes are drawn to people, not to light, and zappers mostly kill harmless insects. Citronella candles offer limited protection only very close to the flame. Some traps designed specifically for Aedes can catch a portion of the local population, but they work best as a monitoring tool alongside container removal, not as a replacement for it.
+
+What does work is the combination of removing breeding water, keeping shaded resting areas trimmed or treated, and using an EPA-registered repellent on your skin when you are outside.
+
+## How to Stop Daytime Mosquito Bites
+
+Remove and scrub containers weekly. This is the single most effective step and costs nothing.
+
+Repair window and door screens so mosquitoes stay outside.
+
+Use an EPA-registered repellent when you are outdoors, following label directions.
+
+Run a fan on the patio. Aedes are weak fliers and struggle in moving air.
+
+Trim dense, shaded vegetation near seating areas so there are fewer resting spots.
+
+Report neglected pools and request free mosquitofish for ponds through the Orange County Mosquito and Vector Control District at ocvector.org or 714-971-2421.
+
+## When to Call a Professional
+
+If you have done the weekly container routine and are still getting bitten, the source may be hidden in your yard or coming from nearby properties. A professional mosquito treatment includes a full breeding-site survey, larvicide for water that can't be removed, and an EPA-registered barrier spray applied to shaded resting areas according to the label. During the May through October season, monthly visits typically cost $100 to $175 per month, and a one-time treatment runs $150 to $300.
+
+Yogi's Pest Control is licensed by the California Structural Pest Control Board (OPR 14866) and serves all of Orange County 7 days a week. Call 714-323-8262 for a free mosquito inspection.`,
+  },
+  {
+    slug: "roof-rats-costa-mesa-coastal-orange-county",
+    title: "Roof Rats in Costa Mesa & Coastal OC: Palms, Ivy and Attics",
+    excerpt:
+      "Roof rats are the most common rodent in Costa Mesa and coastal Orange County. Learn how palms, ivy and fruit trees lead them into attics and garages, and what it takes to get them out for good.",
+    category: "Pest Identification",
+    metaTitle: "Roof Rats in Costa Mesa & Coastal OC: Palms, Ivy, Attics",
+    metaDescription:
+      "Why roof rats thrive in Costa Mesa and coastal OC, how palms and ivy lead them into attics, and how sealing plus trapping stops them. Signs and 2026 costs.",
+    publishedAt: "2026-10-19",
+    content: `Roof rats are the most common rodent in Costa Mesa and the rest of coastal Orange County, and they get into homes from above, not below. They nest in palm fronds, ivy and dense trees, travel along fences, branches and utility lines, and enter attics through small gaps at the roofline and vents. Getting rid of them takes two steps done together: sealing every entry point and trapping the rats already inside, followed by return visits to confirm they are gone.
+
+## What a Roof Rat Looks Like
+
+Roof rats, also called black rats or ship rats, are slim and agile, with large ears, a pointed nose, and a tail that is longer than their head and body combined. They are usually dark gray to black or brown. They are smaller and sleeker than Norway rats, which are heavier, have shorter tails, and tend to burrow at ground level.
+
+The droppings are about half an inch long with pointed ends. You will usually find them in attics, along garage walls and shelves, and in storage areas.
+
+## Why Coastal OC Is Ideal Roof Rat Habitat
+
+According to University of California pest management guidance, roof rats prefer to nest above ground in trees, shrubs and dense vegetation such as ivy, and indoors in elevated, enclosed spaces like attics and wall voids. They often travel a few hundred feet to find food, which means rats living in a palm on one property may feed on fruit trees several houses away.
+
+Coastal Orange County gives them almost everything they need:
+
+Palms with skirts of dead fronds, which provide dense, protected nesting spots.
+
+Algerian ivy and other thick ground covers on slopes, fences and block walls.
+
+Citrus, avocado and other fruit trees in backyards, plus fallen fruit.
+
+Bird feeders and pet food left outdoors.
+
+Power lines, cable lines and fence tops that act as highways to the roof.
+
+A mild climate that allows breeding through much of the year, with peaks commonly in spring and fall.
+
+## Costa Mesa's Housing and How Rats Get In
+
+Costa Mesa has a wide mix of housing. Many homes on the Westside and Eastside date to the 1950s, with older rooflines, raised foundations and crawl space vents. Mesa Verde and College Park have larger tract homes with mature trees. Remodels and newer ADUs are common across the city, and sometimes leave small gaps where new construction meets old.
+
+The entry points we find most often in Costa Mesa homes include:
+
+Gaps at the eaves and where roof sections meet.
+
+Torn or rusted screens on attic, gable and foundation vents.
+
+Openings around plumbing, air conditioning lines, and cable or solar wiring.
+
+Corners of garage doors with worn weather stripping.
+
+Tree branches and palm fronds touching or overhanging the roof.
+
+A roof rat can squeeze through a surprisingly small opening, and once one finds a way in, others follow the same path.
+
+Nearby Newport Beach sees the same pattern, especially in neighborhoods with mature palms and canopy trees close to rooflines. If you live there, our Newport Beach service area page covers local pest issues.
+
+## Signs You Have Roof Rats
+
+Scratching, running or rustling sounds in the ceiling or walls, especially at night.
+
+Droppings in the attic, garage, cabinets or along walls.
+
+Chewed fruit still hanging on trees, or hollowed-out citrus on the ground.
+
+Gnawed boxes, wires, irrigation lines or insulation.
+
+Greasy rub marks along beams, pipes and walls where rats travel repeatedly.
+
+Pets staring at walls or ceilings.
+
+A common pattern we see is rats living in the attic and moving down into the garage through gaps around pipes and wiring. One customer review describes us trapping 16 roof rats over several visits in exactly that situation.
+
+## Why Trapping Alone Fails
+
+If you trap rats without sealing the entry points, new rats keep moving in, especially in neighborhoods where palms and ivy support a large outdoor population. If you seal without trapping, rats can be trapped inside, where they cause more damage and may die in walls. The right order is to inspect, seal the entry points, and trap the rats that are already inside, then return on a schedule to check traps and confirm no new activity.
+
+We use traps placed along rat runways in attics and garages, out of reach of children and pets, and we do not scatter loose poison in attics. Sealing is done with materials rodents can't chew through, such as galvanized steel mesh, hardware cloth and metal flashing.
+
+## What Roof Rat Control Costs
+
+Here are typical 2026 prices for Orange County, consistent with our published pest control cost page:
+
+Rodent inspection: Free.
+
+Rodent control with trapping and follow-up visits: $200 to $500 for most homes.
+
+Exclusion repairs to seal entry points: $300 to $1,500 or more, depending on the number and type of openings.
+
+Ongoing rodent monitoring: $100 to $200 per month, for homes with repeat pressure.
+
+Attic cleanout and insulation replacement: $500 to $3,000 or more, only when contamination is heavy.
+
+Most homes are rodent-free within one to two weeks of starting service.
+
+## Yard Habits That Keep Roof Rats Away
+
+Trim palms to remove the dead fronds hanging below the crown.
+
+Cut tree branches back so they stay several feet away from the roof.
+
+Pull ivy off walls and fences close to the house, and thin dense ground cover.
+
+Pick up fallen fruit, and harvest ripe fruit promptly.
+
+Store pet food and bird seed in sealed metal or hard plastic containers, and bring pet bowls in at night.
+
+Keep garage doors closed, and declutter stored boxes so you can spot activity early.
+
+Have the roofline and vents checked once a year, since new gaps open as homes age.
+
+## When Roof Rat Activity Peaks
+
+Roof rats can be active in coastal Orange County any month of the year, but most homeowners notice them at predictable times. Fall is a common time for new attic activity, as young rats born over the summer look for their own territory and fruit on backyard trees ripens. Spring is the other busy season, when breeding picks up. Summer often brings complaints about chewed fruit, especially oranges and avocados that are hollowed out while still on the tree.
+
+The best time to seal a home is before you hear anything. If you have palms, fruit trees or heavy ivy near your house, an inspection in late summer or early fall catches gaps before rats find them.
+
+## Do Ultrasonic Repellers or Peppermint Oil Work?
+
+Plug-in ultrasonic devices and scent repellents like peppermint oil are popular, but they do not solve a roof rat problem. Rats may avoid them briefly and then get used to them, and none of these products close the openings rats are using. If rats are already in your attic, sealing entry points and trapping is the approach that actually ends the infestation.
+
+## Health and Property Risks
+
+Rats can carry and spread diseases through droppings, urine and parasites, and their gnawing damages insulation, ducting and wiring. Chewed wiring can be a fire risk. If you see damage to wiring during cleanup, have it checked by an electrician.
+
+## Getting Help in Costa Mesa
+
+Our Costa Mesa rodent control page goes into the specific neighborhoods and housing types we work in, and our rodent control service page explains the full process. We also have a roof rat identification guide in our pest library.
+
+Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the California Structural Pest Control Board (OPR 14866), and based in nearby Tustin. We serve Costa Mesa and all of Orange County 7 days a week from 8 AM to 8 PM. Call 714-323-8262 for a free rodent inspection.`,
+  },
+  {
+    slug: "bee-swarm-season-anaheim-what-to-do",
+    title: "Bee Swarm Season in Anaheim: What to Do and Who to Call",
+    excerpt:
+      "A bee swarm on your Anaheim tree or fence is usually calm, but it can move into your walls within days. Here is what to do, what not to do, who is responsible, and what bee removal costs.",
+    category: "Seasonal Pest Guides",
+    metaTitle: "Bee Swarm in Anaheim? What to Do and Who to Call",
+    metaDescription:
+      "Found a bee swarm in Anaheim? Keep your distance, don't spray it, and call a licensed pro. Swarm season timing, Africanized bee safety, and 2026 costs.",
+    publishedAt: "2026-10-19",
+    content: `If you find a bee swarm in Anaheim, keep people and pets away, do not spray or disturb it, and call a licensed pest control company to remove it before the bees move into a wall, roof or meter box. A resting swarm is usually not defensive, but an established hive can be, and many wild colonies in Southern California have Africanized genetics. In Orange County, bees on private property are the property owner's responsibility, and the County directs residents to a private pest control company.
+
+## What Is a Bee Swarm?
+
+Honey bee colonies reproduce by swarming. When a hive becomes crowded, the old queen leaves with a large portion of the workers to start a new colony. The swarm flies out in a loud, swirling cloud, then settles in a cluster on a tree branch, fence, eave, mailbox or car while scout bees search for a permanent home.
+
+A clustered swarm is in a temporary state. Its bees are full of honey for the trip, and with no comb or brood to protect, they are usually calm. The swarm may move on within hours or stay for a few days. The problem is where it goes next: a wall void, attic, chimney, water meter box, irrigation valve box, or the hollow trunk of a tree on your property.
+
+## When Is Swarm Season in Anaheim?
+
+In Southern California, swarming is most common in spring, when colonies build up quickly on blooming plants. Warm years can bring swarms into summer and early fall as well. Because winters in Anaheim are mild, colonies may not slow down much, and swarm activity can start early in the year.
+
+Here is a general seasonal guide for Anaheim and inland Orange County:
+
+Late winter: Colonies begin building up. Early swarms are possible after warm spells.
+
+Spring: Peak swarm season. Clusters on trees, fences and eaves are common.
+
+Summer: Swarms continue in warm years. Established colonies in walls and boxes grow large, and honey can soften and leak in the heat.
+
+Fall: Fewer swarms. Established hives remain active and defensive.
+
+Winter: Established hives inside structures are still present and can be removed.
+
+## Africanized Honey Bees in Anaheim
+
+Africanized honey bees are established in Southern California, and they have interbred with the European honey bees kept by beekeepers. You cannot tell them apart by looking. The difference is behavior. Africanized colonies respond to disturbances faster, in larger numbers, and chase people farther than typical European honey bees.
+
+Anaheim's mix of older neighborhoods, the Santa Ana River corridor, and the open space around Anaheim Hills and Santa Ana Canyon gives wild colonies plenty of places to live. That is why it is important to treat every established hive with caution.
+
+## What to Do If You Find a Swarm
+
+Keep everyone, especially children and pets, at least several car lengths away.
+
+Close nearby windows and doors, and keep pets indoors.
+
+Do not spray it with water, insecticide or anything else.
+
+Do not throw objects at it, try to knock it down, or light a fire or smoke near it.
+
+Take a photo from a safe distance and note where it is and how long it has been there.
+
+Call a licensed pest control company or bee removal professional.
+
+## What to Do If Bees Are Going In and Out of a Hole
+
+A steady stream of bees going in and out of one opening in a wall, eave, roof tile, meter box or tree means an established colony is inside. Do not plug the hole. Bees trapped inside will look for another way out, often into your home. Do not spray into the opening. That can provoke a defensive response and leaves dead bees and comb inside the wall, which attract other pests.
+
+Keep the area clear and call a professional. If someone is being stung repeatedly or shows signs of an allergic reaction such as difficulty breathing or swelling of the face or throat, call 911 right away. If you are being chased, run in a straight line to a car or building and do not stop to swat.
+
+## Who Is Responsible for Removing Bees?
+
+In Orange County, bees on private property are the property owner's responsibility. The County of Orange and the Orange County Agricultural Commissioner direct residents to a private pest control company for hives and swarms on private property. For bees on a public sidewalk or parkway, contact your city to ask who handles it.
+
+If you rent, tell your landlord or property manager right away. For businesses, removing bees quickly from signs, planters and entryways protects customers and employees.
+
+## Common Hive Locations in Anaheim
+
+In the Anaheim Colony historic district and the older neighborhoods around Downtown and West Anaheim, wood-sided homes and older stucco often have gaps at the eaves, vents and chimneys. In Anaheim Hills and Canyon Rim, hives show up under roof tiles, in block walls along slopes, and in outdoor kitchens. Businesses along Katella Avenue, Harbor Boulevard and the Platinum Triangle often find bees in signs, light fixtures and planters.
+
+Across the city, water meter boxes and irrigation valve boxes are some of the most common bee locations of all. Never open one if you see bees going in and out.
+
+## How Bee Removal Works
+
+A professional starts by assessing the location, colony size and how the bees are behaving. A clustered swarm can often be removed in a single short visit. When a colony is healthy, accessible and not overly defensive, we work with local beekeepers on live removal whenever possible.
+
+When a hive is inside a structure, the area is opened, and the comb and honey are removed. That step matters because honey and wax left in a wall attract ants, cockroaches and rodents, can stain drywall as it melts in summer heat, and draw new swarms to the same spot. Finally, the entry point is sealed so the next swarm can't move in. In situations where live removal is not safe, other methods are used, and a good technician explains why before starting.
+
+## What Bee Removal Costs in Anaheim (2026)
+
+Bee assessment: Free.
+
+Exposed swarm or easy-access hive on branches, fences, eaves or boxes: $150 to $500.
+
+Established hive inside a wall, roof or chimney, including opening the area and comb removal: $500 to $800 or more.
+
+Sealing the entry point: Quoted with the job.
+
+The biggest cost factor is access. A swarm on a low branch is quick. A hive that has been inside a second-story wall for a year takes much more work.
+
+## Preventing Bees From Moving In
+
+Seal gaps in eaves, soffits and siding, and repair damaged vent screens.
+
+Cap unused chimneys and pipes.
+
+Make sure meter box and valve box lids fit tightly, and fill unused holes in the ground.
+
+Remove old furniture, equipment and debris where bees could set up a colony.
+
+After a hive is removed, make sure the entry point is sealed, since the scent of an old hive can attract new swarms.
+
+## Call for Bee Removal in Anaheim
+
+Our Anaheim bee removal page covers local hive locations and pricing in more detail, and our bee removal service page explains the full process. Yogi's Pest Control is owner-operated, licensed by the California Structural Pest Control Board (OPR 14866), and serves Anaheim and all of Orange County 7 days a week from 8 AM to 8 PM. Call 714-323-8262.`,
   },
 ];

@@ -1,0 +1,105 @@
+[
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-roof-rats",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:23.615Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-bed-bugs",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:24.087Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-bees",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:24.217Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "attic-flashlight",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:24.586Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-mosquitoes",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:24.603Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "hero-night",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:24.882Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "hero-night-tall",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:25.295Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-ants",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:25.443Z"
+  },
+  {
+    "kind": "image",
+    "model": "gemini-3-pro-image",
+    "id": "deck-wildlife",
+    "usd": 0.134,
+    "at": "2026-10-19T23:04:25.752Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "hero-night-tall",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-19T23:04:41.927Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-bees",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-19T23:04:42.055Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "attic-flashlight",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-19T23:04:42.099Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "hero-night",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-19T23:04:42.120Z"
+  },
+  {
+    "kind": "video",
+    "model": "veo-3.1-fast-generate-preview",
+    "id": "deck-roof-rats",
+    "shape": "bytesBase64Encoded/durationSeconds:number",
+    "usd": 1.2,
+    "at": "2026-10-19T23:04:42.218Z"
+  }
+]

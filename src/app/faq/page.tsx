@@ -120,7 +120,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "Do I need to leave my home during treatment?",
         answer:
-          "For most treatments, you do not need to leave. However, for certain services like fumigation or heavy-duty spraying, we may recommend vacating the property for a few hours. Your technician will advise you before treatment begins.",
+          "For most treatments, you do not need to leave. However, for certain interior treatments, we may recommend vacating the property for a few hours. Your technician will advise you before treatment begins.",
       },
       {
         question: "How quickly will I see results?",

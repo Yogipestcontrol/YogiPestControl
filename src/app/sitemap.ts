@@ -5,6 +5,7 @@ import { pestsData } from "@/data/pests";
 import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
 import { CONTENT_UPDATED } from "@/lib/seo";
+import { CITY_SERVICE_PAGES } from "@/data/city-services";
 
 const BASE_URL = "https://yogispestcontrol.com";
 
@@ -49,6 +50,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: city.priority === "high" ? 0.9 : city.priority === "medium" ? 0.8 : 0.7,
   }));
 
+  // City × service pages
+  const cityServicePages: MetadataRoute.Sitemap = CITY_SERVICE_PAGES.map((p) => ({
+    url: `${BASE_URL}/areas-we-serve/${p.citySlug}/${p.serviceSlug}`,
+    lastModified: new Date(p.updated),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
   // Pest pages
   const pestPages: MetadataRoute.Sitemap = pestsData.map((pest) => ({
     url: `${BASE_URL}/pests/${pest.slug}`,
@@ -77,6 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...servicePages,
     ...cityPages,
+    ...cityServicePages,
     ...pestPages,
     ...blogPages,
     ...categoryPages,

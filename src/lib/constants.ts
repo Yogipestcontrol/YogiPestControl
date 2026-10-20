@@ -41,6 +41,8 @@ export const SERVICES = [
   { slug: "bed-bug-treatment", name: "Bed Bug Treatment", shortDesc: "Complete bed bug eradication", icon: "bed" },
   { slug: "wildlife-trapping", name: "Wildlife Trapping", shortDesc: "Humane wildlife capture", icon: "wildlife" },
   { slug: "dead-animal-removal", name: "Dead Animal Removal", shortDesc: "Safe removal & cleanup", icon: "cleanup" },
+  { slug: "commercial-pest-control", name: "Commercial Pest Control", shortDesc: "Restaurants, HOAs, offices & warehouses", icon: "shield" },
+  { slug: "gopher-control", name: "Gopher Control", shortDesc: "Gopher trapping for lawns & gardens", icon: "wildlife" },
 ] as const;
 
 export const OC_CITIES = [
@@ -83,8 +85,8 @@ export const OC_CITIES = [
 export const GUARANTEE_BADGES = [
   { label: "Same-Day Response", icon: "clock" },
   { label: "100% Satisfaction Guarantee", icon: "check-circle" },
-  { label: "Eco-Friendly Products", icon: "leaf" },
-  { label: "Licensed & Insured", icon: "shield-check" },
-  { label: "Family & Pet Safe", icon: "heart" },
+  { label: "EPA-Registered Products", icon: "leaf" },
+  { label: "CA Licensed OPR 14866", icon: "shield-check" },
+  { label: "Owner-Operated", icon: "heart" },
   { label: "Free Inspections", icon: "search" },
 ] as const;
