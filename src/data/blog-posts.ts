@@ -1,3 +1,6 @@
+import { BLOG_POSTS_2 } from "./blog-posts-2";
+import { BLOG_POSTS_3 } from "./blog-posts-3";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -9,7 +12,7 @@ export interface BlogPost {
   content: string;
 }
 
-export const blogPosts: BlogPost[] = [
+const basePosts: BlogPost[] = [
   {
     slug: "rat-vs-mouse-identifying-rodents-in-your-oc-home",
     title: "Rat vs Mouse: Identifying Rodents in Your OC Home",
@@ -26,7 +29,7 @@ export const blogPosts: BlogPost[] = [
 
 The most obvious difference between rats and mice is size. An adult house mouse measures roughly 3 to 4 inches long with a thin, slightly hairy tail that is about the same length as its body. Mice have large ears relative to their head, pointed snouts, and light brown or gray fur.
 
-Roof rats, the most common rat species in Orange County, are considerably larger at 6 to 8 inches in body length with a long, smooth, hairless tail that often exceeds their body length. Norway rats are even bulkier, with thicker bodies and shorter tails. Rats have smaller ears relative to their head and blunter snouts compared to mice.
+[Roof rats](/pests/roof-rats), the most common rat species in Orange County, are considerably larger at 6 to 8 inches in body length with a long, smooth, hairless tail that often exceeds their body length. [Norway rats](/pests/norway-rats) are even bulkier, with thicker bodies and shorter tails. Rats have smaller ears relative to their head and blunter snouts compared to mice.
 
 ## Droppings Tell the Story
 
@@ -46,9 +49,9 @@ Both rats and mice gnaw on electrical wiring, which creates serious fire hazards
 
 ## What to Do When You Spot Evidence
 
-If you find droppings, gnaw marks, or hear sounds in your walls, avoid handling any contaminated materials without protection. Contact a licensed pest control professional who can perform a thorough inspection. At Yogi's Pest Control, our technicians identify the species, locate entry points, set targeted traps, and seal your home with professional exclusion repairs.
+If you find droppings, gnaw marks, or hear sounds in your walls, avoid handling any contaminated materials without protection. Contact a licensed pest control professional who can perform a thorough inspection. At Yogi's Pest Control, our technicians identify the species, locate entry points, set targeted traps, and seal your home with [professional exclusion repairs](/services/exclusion-repairs).
 
-Getting a proper identification early saves time, money, and frustration. Call us at 714-323-8262 for a free inspection anywhere in Orange County.`,
+Getting a proper identification early saves time, money, and frustration. Call us at 714-323-8262 for a [free inspection](/book) anywhere in Orange County.`,
   },
   {
     slug: "how-rodents-enter-orange-county-attics",
@@ -64,7 +67,7 @@ Getting a proper identification early saves time, money, and frustration. Call u
 
 ## Why Rodents Love OC Attics
 
-Attics provide shelter, warmth, and safety from predators. In Orange County, roof rats are the primary culprits because they are natural climbers. Unlike Norway rats that prefer ground-level burrows, roof rats travel along power lines, tree branches, and fences to reach your roofline. Once there, they need only a gap the size of a quarter to squeeze inside.
+Attics provide shelter, warmth, and safety from predators. In Orange County, [roof rats](/pests/roof-rats) are the primary culprits because they are natural climbers. Unlike Norway rats that prefer ground-level burrows, roof rats travel along power lines, tree branches, and fences to reach your roofline. Once there, they need only a gap the size of a quarter to squeeze inside.
 
 ## The Most Common Entry Points
 
@@ -80,7 +83,7 @@ Scratching and scurrying sounds at night are the most obvious indicator. Check y
 
 ## Professional Exclusion: The Permanent Solution
 
-Trapping alone does not solve a rodent problem if entry points remain open. Professional exclusion involves a systematic inspection of your entire roofline and exterior, followed by sealing every gap with rodent-proof materials. At Yogi's Pest Control, we use galvanized steel mesh, metal flashing, and commercial-grade sealants that withstand gnawing.
+Trapping alone does not solve a [rodent problem](/services/rodent-control) if entry points remain open. [Professional exclusion](/services/exclusion-repairs) involves a systematic inspection of your entire roofline and exterior, followed by sealing every gap with rodent-proof materials. At Yogi's Pest Control, we use galvanized steel mesh, metal flashing, and commercial-grade sealants that withstand gnawing.
 
 Our exclusion process begins with a complete exterior inspection using ladders and, when necessary, drones for hard-to-reach areas. We document every gap, crack, and vulnerable point. After trapping and removing the existing population, we seal all entry points and reinforce weak areas. We also recommend trimming trees back at least four feet from the roofline and removing ivy or dense vegetation that grows against exterior walls.
 
@@ -88,7 +91,7 @@ Our exclusion process begins with a complete exterior inspection using ladders a
 
 After exclusion, schedule an annual inspection to check for new gaps caused by settling, weather, or wear. Keep fruit trees harvested and fallen fruit cleaned up promptly. Store pet food indoors and secure trash bins. These habits, combined with professional exclusion, keep Orange County attics rodent-free.
 
-Call Yogi's Pest Control at 714-323-8262 for a free attic inspection and exclusion estimate.`,
+Call Yogi's Pest Control at 714-323-8262 for a [free attic inspection](/book) and exclusion estimate.`,
   },
   {
     slug: "argentine-ants-orange-county-why-they-keep-coming-back",
@@ -100,7 +103,7 @@ Call Yogi's Pest Control at 714-323-8262 for a free attic inspection and exclusi
     metaDescription:
       "Argentine ants form super-colonies across Orange County neighborhoods. Learn why they keep returning and how professional treatment eliminates them. Call Yogi's Pest Control at 714-323-8262.",
     publishedAt: "2026-02-05",
-    content: `If you live in Orange County, you have almost certainly dealt with tiny brown ants trailing through your kitchen, bathroom, or along your home's foundation. These are Argentine ants, and they are by far the most common and frustrating ant species in Southern California. At Yogi's Pest Control, ant calls account for a significant portion of our service requests in cities like Irvine, Huntington Beach, Newport Beach, and throughout the county.
+    content: `If you live in Orange County, you have almost certainly dealt with tiny brown ants trailing through your kitchen, bathroom, or along your home's foundation. These are [Argentine ants](/pests/argentine-ants), and they are by far the most common and frustrating ant species in Southern California. At Yogi's Pest Control, ant calls account for a significant portion of our service requests in cities like [Irvine](/areas-we-serve/irvine), [Huntington Beach](/areas-we-serve/huntington-beach), Newport Beach, and throughout the county.
 
 ## What Makes Argentine Ants Different
 
@@ -122,7 +125,7 @@ This year-round pressure is why many Orange County homeowners feel like ants nev
 
 ## How Professional Treatment Works
 
-Effective Argentine ant control requires a targeted baiting strategy rather than barrier sprays. Professional-grade gel and granular baits are formulated to be carried back to the colony and shared among workers and queens through a process called trophallaxis. As the bait spreads through the colony, it reaches the queens and reproductive members that sustain the population.
+Effective [Argentine ant control](/services/ant-control) requires a targeted baiting strategy rather than barrier sprays. Professional-grade gel and granular baits are formulated to be carried back to the colony and shared among workers and queens through a process called trophallaxis. As the bait spreads through the colony, it reaches the queens and reproductive members that sustain the population.
 
 At Yogi's Pest Control, we combine strategic bait placement around the exterior perimeter with non-repellent liquid treatments that ants walk through without detecting. This dual approach allows foraging ants to carry the active ingredients deep into the colony. We also address the conditions attracting ants, including moisture issues, vegetation contact with your home, and accessible food sources.
 
@@ -170,13 +173,13 @@ Check your attic for signs of rodent activity including droppings, gnaw marks, a
 
 ## Common Spring Pests in Orange County
 
-Argentine ants are the number one spring pest in OC. They invade in massive numbers seeking food and water as their colonies expand. Spiders, particularly black widows and cellar spiders, become active in garages and outdoor storage areas. Roof rats continue to be a year-round issue but breeding peaks in spring. Mosquitoes become problematic in areas with poor drainage, especially after spring rains.
+[Argentine ants](/pests/argentine-ants) are the number one spring pest in OC. They invade in massive numbers seeking food and water as their colonies expand. Spiders, particularly [black widows](/pests/black-widows) and cellar spiders, become active in garages and outdoor storage areas. [Roof rats](/pests/roof-rats) continue to be a year-round issue but breeding peaks in spring. Mosquitoes become problematic in areas with poor drainage, especially after spring rains.
 
 ## Professional Spring Treatment
 
 A professional spring treatment establishes a protective barrier before pest pressure peaks. At Yogi's Pest Control, our spring service includes a full exterior perimeter treatment, targeted ant baiting, web removal, entry point inspection, and rodent monitoring. Starting early gives treatments time to take full effect before summer arrives.
 
-Schedule your spring pest prevention service by calling 714-323-8262. We offer free inspections throughout Orange County.`,
+Schedule your spring pest prevention service by calling 714-323-8262. We offer [free inspections](/book) throughout Orange County.`,
   },
   {
     slug: "year-round-pest-control-schedule-orange-county",
@@ -188,13 +191,13 @@ Schedule your spring pest prevention service by calling 714-323-8262. We offer f
     metaDescription:
       "Complete month-by-month pest control schedule for Orange County homeowners. Know which pests to expect each season and when to treat. Call Yogi's Pest Control at 714-323-8262.",
     publishedAt: "2026-03-01",
-    content: `Unlike regions with harsh winters that naturally suppress pest populations, Orange County's mild Mediterranean climate allows pests to remain active throughout the entire year. This means homeowners need a year-round pest management approach rather than reactive treatments after problems develop. At Yogi's Pest Control, we have developed a seasonal schedule based on decades of experience serving communities from San Clemente to La Habra.
+    content: `Unlike regions with harsh winters that naturally suppress pest populations, Orange County's mild Mediterranean climate allows pests to remain active throughout the entire year. This means homeowners need a year-round pest management approach rather than reactive treatments after problems develop. At Yogi's Pest Control, we follow a seasonal schedule built around how pest pressure shifts in communities from San Clemente to La Habra.
 
 ## Winter (December - February)
 
 Many homeowners assume winter is a quiet period for pests, but in Orange County it is anything but. Winter rains drive ants, spiders, and ground-dwelling insects indoors as soil becomes saturated. Roof rats are especially active during cooler months because they seek the warmth of attics and wall voids.
 
-Winter priorities include rodent inspection and exclusion, perimeter treatment to create a barrier against rain-driven ant invasions, and checking attic spaces for new rodent activity. This is also the ideal time for exclusion repairs because sealing entry points before spring prevents rodent populations from expanding into your home.
+Winter priorities include rodent inspection and exclusion, perimeter treatment to create a barrier against rain-driven ant invasions, and checking attic spaces for new rodent activity. This is also the ideal time for [exclusion repairs](/services/exclusion-repairs) because sealing entry points before spring prevents rodent populations from expanding into your home.
 
 ## Spring (March - May)
 
@@ -206,7 +209,7 @@ Spring priorities include comprehensive exterior perimeter treatment, targeted a
 
 Summer brings peak pest pressure across the board. Ant invasions intensify as outdoor conditions become hot and dry, driving colonies toward your home's moisture and food sources. Wasp and bee activity peaks during summer months. Cockroach populations are at their highest. Fleas and ticks become problematic for pet owners.
 
-Summer priorities include continued perimeter treatments on a regular schedule, wasp nest identification and removal, targeted cockroach treatment if activity is detected, flea and tick yard treatments for pet owners, and maintaining ant baiting programs. Orange County's summer heat also makes attic temperatures extreme, which can actually drive rodents into living spaces.
+Summer priorities include continued perimeter treatments on a regular schedule, [wasp nest identification and removal](/services/wasp-control), [targeted cockroach treatment](/services/cockroach-control) if activity is detected, [flea and tick yard treatments](/services/tick-flea-treatment) for pet owners, and maintaining ant baiting programs. Orange County's summer heat also makes attic temperatures extreme, which can actually drive rodents into living spaces.
 
 ## Fall (September - November)
 
@@ -246,9 +249,9 @@ Inspectors look for live or dead insects, droppings, gnaw marks, nesting materia
 
 ## Common Pest Threats in OC Restaurants
 
-German cockroaches are the number one pest threat in Orange County commercial kitchens. These small, fast-reproducing roaches thrive in the warm, humid environment around dishwashers, stoves, and plumbing fixtures. A single pregnant female can produce an infestation of thousands within months.
+[German cockroaches](/pests/german-cockroaches) are the number one pest threat in Orange County commercial kitchens. These small, fast-reproducing roaches thrive in the warm, humid environment around dishwashers, stoves, and plumbing fixtures. A single pregnant female can produce an infestation of thousands within months.
 
-Rodents pose serious risks in restaurants, particularly in older buildings or those adjacent to alleys and dumpster areas. Drain flies and fruit flies are chronic issues in establishments with floor drains, beverage stations, and produce storage. Stored product pests like Indian meal moths can contaminate dry goods storage areas.
+Rodents pose serious risks in restaurants, particularly in older buildings or those adjacent to alleys and dumpster areas. [Drain flies and fruit flies](/services/fly-control) are chronic issues in establishments with floor drains, beverage stations, and produce storage. Stored product pests like Indian meal moths can contaminate dry goods storage areas.
 
 ## Integrated Pest Management Requirements
 
@@ -258,7 +261,7 @@ Documentation is critical. Your pest control provider should supply detailed ser
 
 ## What a Commercial Pest Control Program Includes
 
-At Yogi's Pest Control, our commercial kitchen programs are designed around health department requirements and IPM principles. Each program includes scheduled service visits on a weekly, bi-weekly, or monthly basis depending on facility needs. During each visit, our licensed technicians inspect all critical areas, check and service monitoring devices, apply targeted treatments as needed, and document all findings.
+At Yogi's Pest Control, our [commercial kitchen programs](/services/commercial-pest-control) are designed around health department requirements and IPM principles. Each program includes scheduled service visits on a weekly, bi-weekly, or monthly basis depending on facility needs. During each visit, our licensed technicians inspect all critical areas, check and service monitoring devices, apply targeted treatments as needed, and document all findings.
 
 We install monitoring stations in strategic locations to detect pest activity early. Glue boards, pheromone traps, and bait stations provide ongoing surveillance between service visits. When activity is detected, we respond with targeted treatment rather than blanket applications, reducing chemical use while maintaining control.
 
@@ -268,7 +271,7 @@ Consistent pest control service is the foundation of inspection readiness, but f
 
 ## Choosing a Commercial Pest Control Provider
 
-Select a provider licensed for commercial pest management in California with specific experience in food service facilities. Your provider should understand health department scoring criteria and be willing to coordinate with inspectors if issues arise. At Yogi's Pest Control, we offer 24-hour emergency response for commercial clients because pest issues in restaurants cannot wait for the next scheduled visit.
+Select a provider licensed for commercial pest management in California with specific experience in food service facilities. Your provider should understand health department scoring criteria and be willing to coordinate with inspectors if issues arise. At Yogi's Pest Control, we are available 7 days a week from 8AM to 8PM and offer same-day response when available for commercial clients, because pest issues in restaurants cannot wait for the next scheduled visit.
 
 Call 714-323-8262 to schedule a free commercial pest control consultation for your Orange County restaurant.`,
   },
@@ -282,7 +285,7 @@ Call 714-323-8262 to schedule a free commercial pest control consultation for yo
     metaDescription:
       "2026 pest control pricing guide for Orange County. Costs for rodent control, ant treatment, general pest service & more. Free inspections from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-03-15",
-    content: `One of the most common questions we hear at Yogi's Pest Control is how much pest control costs in Orange County. The honest answer is that pricing depends on several factors, but we believe in transparency so homeowners can budget appropriately and understand what they are paying for. Here is a comprehensive breakdown of pest control costs in the Orange County market for 2026.
+    content: `One of the most common questions we hear at Yogi's Pest Control is how much pest control costs in Orange County. The honest answer is that pricing depends on several factors, but we believe in transparency so homeowners can budget appropriately and understand what they are paying for. Here is a comprehensive breakdown of [pest control costs](/pest-control-cost) in the Orange County market for 2026.
 
 ## Factors That Affect Pricing
 
@@ -290,19 +293,19 @@ Several variables influence the cost of pest control service. Property size is a
 
 ## General Pest Control
 
-A standard general pest control service in Orange County typically covers ants, spiders, cockroaches, and other common household insects. One-time treatments generally range from $150 to $300 for an average single-family home. Quarterly service plans, which provide the best long-term protection and value, typically range from $100 to $175 per visit. Monthly service for properties with higher pest pressure runs $80 to $150 per visit.
+A standard general pest control service in Orange County typically covers ants, spiders, cockroaches, and other common household insects. One-time treatments generally range from $150 to $250 for an average single-family home. Recurring service plans, which provide the best long-term protection and value, typically run $80 to $150 per month. Targeted programs for specific pests vary, such as ant or spider control at $75 to $125 per month and cockroach control at $80 to $150 per month.
 
 ## Rodent Control
 
-Rodent control is priced separately from general pest service because it involves specialized trapping and exclusion work. An initial rodent trapping and removal service typically costs $250 to $500, depending on the severity of the infestation and the number of traps required. Exclusion repairs, which involve sealing entry points to prevent re-entry, range from $500 to $2,500 or more depending on the number and complexity of entry points. Attic cleanout and insulation replacement, if needed due to contamination, can add $1,500 to $5,000 depending on the attic size.
+[Rodent control](/services/rodent-control) is priced separately from general pest service because it involves specialized trapping and exclusion work. An initial rodent trapping and removal service typically costs $200 to $500, depending on the severity of the infestation and the number of traps required, with recurring rodent service running $100 to $200 per month. Exclusion repairs, which involve sealing entry points to prevent re-entry, range from $300 to $1,500 or more depending on the number and complexity of entry points. Attic cleanout and insulation replacement, if needed due to contamination, typically runs $500 to $3,000 or more depending on the attic size.
 
 ## Specialty Pest Services
 
-Bed bug treatment in Orange County ranges from $500 to $1,500 per affected area, depending on the treatment method. Heat treatments, which are the most effective, tend to be at the higher end. Bee removal costs depend on whether the hive is accessible or requires structural work, typically ranging from $200 to $1,000. Wildlife trapping and removal services vary widely based on the animal and situation, generally starting around $250.
+[Bed bug treatment](/services/bed-bug-treatment) in Orange County ranges from $500 to $1,500 per affected area, depending on the treatment method. Heat treatments, which are the most effective, tend to be at the higher end. [Bee removal](/services/bee-removal) costs depend on whether the hive is accessible or requires structural work, typically ranging from $150 to $500, while hives inside walls run $500 to $800 or more. [Wildlife trapping and removal](/services/wildlife-trapping) services vary based on the animal and situation, generally ranging from $250 to $600.
 
 ## What Should Be Included
 
-When comparing pest control quotes in Orange County, make sure each estimate includes a thorough inspection of the interior and exterior, identification of pest species and activity levels, a clear treatment plan with specific methods described, product information and safety data, a written guarantee or warranty, and follow-up visits if needed. Be cautious of companies that quote extremely low prices without performing an inspection, as they may cut corners on products or skip critical treatment areas.
+When comparing pest control quotes in Orange County, make sure each estimate includes a thorough inspection of the interior and exterior, identification of pest species and activity levels, a clear treatment plan with specific methods described, product information and safety data, clear terms for what happens if pests return, and follow-up visits if needed. Be cautious of companies that quote extremely low prices without performing an inspection, as they may cut corners on products or skip critical treatment areas.
 
 ## Free Inspections Save Money
 
@@ -338,15 +341,15 @@ The key distinction is between isolated encounters and ongoing patterns. One mou
 
 Several situations demand professional intervention because DIY methods are inadequate or potentially dangerous. Active rodent infestations require professional assessment because homeowners underestimate the scope of the problem. What appears to be one or two mice often turns out to be a colony with multiple entry points. Professionals identify species, locate nesting areas, determine entry points, and implement both removal and exclusion.
 
-German cockroach infestations in kitchens or bathrooms are extremely difficult to control with consumer products. These roaches reproduce rapidly, hide in inaccessible voids, and have developed resistance to many over-the-counter insecticides. Professional-grade products and targeted application methods are typically necessary.
+[German cockroach infestations](/pests/german-cockroaches) in kitchens or bathrooms are extremely difficult to control with consumer products. These roaches reproduce rapidly, hide in inaccessible voids, and have developed resistance to many over-the-counter insecticides. Professional-grade products and targeted application methods are typically necessary.
 
-Bed bugs require professional treatment without exception. These parasites are resistant to most consumer products, hide in places homeowners cannot access, and spread throughout a home if treatment is incomplete. Professional heat treatment or targeted chemical application is the only reliable approach.
+[Bed bugs](/pests/bed-bugs) require professional treatment without exception. These parasites are resistant to most consumer products, hide in places homeowners cannot access, and spread throughout a home if treatment is incomplete. Professional heat treatment or targeted chemical application is the only reliable approach.
 
 Any pest issue involving structural damage demands professional assessment. Rodent gnawing on wiring, wood-destroying organisms, or animal activity in wall voids can create safety hazards that require expert evaluation.
 
 ## The Hidden Costs of DIY
 
-Many homeowners try multiple DIY products before calling a professional, spending $50 to $200 on ineffective treatments while the infestation worsens. A rodent infestation that could have been resolved with professional trapping and exclusion for a few hundred dollars can escalate to thousands in attic cleanup and insulation replacement if left untreated for months.
+Many homeowners try multiple DIY products before calling a professional, spending $50 to $200 on ineffective treatments while the infestation worsens. A rodent infestation that could have been resolved with [professional trapping and exclusion](/services/rodent-control) for a few hundred dollars can escalate to thousands in [attic cleanup and insulation replacement](/services/attic-cleanout) if left untreated for months.
 
 Improper pesticide application also creates risks. Overusing sprays in kitchens exposes your family to unnecessary chemicals. Misplaced rodent bait can endanger children and pets. Products applied in the wrong locations or concentrations waste money and may actually worsen the pest situation by causing colony fragmentation in ants or driving rodents deeper into wall voids.
 
@@ -362,13 +365,13 @@ Call 714-323-8262 for a free inspection and honest assessment.`,
     slug: "eco-friendly-pest-control-options-orange-county",
     title: "Eco-Friendly Pest Control Options in Orange County",
     excerpt:
-      "Orange County homeowners increasingly want pest control solutions that are effective yet safe for families, pets, and the environment. Explore the green pest management options available today.",
+      "Orange County homeowners increasingly want effective pest control that keeps chemical use to a minimum. Explore reduced-risk options, IPM practices, and how EPA-registered products are applied per label.",
     category: "Pest Prevention Tips",
     metaTitle: "Eco-Friendly Pest Control Options in Orange County",
     metaDescription:
-      "Eco-friendly pest control solutions for Orange County homes. Safe for families, pets & the environment. Green IPM methods from Yogi's Pest Control. Call 714-323-8262.",
+      "Eco-friendly pest control options for Orange County homes: reduced-risk products, EPA-registered treatments applied per label, and IPM methods from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-03-22",
-    content: `Environmental awareness runs deep in Orange County, from our coastal communities in Newport Beach and Laguna Beach to inland cities like Irvine and Mission Viejo. Homeowners want pest control that protects their families and pets without harming local wildlife, waterways, or the broader ecosystem. At Yogi's Pest Control, eco-friendly pest management is not an add-on service. It is our standard approach.
+    content: `Environmental awareness runs deep in Orange County, from our coastal communities in Newport Beach and Laguna Beach to inland cities like Irvine and Mission Viejo. Homeowners want pest control that minimizes chemical use and limits impact on local wildlife, waterways, and the broader ecosystem. At Yogi's Pest Control, Integrated Pest Management with reduced-risk options is not an add-on service. It is our standard approach.
 
 ## What Eco-Friendly Pest Control Actually Means
 
@@ -378,17 +381,17 @@ Not all products marketed as natural or green are effective. Conversely, some co
 
 ## Prevention: The Greenest Method
 
-The most environmentally friendly pest control method is preventing pests from establishing themselves in the first place. Sealing entry points stops rodents and insects from entering without any chemical use. Proper moisture management around your home's foundation eliminates the water source that attracts ants, cockroaches, and other moisture-dependent insects. Removing harborage like wood piles, debris, and dense vegetation near your home reduces shelter for pests.
+The most environmentally friendly pest control method is preventing pests from establishing themselves in the first place. [Sealing entry points](/services/exclusion-repairs) stops rodents and insects from entering without any chemical use. Proper moisture management around your home's foundation eliminates the water source that attracts ants, cockroaches, and other moisture-dependent insects. Removing harborage like wood piles, debris, and dense vegetation near your home reduces shelter for pests.
 
 In Orange County, managing fruit trees is a critical prevention step that many homeowners overlook. Fallen citrus, avocados, and other fruit attract rats, ants, flies, and other pests. Regular harvesting and cleanup significantly reduce pest pressure without any treatment at all.
 
 ## Low-Toxicity Treatment Options
 
-When treatment is necessary, several low-toxicity options are available. Botanical insecticides derived from plant sources like chrysanthemums break down quickly in the environment. Boric acid products provide long-lasting control of cockroaches and ants with very low toxicity to humans and pets when applied properly in wall voids and cracks. Insect growth regulators disrupt pest reproduction without affecting mammals or beneficial insects.
+When treatment is necessary, several low-toxicity options are available. Botanical insecticides derived from plant sources like chrysanthemums break down quickly in the environment. Boric acid products provide long-lasting control of cockroaches and ants and are considered reduced-risk when applied per label in wall voids and cracks. Insect growth regulators disrupt pest reproduction and target insect development specifically. Every product we use is EPA-registered and applied according to its label, and we give you re-entry guidance for treated areas after each service.
 
 For rodent control, exclusion, which means physically sealing entry points, is the greenest and most effective long-term solution. Snap traps provide immediate results without any chemical use. When monitoring stations are needed, we use tamper-resistant designs that prevent access by children, pets, and non-target wildlife.
 
-Biological controls are available for certain situations. Bacillus thuringiensis, or Bt, targets mosquito larvae in standing water without affecting other organisms. Beneficial nematodes can be applied to lawns to control flea larvae naturally.
+Biological controls are available for certain situations. Bacillus thuringiensis israelensis, or Bti, targets [mosquito larvae](/services/mosquito-control) in standing water with a narrow range of affected organisms. Beneficial nematodes can be applied to lawns to control [flea larvae](/pests/fleas) naturally.
 
 ## Our Green Approach in Practice
 
@@ -398,7 +401,7 @@ We select products based on efficacy, environmental profile, and the specific pe
 
 ## Protecting Orange County's Environment
 
-Our coastal proximity means that pest control products applied carelessly can enter storm drains and eventually reach the ocean. We follow all California Department of Pesticide Regulation guidelines and go beyond the minimum requirements. Our technicians consider drainage patterns, proximity to waterways, and potential impact on beneficial organisms during every service.
+Our coastal proximity means that pest control products applied carelessly can enter storm drains and eventually reach the ocean. We follow California Department of Pesticide Regulation guidelines and product label directions on every job. Our technicians consider drainage patterns, proximity to waterways, and potential impact on beneficial organisms during every service.
 
 Call 714-323-8262 to learn more about our eco-friendly pest control services throughout Orange County.`,
   },
@@ -434,11 +437,11 @@ Bathrooms are examined for moisture-related pest conditions. Garages are thoroug
 
 ## The Attic Inspection
 
-In Orange County, the attic inspection is particularly important because of our prevalent roof rat population. The technician enters the attic space if safely accessible and examines insulation for evidence of rodent nesting or contamination. They look for droppings along rafters and around HVAC components. Gnaw marks on wiring and wood framing are documented. The underside of the roof is inspected for daylight gaps that indicate potential entry points.
+In Orange County, the attic inspection is particularly important because of our prevalent [roof rat population](/pests/roof-rats). The technician enters the attic space if safely accessible and examines insulation for evidence of rodent nesting or contamination. They look for droppings along rafters and around HVAC components. Gnaw marks on wiring and wood framing are documented. The underside of the roof is inspected for daylight gaps that indicate potential entry points.
 
 ## The Inspection Report
 
-After completing the inspection, our technician provides a detailed report of findings. This includes identification of any active pest issues, documentation of entry points and conducive conditions, photographs of significant findings, prioritized recommendations for treatment and prevention, and a transparent cost estimate for any recommended services.
+After completing the inspection, our technician provides a detailed report of findings. This includes identification of any active pest issues, documentation of entry points and conducive conditions, photographs of significant findings, prioritized recommendations for treatment and prevention, and a [transparent cost estimate](/pest-control-cost) for any recommended services.
 
 Our technicians explain everything in clear, non-technical language. You will understand exactly what was found, why it matters, and what your options are. There is never any pressure to commit to services on the spot.
 
@@ -448,7 +451,7 @@ A thorough inspection of an average Orange County single-family home takes 30 to
 
 ## Free Inspections at Yogi's Pest Control
 
-We offer free pest inspections throughout Orange County because we believe every homeowner deserves to know the condition of their property. Call 714-323-8262 to schedule yours today.`,
+We offer [free pest inspections](/book) throughout Orange County because we believe every homeowner deserves to know the condition of their property. Call 714-323-8262 to schedule yours today.`,
   },
   {
     slug: "health-risks-of-rodent-infestations-in-southern-california",
@@ -468,7 +471,7 @@ Rats and mice are vectors for numerous diseases that can affect humans directly 
 
 Salmonellosis is another common risk. Rodents contaminate food preparation surfaces and stored food with their droppings, leading to bacterial infections that cause fever, diarrhea, and abdominal cramping. In Orange County kitchens where rodents have been active, the contamination often extends well beyond visible droppings.
 
-Leptospirosis, spread through rodent urine, can contaminate water sources and soil around your home. This bacterial infection causes flu-like symptoms and can progress to kidney damage or liver failure in severe cases. Properties near waterways in Santa Ana, Garden Grove, and Westminster face elevated risk because Norway rats thrive in these areas.
+Leptospirosis, spread through rodent urine, can contaminate water sources and soil around your home. This bacterial infection causes flu-like symptoms and can progress to kidney damage or liver failure in severe cases. Properties near waterways in Santa Ana, Garden Grove, and Westminster face elevated risk because [Norway rats](/pests/norway-rats) thrive in these areas.
 
 ## Indirect Health Threats
 
@@ -480,9 +483,9 @@ Even without direct disease transmission, rodent infestations degrade indoor air
 
 ## Protecting Your Orange County Home
 
-Prevention starts with eliminating access. Seal all exterior gaps larger than a quarter inch. Keep food stored in airtight containers and clean up pet food nightly. Trim tree branches at least four feet from your roofline to cut off roof rat highways. Address moisture issues around your foundation that attract Norway rats.
+Prevention starts with eliminating access. Seal all exterior gaps larger than a quarter inch. Keep food stored in airtight containers and clean up pet food nightly. Trim tree branches at least four feet from your roofline to cut off [roof rat highways](/pests/roof-rats). Address moisture issues around your foundation that attract Norway rats.
 
-If you suspect a rodent infestation, do not attempt to clean contaminated areas without proper protection. Our technicians at Yogi's Pest Control use appropriate personal protective equipment and follow CDC guidelines for safe cleanup. We trap and remove the rodent population, seal entry points with rodent-proof materials, and can coordinate attic insulation replacement when contamination is severe.
+If you suspect a rodent infestation, do not attempt to clean contaminated areas without proper protection. Our technicians at Yogi's Pest Control use appropriate personal protective equipment and follow CDC guidelines for safe cleanup. We [trap and remove the rodent population](/services/rodent-control), seal entry points with rodent-proof materials, and can coordinate [attic insulation replacement](/services/attic-cleanout) when contamination is severe.
 
 ## Act Quickly to Protect Your Family
 
@@ -498,11 +501,11 @@ The longer a rodent infestation persists, the greater the health risks become. O
     metaDescription:
       "Protect your Orange County yard from fire ants with expert prevention tips from Yogi's Pest Control. Learn how to identify and eliminate fire ant colonies. Call 714-323-8262.",
     publishedAt: "2025-05-22",
-    content: `Fire ants have steadily expanded their presence across Southern California, and Orange County homeowners are encountering these aggressive pests more frequently than ever. Unlike the common harvester ants native to the region, fire ants deliver painful stings that cause burning welts and can trigger severe allergic reactions in sensitive individuals. At Yogi's Pest Control, we have seen a sharp increase in fire ant calls from neighborhoods in Irvine, Lake Forest, Mission Viejo, and throughout south Orange County.
+    content: `Fire ants have steadily expanded their presence across Southern California, and Orange County homeowners are encountering these aggressive pests more frequently than ever. Unlike the common harvester ants native to the region, fire ants deliver painful stings that cause burning welts and can trigger severe allergic reactions in sensitive individuals. At Yogi's Pest Control, we have seen a sharp increase in fire ant calls from neighborhoods in Irvine, [Lake Forest](/areas-we-serve/lake-forest), [Mission Viejo](/areas-we-serve/mission-viejo), and throughout south Orange County.
 
 ## Identifying Fire Ants in Orange County
 
-Red imported fire ants are small, reddish-brown ants ranging from one-sixteenth to one-quarter inch in length. Their mounds are the most distinctive identification feature. Unlike native ant species that build single-hole nests, fire ants construct dome-shaped mounds of loose, worked soil that can reach 18 inches in height. These mounds often appear in open sunny areas like lawns, parks, playgrounds, and along sidewalk edges.
+[Red imported fire ants](/pests/fire-ants) are small, reddish-brown ants ranging from one-sixteenth to one-quarter inch in length. Their mounds are the most distinctive identification feature. Unlike native ant species that build single-hole nests, fire ants construct dome-shaped mounds of loose, worked soil that can reach 18 inches in height. These mounds often appear in open sunny areas like lawns, parks, playgrounds, and along sidewalk edges.
 
 When disturbed, fire ants respond aggressively. Rather than fleeing like most ant species, they swarm upward and sting repeatedly. Each ant can sting multiple times, injecting venom that creates painful, itchy pustules that last for days.
 
@@ -530,7 +533,7 @@ For active mounds near play areas, patios, or pool decks, we apply direct mound 
 
 Fire ant stings are especially dangerous for small children, pets, and anyone with known insect sting allergies. If you have young children who play in your yard or dogs that roam your property, proactive fire ant management is essential. Keep an epinephrine auto-injector accessible if any family member has a history of severe reactions to insect stings.
 
-Call Yogi's Pest Control at 714-323-8262 for professional fire ant treatment across Orange County.`,
+Call Yogi's Pest Control at 714-323-8262 for [professional fire ant treatment](/services/ant-control) across Orange County.`,
   },
   {
     slug: "summer-pest-control-mosquitoes-ants-more-in-oc",
@@ -546,19 +549,19 @@ Call Yogi's Pest Control at 714-323-8262 for professional fire ant treatment acr
 
 ## Mosquitoes: A Growing Orange County Concern
 
-Mosquito populations in Orange County have increased dramatically with the establishment of invasive Aedes mosquitoes. Unlike native species that breed primarily in marshlands, Aedes aegypti and Aedes albopictus breed in tiny amounts of standing water found in flower pot saucers, clogged gutters, bird baths, and even bottle caps. These aggressive daytime biters are now established in many OC communities from Anaheim to San Clemente.
+Mosquito populations in Orange County have increased dramatically with the establishment of [invasive Aedes mosquitoes](/blog/why-mosquitoes-bite-during-the-day-orange-county-aedes). Unlike native species that breed primarily in marshlands, Aedes aegypti and Aedes albopictus breed in tiny amounts of standing water found in flower pot saucers, clogged gutters, bird baths, and even bottle caps. These aggressive daytime biters are now established in many OC communities from Anaheim to San Clemente.
 
-Reduce mosquito breeding on your property by dumping any standing water weekly, cleaning gutters, and maintaining swimming pools. Repair window and door screens to keep mosquitoes out of your living spaces. For yards with persistent mosquito problems, professional barrier treatments applied to vegetation where mosquitoes rest can provide weeks of relief.
+Reduce mosquito breeding on your property by dumping any standing water weekly, cleaning gutters, and maintaining swimming pools. Repair window and door screens to keep mosquitoes out of your living spaces. For yards with persistent mosquito problems, [professional barrier treatments](/services/mosquito-control) applied to vegetation where mosquitoes rest can provide weeks of relief.
 
 ## Ants Invade When It Gets Hot
 
-Argentine ants, the dominant species in Orange County, become especially aggressive during summer as colonies expand and compete for food and water. Hot weather drives these ants indoors seeking moisture, and you will often find them trailing into kitchens and bathrooms. Southern fire ants also become more active, building mounds in lawns and along walkways throughout OC suburbs.
+[Argentine ants](/pests/argentine-ants), the dominant species in Orange County, become especially aggressive during summer as colonies expand and compete for food and water. Hot weather drives these ants indoors seeking moisture, and you will often find them trailing into kitchens and bathrooms. Southern fire ants also become more active, building mounds in lawns and along walkways throughout OC suburbs.
 
 Prevent ant invasions by sealing entry points around doors, windows, and plumbing penetrations. Keep kitchen surfaces clean and store food in airtight containers. Fix leaky faucets and pipes that provide water sources. Professional perimeter treatments create a barrier that intercepts ants before they reach your interior.
 
 ## Spiders Follow the Food
 
-Spider populations peak in summer because their food source, other insects, is abundant. Black widows are common across Orange County and favor undisturbed areas like garage corners, storage boxes, outdoor furniture, and meter boxes. Brown widows have also become established in OC and often build webs on exterior structures.
+Spider populations peak in summer because their food source, other insects, is abundant. [Black widows](/pests/black-widows) are common across Orange County and favor undisturbed areas like garage corners, storage boxes, outdoor furniture, and meter boxes. Brown widows have also become established in OC and often build webs on exterior structures.
 
 Reduce spider habitat by decluttering garages and storage areas, shaking out shoes and gloves before use, and installing yellow bug lights at exterior doors to reduce the flying insects that attract spiders.
 
@@ -586,11 +589,11 @@ Contact Yogi's Pest Control at 714-323-8262 for comprehensive summer pest protec
     metaDescription:
       "Prevent rodents from entering your Orange County home this fall with expert tips from Yogi's Pest Control. Seal entry points before winter arrives. Call 714-323-8262.",
     publishedAt: "2025-09-18",
-    content: `Even in Orange County where winters are mild compared to the rest of the country, the shorter days and cooler nights of fall trigger rodents to seek indoor shelter. September through November is the critical window for rodent prevention, and homeowners who act proactively save themselves significant headaches and expense. At Yogi's Pest Control, our rodent calls spike every October as mice and rats move into attics, garages, and wall voids across Tustin, Yorba Linda, Brea, and every OC community.
+    content: `Even in Orange County where winters are mild compared to the rest of the country, the shorter days and cooler nights of fall trigger rodents to seek indoor shelter. September through November is the critical window for rodent prevention, and homeowners who act proactively save themselves significant headaches and expense. At Yogi's Pest Control, our rodent calls spike every October as mice and rats move into attics, garages, and wall voids across [Tustin](/areas-we-serve/tustin), Yorba Linda, Brea, and every OC community.
 
 ## Why Fall Is the Critical Season
 
-Rodents do not hibernate. As outdoor temperatures dip into the 50s at night, which happens regularly in Orange County from November through February, rats and mice begin searching for warmer shelter and reliable food sources. Your home radiates heat, emits food odors, and provides protection from predators, making it the perfect target. A single mouse can squeeze through a gap the size of a dime, and a roof rat needs only a quarter-sized opening.
+Rodents do not hibernate. As outdoor temperatures dip into the 50s at night, which happens regularly in Orange County from November through February, rats and mice begin searching for warmer shelter and reliable food sources. Your home radiates heat, emits food odors, and provides protection from predators, making it the perfect target. A single mouse can squeeze through a gap the size of a dime, and a [roof rat](/pests/roof-rats) needs only a quarter-sized opening.
 
 The fall fruit harvest adds urgency. Orange County is famous for its citrus and avocado trees, and fallen fruit provides a feast that draws rodents to residential properties. Once rats establish foraging routes near your home, finding an entry point is just a matter of time.
 
@@ -612,9 +615,9 @@ Store pet food in sealed metal or heavy plastic containers rather than the origi
 
 ## When to Call a Professional
 
-If you are finding droppings, hearing scratching in walls or ceilings at night, or noticing gnaw marks on food packaging, rodents are already inside. At that point, professional trapping and exclusion are the most effective approach. Our technicians at Yogi's Pest Control perform comprehensive inspections, set targeted trap placements, seal all entry points with rodent-proof materials, and verify elimination before closing your service.
+If you are finding droppings, hearing scratching in walls or ceilings at night, or noticing gnaw marks on food packaging, rodents are already inside. At that point, [professional trapping and exclusion](/services/rodent-control) are the most effective approach. Our technicians at Yogi's Pest Control perform comprehensive inspections, set targeted trap placements, seal all entry points with rodent-proof materials, and verify elimination before closing your service.
 
-Do not wait until you hear scratching in your walls. Call Yogi's Pest Control at 714-323-8262 for a free fall rodent inspection in Orange County.`,
+Do not wait until you hear scratching in your walls. Call Yogi's Pest Control at 714-323-8262 for a [free fall rodent inspection](/book) in Orange County.`,
   },
   {
     slug: "commercial-pest-control-for-oc-property-managers",
@@ -626,7 +629,7 @@ Do not wait until you hear scratching in your walls. Call Yogi's Pest Control at
     metaDescription:
       "Comprehensive commercial pest control for Orange County property managers. Protect multi-unit, office, and retail properties with Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-04-05",
-    content: `Managing commercial properties in Orange County comes with a long list of responsibilities, and pest control often moves to the top of that list when tenants start complaining. Whether you oversee apartment complexes in Santa Ana, office parks in Irvine, retail centers in Costa Mesa, or mixed-use developments in Anaheim, a proactive pest management program is essential for tenant satisfaction, property value, and regulatory compliance.
+    content: `Managing commercial properties in Orange County comes with a long list of responsibilities, and pest control often moves to the top of that list when tenants start complaining. Whether you oversee apartment complexes in Santa Ana, office parks in Irvine, retail centers in Costa Mesa, or mixed-use developments in Anaheim, a [proactive pest management program](/services/commercial-pest-control) is essential for tenant satisfaction, property value, and regulatory compliance.
 
 ## Pest Challenges Unique to Commercial Properties
 
@@ -638,7 +641,7 @@ Tenant turnover introduces additional challenges. Vacant units can develop pest 
 
 Reliability and communication top the list. At Yogi's Pest Control, we understand that property managers need a partner who shows up on schedule, communicates clearly about findings and treatments, and provides the documentation required for audits and tenant inquiries. Our commercial clients receive detailed service reports after every visit, including pest activity logs, treatment records, and recommendation summaries.
 
-Flexible scheduling matters for commercial properties. Treatment of occupied units requires coordination with tenants. Common areas need to be serviced during off-hours to minimize disruption. Emergency responses must be available when a tenant discovers a rat in their unit or a wasp nest over a main entrance. We offer scheduling options that accommodate the operational realities of property management.
+Flexible scheduling matters for commercial properties. Treatment of occupied units requires coordination with tenants. Common areas need to be serviced during off-hours to minimize disruption. Fast response matters when a tenant discovers a rat in their unit or a wasp nest over a main entrance. We are available 7 days a week from 8AM to 8PM with same-day response when available, and we offer scheduling options that accommodate the operational realities of property management.
 
 ## Our Commercial IPM Approach
 
@@ -648,13 +651,13 @@ Regular scheduled service visits include inspection of common areas, exterior pe
 
 ## Common Commercial Pests in Orange County
 
-Cockroaches, particularly German cockroaches, are the number one complaint in multi-unit residential and food-service-adjacent properties. Argentine ants invade commercial buildings seasonally, especially during hot dry periods and winter rains. Roof rats target properties near mature landscaping and fruit-bearing trees. Bed bugs are an increasing concern in hotels, apartments, and furnished rentals throughout OC.
+Cockroaches, particularly [German cockroaches](/pests/german-cockroaches), are the number one complaint in multi-unit residential and food-service-adjacent properties. Argentine ants invade commercial buildings seasonally, especially during hot dry periods and winter rains. Roof rats target properties near mature landscaping and fruit-bearing trees. [Bed bugs](/services/bed-bug-treatment) are an increasing concern in hotels, apartments, and furnished rentals throughout OC.
 
 ## Cost-Effective Programs
 
-We structure commercial programs based on property type, size, and pest pressure to deliver cost-effective service. Monthly, bi-monthly, and quarterly service frequencies are available. Volume discounts apply for property management companies with multiple properties. All programs include emergency service at no additional charge.
+We structure commercial programs based on property type, size, and pest pressure to deliver cost-effective service. Monthly, bi-monthly, and quarterly service frequencies are available. Quotes are provided per property after an inspection, and recurring plans are available for managers who want consistent coverage across their portfolio.
 
-Protect your Orange County properties and keep your tenants satisfied. Call Yogi's Pest Control at 714-323-8262 for a free commercial property assessment.`,
+Protect your Orange County properties and keep your tenants satisfied. Call Yogi's Pest Control at 714-323-8262 for a [free commercial property assessment](/book).`,
   },
   {
     slug: "how-to-choose-a-commercial-exterminator-in-orange-county",
@@ -678,7 +681,7 @@ This step is especially important in Orange County where the market includes eve
 
 Commercial pest control requires specialized knowledge that differs from residential service. Ask how long the company has been serving commercial clients in Orange County. Request references from businesses similar to yours, whether that is a restaurant in Old Towne Orange, a warehouse in the Anaheim industrial district, or a medical office in Newport Beach. Each property type has unique pest pressures and regulatory requirements.
 
-Food service establishments need a provider experienced with health department requirements and third-party audit protocols like AIB, SQF, or Steritech. Property management companies need a provider who can handle multi-unit coordination. Retail businesses need discreet service that does not disrupt the customer experience.
+Food service establishments need a provider experienced with [health department requirements](/blog/restaurant-pest-control-requirements-orange-county) and third-party audit protocols like AIB, SQF, or Steritech. [Property management companies](/blog/commercial-pest-control-for-oc-property-managers) need a provider who can handle multi-unit coordination. Retail businesses need discreet service that does not disrupt the customer experience.
 
 ## Understand Their Approach
 
@@ -688,7 +691,7 @@ Be cautious of companies that offer a price quote without inspecting your proper
 
 ## Compare Service Agreements Carefully
 
-Commercial pest control contracts vary significantly. Some companies lock you into long-term agreements with heavy cancellation penalties. Others, like Yogi's Pest Control, offer flexible terms that earn your business through performance rather than contractual obligation.
+Commercial pest control contracts vary significantly. Some companies lock you into long-term agreements with heavy cancellation penalties. Others, like [Yogi's Pest Control](/about), offer flexible terms that earn your business through performance rather than contractual obligation.
 
 Review what is included in the base service and what costs extra. Emergency service, excluded pest types, and treatment of new infestations should be clearly spelled out. Ask about guarantee terms and what happens if pests return between scheduled visits. Understand the reporting and documentation you will receive and whether it meets your regulatory requirements.
 
@@ -700,19 +703,19 @@ When a pest emergency occurs at your business, response time matters. Ask about 
 
 We recommend getting proposals from at least three commercial pest control companies before making a decision. This gives you a clear picture of market pricing and service levels in Orange County. Be wary of quotes significantly below market rate, as they often indicate corners being cut on service quality or product selection.
 
-Contact Yogi's Pest Control at 714-323-8262 for a no-obligation commercial pest control proposal for your Orange County business.`,
+Contact Yogi's Pest Control at 714-323-8262 for a no-obligation [commercial pest control proposal](/services/commercial-pest-control) for your Orange County business.`,
   },
   {
     slug: "signs-of-termite-damage-in-orange-county-homes",
     title: "Signs of Termite Damage in Orange County Homes",
     excerpt:
-      "Termite damage costs Orange County homeowners thousands in repairs every year. Learn to recognize the early warning signs before termites cause major structural damage to your home.",
+      "Termite damage can cost Orange County homeowners thousands in repairs. Learn to recognize the early warning signs so you know when to have a licensed termite inspector take a look.",
     category: "Pest Identification",
     metaTitle: "Signs of Termite Damage in Orange County Homes",
     metaDescription:
       "Learn to spot termite damage early in your Orange County home. Identify mud tubes, swarmers, and wood damage before costly repairs are needed. Yogi's Pest Control: 714-323-8262.",
     publishedAt: "2025-08-12",
-    content: `Termites cause more property damage in the United States each year than fires, floods, and windstorms combined, and Orange County's warm climate makes it a hotspot for termite activity. Both subterranean and drywood termite species thrive throughout OC, silently consuming the structural wood in your home. At Yogi's Pest Control, we perform termite inspections in communities from Seal Beach to San Clemente and consistently find damage that homeowners did not know existed.
+    content: `Termites cause more property damage in the United States each year than fires, floods, and windstorms combined, and Orange County's warm climate makes it a hotspot for termite activity. Both subterranean and drywood termite species thrive throughout OC, silently consuming the structural wood in your home. Because damage often goes unnoticed for years, knowing the warning signs is one of the best ways for homeowners from Seal Beach to San Clemente to catch a problem early.
 
 ## Understanding Termite Species in OC
 
@@ -746,9 +749,9 @@ Focus your inspections on the areas where termites are most frequently found in 
 
 ## Professional Inspections Save Money
 
-Annual termite inspections are an investment that pays for itself by catching infestations early. A colony that has been active for several years can compromise structural members that cost thousands to repair or replace. Yogi's Pest Control provides thorough termite inspections throughout Orange County.
+Regular termite inspections are an investment that pays for itself by catching infestations early. A colony that has been active for several years can compromise structural members that cost thousands to repair or replace.
 
-Call 714-323-8262 to schedule your termite inspection today.`,
+If you suspect termites, have a licensed termite (Branch 3) inspector confirm it. For everything else, or if you are not sure what you are seeing, call Yogi's Pest Control at 714-323-8262.`,
   },
   {
     slug: "black-widow-spiders-in-orange-county",
@@ -760,17 +763,17 @@ Call 714-323-8262 to schedule your termite inspection today.`,
     metaDescription:
       "How to spot a black widow, where they hide in Orange County garages, yards and meter boxes, what to do if bitten, and when to call for spider control.",
     publishedAt: "2025-10-20",
-    content: `Black widow spiders are among the most recognizable and feared arachnids in North America, and they are well-established throughout Orange County. These venomous spiders are not aggressive by nature, but their tendency to build webs in areas where humans reach, step, or sit makes encounters surprisingly common. At Yogi's Pest Control, we remove black widows from properties across all of OC, from coastal Newport Beach to inland Yorba Linda, and want every homeowner to understand how to stay safe.
+    content: `Black widow spiders are among the most recognizable and feared arachnids in North America, and they are well-established throughout Orange County. These venomous spiders are not aggressive by nature, but their tendency to build webs in areas where humans reach, step, or sit makes encounters surprisingly common. At Yogi's Pest Control, we remove black widows from properties across all of OC, from coastal [Newport Beach](/areas-we-serve/newport-beach) to inland Yorba Linda, and want every homeowner to understand how to stay safe.
 
 ## Identifying Black Widows
 
-The adult female black widow is the one to watch for. She is jet black with a shiny, globe-shaped abdomen bearing the distinctive red hourglass marking on the underside. Females measure about one and a half inches including leg span. Males are much smaller, lighter in color, and rarely encountered. Juvenile black widows may appear brown or gray with white and orange markings that darken as they mature.
+The adult female [black widow](/pests/black-widows) is the one to watch for. She is jet black with a shiny, globe-shaped abdomen bearing the distinctive red hourglass marking on the underside. Females measure about one and a half inches including leg span. Males are much smaller, lighter in color, and rarely encountered. Juvenile black widows may appear brown or gray with white and orange markings that darken as they mature.
 
 Black widow webs are distinctive even without seeing the spider. They build irregular, tangled, three-dimensional webs close to the ground, unlike the symmetrical orb webs of garden spiders. The silk is noticeably strong and produces an audible snap when strands are broken.
 
 ## Where Black Widows Hide in OC Homes
 
-Black widows prefer dark, undisturbed, sheltered locations close to the ground. In Orange County homes, the most common locations include garage corners and along garage floor edges, meter boxes and utility panels, storage boxes and clutter piles, outdoor furniture legs and frames, under planters and garden pots, block wall caps and fence rail hollows, sprinkler valve boxes, and playground equipment that sits unused for periods.
+Black widows prefer dark, undisturbed, sheltered locations close to the ground. In Orange County homes, the most common locations include [garage corners](/blog/how-to-keep-spiders-out-of-your-garage) and along garage floor edges, meter boxes and utility panels, storage boxes and clutter piles, outdoor furniture legs and frames, under planters and garden pots, block wall caps and fence rail hollows, sprinkler valve boxes, and playground equipment that sits unused for periods.
 
 During cooler months, black widows move closer to structures and may enter garages, sheds, and occasionally interior spaces. Orange County's mild winters mean they remain active year-round, unlike regions where cold temperatures reduce their activity.
 
@@ -792,7 +795,7 @@ Regular professional pest control treatments create a barrier around your home t
 
 For properties with heavy black widow activity, we recommend targeted treatments of meter boxes, valve covers, block wall caps, and other high-risk harborage points. Our technicians are trained to inspect and treat these areas safely and thoroughly.
 
-Call Yogi's Pest Control at 714-323-8262 for spider control throughout Orange County.`,
+Call Yogi's Pest Control at 714-323-8262 for [spider control](/services/spider-control) throughout Orange County.`,
   },
   {
     slug: "bed-bug-prevention-tips-for-orange-county-hotels-and-homes",
@@ -804,11 +807,11 @@ Call Yogi's Pest Control at 714-323-8262 for spider control throughout Orange Co
     metaDescription:
       "Prevent bed bugs in your Orange County hotel or home with expert tips. Learn detection and prevention strategies from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-11-05",
-    content: `Bed bugs have made a dramatic resurgence across the United States, and Orange County is no exception. These hitchhiking pests travel in luggage, clothing, and used furniture, showing up in luxury hotels and modest apartments alike. At Yogi's Pest Control, we treat bed bug infestations in homes, hotels, and rental properties from Huntington Beach to Rancho Santa Margarita, and prevention is always more cost-effective than treatment.
+    content: `Bed bugs have made a dramatic resurgence across the United States, and Orange County is no exception. These hitchhiking pests travel in luggage, clothing, and used furniture, showing up in luxury hotels and modest apartments alike. At Yogi's Pest Control, we treat bed bug infestations in homes, hotels, and rental properties from [Huntington Beach](/areas-we-serve/huntington-beach) to Rancho Santa Margarita, and prevention is always more cost-effective than treatment.
 
 ## Understanding Bed Bug Behavior
 
-Bed bugs are small, flat, oval-shaped insects about the size of an apple seed. They are reddish-brown and become swollen and darker after feeding. Despite their name, bed bugs do not live exclusively in beds. They hide in any crack or crevice near where people sleep or sit for extended periods, including headboards, nightstands, baseboards, electrical outlets, picture frames, and upholstered furniture.
+[Bed bugs](/pests/bed-bugs) are small, flat, oval-shaped insects about the size of an apple seed. They are reddish-brown and become swollen and darker after feeding. Despite their name, bed bugs do not live exclusively in beds. They hide in any crack or crevice near where people sleep or sit for extended periods, including headboards, nightstands, baseboards, electrical outlets, picture frames, and upholstered furniture.
 
 Bed bugs are nocturnal feeders attracted to the carbon dioxide and warmth humans produce. They can survive months without a meal, which is why they persist in vacant hotel rooms or unoccupied apartments between tenants.
 
@@ -822,7 +825,7 @@ Reduce clutter in bedrooms to eliminate hiding spots. Use light-colored bedding 
 
 ## Prevention for Hotels and Short-Term Rentals
 
-Orange County's tourism industry makes bed bug prevention critical for hospitality businesses. Hotels along the coast in Laguna Beach, Dana Point, and Huntington Beach as well as properties near Disneyland in Anaheim face constant risk because of high guest turnover and international travel.
+Orange County's tourism industry makes bed bug prevention critical for hospitality businesses. Hotels along the coast in Laguna Beach, Dana Point, and Huntington Beach as well as properties near Disneyland in [Anaheim](/areas-we-serve/anaheim) face constant risk because of high guest turnover and international travel.
 
 Implement a staff training program so housekeeping teams know how to identify bed bug evidence during routine cleaning. Inspect mattress seams, headboard joints, and nightstand interiors during every room turnover. Use mattress and box spring encasements on all beds. Maintain a rapid response protocol so any suspected room can be inspected and treated immediately.
 
@@ -836,7 +839,7 @@ Bites alone are not a reliable indicator because reactions vary dramatically bet
 
 ## Professional Treatment Options
 
-Bed bug treatment requires professional expertise. Over-the-counter products are largely ineffective and can scatter the population, making elimination more difficult. At Yogi's Pest Control, we offer targeted chemical treatments using products specifically labeled for bed bugs, applied to cracks, crevices, and harborage areas with precision.
+Bed bug treatment requires professional expertise. Over-the-counter products are largely ineffective and can scatter the population, making elimination more difficult. At Yogi's Pest Control, we offer [targeted chemical treatments](/services/bed-bug-treatment) using products specifically labeled for bed bugs, applied to cracks, crevices, and harborage areas with precision.
 
 For severe infestations or sensitive environments, heat treatments raise room temperatures to levels lethal to all life stages of bed bugs including eggs. Our technicians work with property owners to prepare spaces properly and ensure thorough elimination.
 
@@ -852,7 +855,7 @@ Call Yogi's Pest Control at 714-323-8262 for bed bug inspection and treatment in
     metaDescription:
       "Winter pest-proofing guide for Orange County homes. Keep rodents, spiders, and insects out during cooler months with tips from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-12-01",
-    content: `While Orange County winters are famously mild, the temperature drop from the 90s of summer to nighttime lows in the 40s and 50s is enough to send pests searching for warm shelter inside your home. Rodents, spiders, cockroaches, and even ants shift their behavior during cooler months, and your home becomes their primary target. At Yogi's Pest Control, we help homeowners across Laguna Niguel, San Juan Capistrano, Dana Point, and every OC city prepare their homes before winter pest pressure peaks.
+    content: `While Orange County winters are famously mild, the temperature drop from the 90s of summer to nighttime lows in the 40s and 50s is enough to send pests searching for warm shelter inside your home. Rodents, spiders, cockroaches, and even ants shift their behavior during cooler months, and your home becomes their primary target. At Yogi's Pest Control, we help homeowners across [Laguna Niguel](/areas-we-serve/laguna-niguel), San Juan Capistrano, [Dana Point](/areas-we-serve/dana-point), and every OC city prepare their homes before winter pest pressure peaks.
 
 ## Seal the Exterior Envelope
 
@@ -864,7 +867,7 @@ Your garage door is one of the largest openings in your home and a primary entry
 
 ## Protect the Attic
 
-Roof rats are especially active during Orange County winters as they seek warm nesting sites and access to the food stored in your home. Inspect all attic vents and ensure they have intact metal screening. Check where the roofline meets the fascia board for gaps. Seal around plumbing vent pipes that exit through the roof. Verify that your turbine ventilators are intact and gap-free.
+[Roof rats](/pests/roof-rats) are especially active during Orange County winters as they seek warm nesting sites and access to the food stored in your home. Inspect all attic vents and ensure they have intact metal screening. Check where the roofline meets the fascia board for gaps. Seal around plumbing vent pipes that exit through the roof. Verify that your turbine ventilators are intact and gap-free.
 
 Inside the attic, look for existing signs of rodent activity including droppings, gnaw marks, and disturbed insulation. Address any current activity before sealing the attic completely, as trapping existing rodents inside creates additional problems.
 
@@ -884,7 +887,7 @@ Bring pet food bowls inside at night. Store birdseed, pet food, and grass seed i
 
 The most effective winter pest-proofing combines your diligent maintenance with professional expertise. Our technicians spot vulnerabilities that homeowners typically miss, including gaps in rooflines only visible from ladders, entry points hidden behind landscaping, and conducive conditions in crawl spaces and substructures.
 
-Contact Yogi's Pest Control at 714-323-8262 for a free winter pest-proofing inspection throughout Orange County.`,
+Contact Yogi's Pest Control at 714-323-8262 for a [free winter pest-proofing inspection](/book) throughout Orange County.`,
   },
   {
     slug: "the-complete-guide-to-cockroach-control-in-orange-county",
@@ -896,13 +899,13 @@ Contact Yogi's Pest Control at 714-323-8262 for a free winter pest-proofing insp
     metaDescription:
       "Complete cockroach control guide for Orange County. Identify species, prevent infestations, and learn effective treatment options from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-04-28",
-    content: `Cockroaches are among the most resilient and reviled pests found in Orange County homes and businesses. They contaminate food, trigger allergies and asthma, and reproduce at alarming rates. Understanding the species you are dealing with and implementing the right control strategy is essential for effective elimination. At Yogi's Pest Control, we treat cockroach infestations daily across Santa Ana, Westminster, Garden Grove, Anaheim, and communities throughout OC.
+    content: `Cockroaches are among the most resilient and reviled pests found in Orange County homes and businesses. They contaminate food, trigger allergies and asthma, and reproduce at alarming rates. Understanding the species you are dealing with and implementing the right control strategy is essential for effective elimination. At Yogi's Pest Control, we treat cockroach infestations daily across [Santa Ana](/areas-we-serve/santa-ana), Westminster, Garden Grove, Anaheim, and communities throughout OC.
 
 ## Cockroach Species in Orange County
 
-Three cockroach species dominate Orange County. German cockroaches are small, light brown with two dark stripes behind the head, and are almost exclusively indoor pests. They are the most common species found in kitchens and bathrooms, especially in apartments and commercial kitchens. A single female can produce hundreds of offspring in her lifetime, making populations explode quickly.
+Three cockroach species dominate Orange County. [German cockroaches](/pests/german-cockroaches) are small, light brown with two dark stripes behind the head, and are almost exclusively indoor pests. They are the most common species found in kitchens and bathrooms, especially in apartments and commercial kitchens. A single female can produce hundreds of offspring in her lifetime, making populations explode quickly.
 
-American cockroaches, often called waterbugs, are large reddish-brown roaches that primarily live outdoors in sewer systems, irrigation boxes, and planter beds. They enter homes through gaps around doors, plumbing penetrations, and sewer connections. Orange County's extensive storm drain system provides a vast habitat network for this species.
+[American cockroaches](/pests/american-cockroaches), often called waterbugs, are large reddish-brown roaches that primarily live outdoors in sewer systems, irrigation boxes, and planter beds. They enter homes through gaps around doors, plumbing penetrations, and sewer connections. Orange County's extensive storm drain system provides a vast habitat network for this species.
 
 Oriental cockroaches are shiny, dark brown to black and strongly associated with damp environments. They are commonly found in garages, crawl spaces, and landscape areas with heavy irrigation. Properties in older Orange County neighborhoods with established landscaping frequently encounter this species.
 
@@ -926,7 +929,7 @@ For American and Oriental cockroaches, exterior perimeter treatments combined wi
 
 Over-the-counter cockroach products rarely resolve established infestations. Bug bombs and foggers are particularly problematic because they scatter cockroaches deeper into walls and voids without delivering lethal doses. They also deposit pesticide residue on surfaces throughout the home. If you have been battling cockroaches for more than a few weeks without success, professional treatment will save time and deliver lasting results.
 
-At Yogi's Pest Control, our cockroach elimination programs are tailored to the species present and the severity of the infestation. We use professional-grade baits, growth regulators, and targeted applications to eliminate populations efficiently.
+At Yogi's Pest Control, our [cockroach elimination programs](/services/cockroach-control) are tailored to the species present and the severity of the infestation. We use professional-grade baits, growth regulators, and targeted applications to eliminate populations efficiently.
 
 Call 714-323-8262 for cockroach control anywhere in Orange County.`,
   },
@@ -940,7 +943,7 @@ Call 714-323-8262 for cockroach control anywhere in Orange County.`,
     metaDescription:
       "Learn why wasps become more aggressive in late summer in Orange County and how to stay safe. Expert tips from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-08-25",
-    content: `Every August and September, Orange County residents notice that wasps and yellowjackets seem noticeably more aggressive around outdoor dining areas, pool decks, and backyard gatherings. This is not your imagination. Late summer triggers behavioral changes in wasp colonies that make them more defensive, more persistent around food, and more likely to sting. At Yogi's Pest Control, wasp-related emergency calls peak during this period across communities from Laguna Beach to Brea.
+    content: `Every August and September, Orange County residents notice that wasps and yellowjackets seem noticeably more aggressive around outdoor dining areas, pool decks, and backyard gatherings. This is not your imagination. Late summer triggers behavioral changes in wasp colonies that make them more defensive, more persistent around food, and more likely to sting. At Yogi's Pest Control, wasp-related emergency calls peak during this period across communities from Laguna Beach to [Brea](/areas-we-serve/brea).
 
 ## The Biology Behind Late Summer Aggression
 
@@ -952,9 +955,9 @@ Simultaneously, the colony becomes increasingly defensive of its now-valuable ne
 
 ## Common Wasp Species in Orange County
 
-Paper wasps build open, umbrella-shaped nests under eaves, porch ceilings, and patio covers. They are generally less aggressive than yellowjackets but will sting if their nest is disturbed. Their long legs dangle visibly during flight, helping with identification.
+[Paper wasps](/pests/paper-wasps) build open, umbrella-shaped nests under eaves, porch ceilings, and patio covers. They are generally less aggressive than yellowjackets but will sting if their nest is disturbed. Their long legs dangle visibly during flight, helping with identification.
 
-Western yellowjackets are the most aggressive species in Orange County. They build enclosed nests in wall voids, attics, underground burrows, and dense shrubs. Their nests are hidden, which leads to accidental encounters. Yellowjackets are persistent around food and can sting repeatedly without losing their stinger.
+[Western yellowjackets](/pests/yellow-jackets) are the most aggressive species in Orange County. They build enclosed nests in wall voids, attics, underground burrows, and dense shrubs. Their nests are hidden, which leads to accidental encounters. Yellowjackets are persistent around food and can sting repeatedly without losing their stinger.
 
 Mud daubers, though intimidating in appearance, are solitary wasps that are rarely aggressive toward humans. They build distinctive tube-shaped mud nests on walls and ceilings. While they are a nuisance, they actually help control spider populations.
 
@@ -972,7 +975,7 @@ At Yogi's Pest Control, our technicians are equipped with protective gear and pr
 
 We also offer preventive treatments for homes with recurring wasp problems. Treating eaves, soffits, and other common nesting sites in early spring can deter queens from establishing colonies on your property.
 
-Call Yogi's Pest Control at 714-323-8262 for safe wasp removal anywhere in Orange County.`,
+Call Yogi's Pest Control at 714-323-8262 for safe [wasp removal](/services/wasp-control) anywhere in Orange County.`,
   },
   {
     slug: "raccoons-in-orange-county-prevention-and-removal",
@@ -984,7 +987,7 @@ Call Yogi's Pest Control at 714-323-8262 for safe wasp removal anywhere in Orang
     metaDescription:
       "Deal with raccoons in your Orange County property. Prevention tips and professional removal services from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-01-05",
-    content: `Raccoons have become an increasingly visible presence in Orange County neighborhoods over the past decade. These intelligent, adaptable mammals thrive in suburban environments where food, water, and shelter are readily available. While they may look cute from a distance, raccoons cause significant property damage, carry diseases, and can be aggressive when cornered. At Yogi's Pest Control, we help homeowners across Tustin, Orange, Lake Forest, and throughout OC deal with raccoon conflicts safely and humanely.
+    content: `[Raccoons](/pests/raccoons) have become an increasingly visible presence in Orange County neighborhoods over the past decade. These intelligent, adaptable mammals thrive in suburban environments where food, water, and shelter are readily available. While they may look cute from a distance, raccoons cause significant property damage, carry diseases, and can be aggressive when cornered. At Yogi's Pest Control, we help homeowners across [Tustin](/areas-we-serve/tustin), Orange, Lake Forest, and throughout OC deal with raccoon conflicts safely and humanely.
 
 ## Why Raccoons Love Orange County Suburbs
 
@@ -1010,9 +1013,9 @@ Install motion-activated lights and sprinklers around vulnerable areas. While ra
 
 If raccoons have already taken up residence in your attic or crawl space, do not attempt to trap or remove them yourself. California wildlife regulations govern raccoon management, and improper handling can result in bites, scratches, or legal issues. During spring and early summer, female raccoons may have dependent young in the den, complicating removal.
 
-Professional wildlife management involves a careful assessment of the situation, humane exclusion techniques, and proper cleanup of contaminated areas. At Yogi's Pest Control, we work within California Department of Fish and Wildlife guidelines to resolve raccoon conflicts.
+[Professional wildlife management](/services/wildlife-trapping) involves a careful assessment of the situation, humane exclusion techniques, and proper cleanup of contaminated areas. At Yogi's Pest Control, we work within California Department of Fish and Wildlife guidelines to resolve raccoon conflicts.
 
-Our process typically includes identifying and securing all entry points except the primary opening, installing a one-way exclusion device that allows raccoons to leave but prevents re-entry, monitoring to confirm departure, sealing the final entry point, and cleaning and decontaminating affected areas.
+Our process typically includes identifying and securing all entry points except the primary opening, installing a one-way exclusion device that allows raccoons to leave but prevents re-entry, monitoring to confirm departure, sealing the final entry point, and [cleaning and decontaminating affected areas](/services/attic-cleanout).
 
 ## Long-Term Raccoon Management
 
@@ -1030,7 +1033,7 @@ Contact Yogi's Pest Control at 714-323-8262 for raccoon prevention and removal s
     metaDescription:
       "Reduce spiders in your Orange County garage with proven prevention tips. Expert advice from Yogi's Pest Control for a safer garage space. Call 714-323-8262.",
     publishedAt: "2025-07-30",
-    content: `If there is one room in your Orange County home where spiders consistently thrive, it is the garage. The combination of darkness, clutter, insects, and minimal disturbance makes garages the ideal habitat for spiders ranging from harmless cellar spiders to venomous black widows and brown widows. At Yogi's Pest Control, our technicians routinely find heavy spider activity in garages throughout Cypress, La Palma, Stanton, and every OC neighborhood, and we want homeowners to know how to reduce the problem.
+    content: `If there is one room in your Orange County home where spiders consistently thrive, it is the garage. The combination of darkness, clutter, insects, and minimal disturbance makes garages the ideal habitat for spiders ranging from harmless cellar spiders to venomous [black widows](/pests/black-widows) and brown widows. At Yogi's Pest Control, our technicians routinely find heavy spider activity in garages throughout [Cypress](/areas-we-serve/cypress), [La Palma](/areas-we-serve/la-palma), Stanton, and every OC neighborhood, and we want homeowners to know how to reduce the problem.
 
 ## Why Spiders Love Your Garage
 
@@ -1066,7 +1069,7 @@ For persistent spider problems, professional pest control adds a critical layer 
 
 Our technicians inspect for and address the specific spider species present, because effective control strategies vary. Cellar spiders respond to different approaches than black widows, and knowing what you are dealing with determines the best plan.
 
-Call Yogi's Pest Control at 714-323-8262 for spider control in your Orange County garage and home.`,
+Call Yogi's Pest Control at 714-323-8262 for [spider control](/services/spider-control) in your Orange County garage and home.`,
   },
   {
     slug: "understanding-flea-and-tick-season-in-southern-california",
@@ -1078,17 +1081,17 @@ Call Yogi's Pest Control at 714-323-8262 for spider control in your Orange Count
     metaDescription:
       "Fleas and ticks stay active year-round in Orange County. See the 2026 peak months, where pets pick them up, and how to stop an infestation before it grows.",
     publishedAt: "2025-05-08",
-    content: `Unlike much of the country where harsh winters kill off flea and tick populations, Southern California's mild climate allows these parasites to remain active year-round. Orange County residents with pets face a constant battle, and even homes without pets can experience flea infestations from wildlife. At Yogi's Pest Control, we treat flea and tick problems across all OC cities and educate pet owners about the unique seasonal patterns in our region.
+    content: `Unlike much of the country where harsh winters kill off flea and tick populations, Southern California's mild climate allows these parasites to remain active year-round. Orange County residents with pets face a constant battle, and even homes without pets can experience flea infestations from wildlife. At Yogi's Pest Control, we treat [flea and tick problems](/services/tick-flea-treatment) across all OC cities and educate pet owners about the unique seasonal patterns in our region.
 
 ## Flea Season in Orange County
 
-While fleas are present in Orange County every month of the year, activity peaks from late spring through fall when warm temperatures accelerate their life cycle. A flea can complete its development from egg to adult in as little as two weeks during summer, and a single female produces up to 50 eggs per day. This explosive reproduction rate means a few fleas on your pet can become a major household infestation within weeks.
+While [fleas](/pests/fleas) are present in Orange County every month of the year, activity peaks from late spring through fall when warm temperatures accelerate their life cycle. A flea can complete its development from egg to adult in as little as two weeks during summer, and a single female produces up to 50 eggs per day. This explosive reproduction rate means a few fleas on your pet can become a major household infestation within weeks.
 
-The mild winters in cities like Laguna Hills, Aliso Viejo, and San Clemente mean flea populations never fully crash, maintaining a baseline population that ramps up quickly when temperatures warm. Homes with crawl spaces or yards frequented by feral cats, opossums, or raccoons face year-round flea pressure regardless of whether they own pets.
+The mild winters in cities like Laguna Hills, Aliso Viejo, and [San Clemente](/areas-we-serve/san-clemente) mean flea populations never fully crash, maintaining a baseline population that ramps up quickly when temperatures warm. Homes with crawl spaces or yards frequented by feral cats, opossums, or raccoons face year-round flea pressure regardless of whether they own pets.
 
 ## Tick Activity Patterns
 
-Tick activity in Orange County correlates with our limited rainy season and cooler months. The most common species, the brown dog tick and the Pacific Coast tick, are most active from late winter through spring when humidity is higher and temperatures are moderate. However, brown dog ticks can complete their entire life cycle indoors, making them a year-round threat in homes and kennels.
+Tick activity in Orange County correlates with our limited rainy season and cooler months. The most common species, the [brown dog tick](/pests/ticks) and the Pacific Coast tick, are most active from late winter through spring when humidity is higher and temperatures are moderate. However, brown dog ticks can complete their entire life cycle indoors, making them a year-round threat in homes and kennels.
 
 Outdoor enthusiasts who hike trails in areas like Crystal Cove State Park, Santiago Oaks Regional Park, and the Santa Ana Mountains should be especially vigilant from November through May. Ticks wait on vegetation along trails and attach to hikers and dogs that brush past.
 
@@ -1122,7 +1125,7 @@ Call Yogi's Pest Control at 714-323-8262 for flea and tick treatment throughout 
     metaDescription:
       "Discover the top 5 pest entry points in Orange County homes and learn how to seal them. Prevention guide from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-02-10",
-    content: `After thousands of inspections across Orange County, our technicians at Yogi's Pest Control have identified clear patterns in how pests gain access to homes. Whether you live in a newer development in Irvine or a 1960s ranch in Anaheim, the same five entry points account for the vast majority of pest intrusions. Sealing these weak spots is the most cost-effective pest prevention investment you can make.
+    content: `Pests gain access to Orange County homes in clear, predictable patterns, and at Yogi's Pest Control these are the first places we check on every inspection. Whether you live in a newer development in [Irvine](/areas-we-serve/irvine) or a 1960s ranch in [Anaheim](/areas-we-serve/anaheim), the same five entry points account for the vast majority of pest intrusions. Sealing these weak spots is the most cost-effective pest prevention investment you can make.
 
 ## Entry Point 1: The Garage Door
 
@@ -1138,7 +1141,7 @@ Inspect every utility penetration on your exterior, including those in the garag
 
 ## Entry Point 3: Roof Vents and Eaves
 
-Orange County's dominant pest, the roof rat, typically enters homes from above. Roof vents, gable vents, plumbing vent pipes, and gaps between the roof and fascia board are primary entry routes. Factory-installed vent screens are often made from lightweight materials that rats and squirrels chew through quickly.
+Orange County's dominant pest, the [roof rat](/pests/roof-rats), typically enters homes from above. Roof vents, gable vents, plumbing vent pipes, and gaps between the roof and fascia board are primary entry routes. Factory-installed vent screens are often made from lightweight materials that rats and squirrels chew through quickly.
 
 Inspect your roofline from a ladder or have it inspected professionally. Replace lightweight vent screens with galvanized steel or heavy-gauge hardware cloth. Seal gaps where the roofline meets the fascia board with metal flashing. Ensure plumbing vent pipes have proper collars with no gaps between the pipe and roofing material.
 
@@ -1158,7 +1161,7 @@ Replace weather stripping that no longer creates a tight seal. Install door swee
 
 Rather than reacting to individual pest problems, invest an afternoon in systematically inspecting and sealing all five entry point categories. This one-time effort, maintained with annual inspections, prevents the majority of pest intrusions in Orange County homes.
 
-For a professional entry point assessment, call Yogi's Pest Control at 714-323-8262 for a free inspection.`,
+For a [professional entry point assessment](/services/exclusion-repairs), call Yogi's Pest Control at 714-323-8262 for a free inspection.`,
   },
   {
     slug: "is-that-a-termite-or-a-flying-ant",
@@ -1170,7 +1173,7 @@ For a professional entry point assessment, call Yogi's Pest Control at 714-323-8
     metaDescription:
       "Learn to tell termites from flying ants in your Orange County home. Key identification differences and what to do next from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2025-10-02",
-    content: `Every fall in Orange County, homeowners find swarms of winged insects near windows, light fixtures, and sliding glass doors and face an urgent question: are these termites or flying ants? The answer matters enormously because termite swarmers indicate an active colony consuming the wood in your home, while flying ants are a nuisance but pose no structural threat. At Yogi's Pest Control, we respond to swarmer identification calls throughout Huntington Beach, Fountain Valley, Westminster, and all of OC, and the distinction is one every homeowner should understand.
+    content: `Every fall in Orange County, homeowners find swarms of winged insects near windows, light fixtures, and sliding glass doors and face an urgent question: are these termites or flying ants? The answer matters enormously because termite swarmers indicate an active colony consuming the wood in your home, while flying ants are a nuisance but pose no structural threat. Homeowners throughout Huntington Beach, Fountain Valley, Westminster, and all of OC run into this question every year, and the distinction is one every homeowner should understand.
 
 ## When Swarms Occur in Orange County
 
@@ -1202,27 +1205,27 @@ Argentine ant swarmers are light brown and smaller than termite swarmers. Carpen
 
 ## What to Do With Your Identification
 
-If you determine the swarmers are termites, this indicates an established colony in or near your home that has matured enough to produce reproductives. This is not an emergency in the immediate sense because the structural damage has been occurring gradually, but it does warrant a professional termite inspection as soon as possible. Save several specimens in a sealed bag or take clear photographs for your pest control professional.
+If you determine the swarmers are termites, this indicates an established colony in or near your home that has matured enough to produce reproductives. This is not an emergency in the immediate sense because the structural damage has been occurring gradually, but it does warrant an inspection by a licensed termite (Branch 3) inspector as soon as possible. Save several specimens in a sealed bag or take clear photographs for the inspector.
 
 If the swarmers are flying ants, the situation is far less serious. Argentine ant mating flights are common throughout Orange County and do not indicate structural damage. Carpenter ant swarmers may indicate a colony in decaying wood but cause far less damage than termites. Vacuum up the swarmers and monitor for further activity.
 
 ## When in Doubt, Call a Professional
 
-If you cannot determine what you are seeing, collect specimens and contact a licensed pest control professional. At Yogi's Pest Control, we provide free identification and can perform a thorough inspection to determine if termite activity is present. Catching termites early saves thousands in repair costs.
+If you cannot determine what you are seeing, collect specimens or take clear photos before they are gone. Catching termites early saves thousands in repair costs.
 
-Call 714-323-8262 for termite identification and inspection in Orange County.`,
+If you suspect termites, have a licensed termite (Branch 3) inspector confirm it. If it turns out to be ants, or if you are not sure what you are seeing, call Yogi's Pest Control at 714-323-8262.`,
   },
   {
     slug: "pet-safe-pest-control-methods-for-orange-county-families",
-    title: "Pet-Safe Pest Control Methods for Orange County Families",
+    title: "Pest Control Methods for Orange County Pet Owners",
     excerpt:
-      "Orange County pet owners need pest control solutions that protect their furry family members. Learn which methods and products are safe for pets and which to avoid.",
+      "Orange County pet owners need pest control that accounts for their furry family members. Learn which reduced-risk methods lower pet exposure, how re-entry guidance works, and which products to avoid.",
     category: "Pest Prevention Tips",
-    metaTitle: "Pet-Safe Pest Control Methods for Orange County Families",
+    metaTitle: "Pest Control Methods for Orange County Pet Owners",
     metaDescription:
-      "Keep your Orange County pets safe while controlling pests. Pet-friendly methods and products from Yogi's Pest Control. Call 714-323-8262.",
+      "Pest control for Orange County homes with pets: reduced-risk options, EPA-registered products applied per label, re-entry guidance and IPM from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-02-25",
-    content: `Orange County is one of the most pet-friendly regions in California, and at Yogi's Pest Control, a large majority of the homes we service have dogs, cats, or both. Pet safety is a top priority in every treatment plan we design, and we want every OC pet owner to understand their options. Whether you are in pet-friendly neighborhoods in Laguna Beach, the dog parks of Irvine, or anywhere in between, effective pest control and pet safety are not mutually exclusive.
+    content: `Orange County is one of the most pet-friendly regions in California, and many of the homes we visit at Yogi's Pest Control have dogs, cats, or both. Reducing pet exposure is part of every treatment plan we design, and we want every OC pet owner to understand their options. Whether you are in pet-friendly neighborhoods in Laguna Beach, the dog parks of Irvine, or anywhere in between, effective pest control and a careful, pet-conscious approach can go together.
 
 ## Understanding the Risks
 
@@ -1230,17 +1233,17 @@ Not all pest control products pose equal risk to pets. The danger depends on the
 
 Over-the-counter pest products often pose greater risk to pets than professional applications because they are applied improperly, used in excessive amounts, or placed in accessible locations. Foggers and surface sprays leave residue on floors and surfaces where pets walk and then groom themselves.
 
-## Pet-Safe Treatment Methods
+## Reduced-Risk Treatment Methods
 
 Targeted crack-and-crevice applications place product precisely where pests harbor, in wall voids, behind baseboards, inside cabinet voids, and within structural gaps that pets cannot access. This approach minimizes surface exposure and uses far less product than broadcast applications.
 
-Gel baits for cockroaches and ants are applied in thin beads inside cracks, under appliances, and in other locations inaccessible to pets. The amounts used are extremely small and the placements are concealed. Tamper-resistant bait stations provide an additional layer of pet safety when monitoring devices are needed.
+Gel baits for cockroaches and ants are applied in thin beads inside cracks, under appliances, and in other locations inaccessible to pets. The amounts used are extremely small and the placements are concealed. Tamper-resistant bait stations add another layer of protection against pet access when monitoring devices are needed.
 
-Exterior perimeter treatments create a barrier around your home that controls pests before they enter. When applied to foundation strips and exterior walls according to label directions, these products dry quickly and present minimal risk to pets once dry. We advise keeping pets off treated surfaces until the product has dried completely, typically 30 minutes to two hours depending on conditions.
+Exterior perimeter treatments create a barrier around your home that controls pests before they enter. We use EPA-registered products applied to foundation strips and exterior walls according to label directions, and we give you re-entry guidance after every service. Keep pets off treated surfaces until the product has dried completely, typically 30 minutes to two hours depending on conditions, or longer if the label requires it.
 
-## Exclusion: The Safest Method
+## Exclusion: The Lowest-Exposure Method
 
-Physical exclusion, sealing entry points to prevent pest access, is the most pet-safe approach because it uses no chemicals at all. Sealing gaps around doors, windows, pipes, and vents stops pests without any product application. For rodent control, exclusion combined with snap traps placed in tamper-resistant stations provides effective control with zero chemical exposure risk to pets.
+[Physical exclusion](/services/exclusion-repairs), sealing entry points to prevent pest access, is the lowest-exposure approach because it uses no chemicals at all. Sealing gaps around doors, windows, pipes, and vents stops pests without any product application. For [rodent control](/services/rodent-control), exclusion combined with snap traps placed in tamper-resistant stations provides effective control without placing pesticide where pets can reach it.
 
 ## Products and Methods to Avoid Around Pets
 
@@ -1254,9 +1257,9 @@ Mothballs contain naphthalene or paradichlorobenzene, both toxic to pets. Never 
 
 When you schedule pest control service, always inform your provider about all pets in the household, including species and any known sensitivities. Let them know where pets spend time indoors and outdoors. A responsible pest control company will tailor their treatment plan based on this information.
 
-At Yogi's Pest Control, we discuss pet safety during every service consultation and adjust our approach accordingly. Our technicians are trained in pet-safe application methods and product selection.
+At Yogi's Pest Control, we discuss pet safety during every service consultation and adjust our approach accordingly. We follow Integrated Pest Management principles, choose reduced-risk options where they will work, and apply every product per its label.
 
-Contact Yogi's Pest Control at 714-323-8262 for pet-safe pest control throughout Orange County.`,
+Contact Yogi's Pest Control at 714-323-8262 for pet-conscious pest control throughout Orange County.`,
   },
   {
     slug: "the-hidden-dangers-of-diy-pest-control-products",
@@ -1268,17 +1271,17 @@ Contact Yogi's Pest Control at 714-323-8262 for pet-safe pest control throughout
     metaDescription:
       "Learn why DIY pest control products often fail and can be dangerous for your Orange County home. Expert insights from Yogi's Pest Control. Call 714-323-8262.",
     publishedAt: "2026-03-05",
-    content: `The pest control aisle at your local Orange County hardware store is stocked with sprays, baits, foggers, and gadgets promising quick solutions to any pest problem. While some of these products have legitimate uses when applied correctly, many DIY pest control attempts create bigger problems than they solve. At Yogi's Pest Control, we regularly respond to homes in Costa Mesa, Fullerton, Santa Ana, and throughout OC where DIY treatments have made pest situations significantly worse.
+    content: `The pest control aisle at your local Orange County hardware store is stocked with sprays, baits, foggers, and gadgets promising quick solutions to any pest problem. While some of these products have legitimate uses when applied correctly, many DIY pest control attempts create bigger problems than they solve. At Yogi's Pest Control, we regularly respond to homes in Costa Mesa, [Fullerton](/areas-we-serve/fullerton), Santa Ana, and throughout OC where DIY treatments have made pest situations significantly worse.
 
 ## Foggers and Bug Bombs: The Worst Offenders
 
 Total release foggers, commonly called bug bombs, are the most problematic DIY products available. Despite their widespread availability, they are among the least effective pest control methods. Foggers deposit pesticide residue on every surface in the treated room, including countertops, dishes, toys, pet bowls, and bedding, creating unnecessary chemical exposure for your family.
 
-More importantly, foggers scatter pests rather than eliminating them. Cockroaches, the most common target of foggers, detect the repellent chemicals and flee deeper into wall voids, spreading the infestation to previously unaffected areas of the home. Studies have demonstrated that fogging has minimal impact on established cockroach populations while significantly increasing pesticide contamination of living spaces.
+More importantly, foggers scatter pests rather than eliminating them. [Cockroaches](/services/cockroach-control), the most common target of foggers, detect the repellent chemicals and flee deeper into wall voids, spreading the infestation to previously unaffected areas of the home. Studies have demonstrated that fogging has minimal impact on established cockroach populations while significantly increasing pesticide contamination of living spaces.
 
 ## Misidentification Leads to Wrong Products
 
-Effective pest control starts with accurate identification, and most homeowners lack the training to identify pest species correctly. Treating carpenter ants with products designed for Argentine ants wastes money and time. Using the wrong bait formulation for the cockroach species present yields no results. Confusing termite swarmers with flying ants means missing a serious structural threat while applying unnecessary ant products.
+Effective pest control starts with accurate identification, and most homeowners lack the training to identify pest species correctly. Treating carpenter ants with products designed for [Argentine ants](/pests/argentine-ants) wastes money and time. Using the wrong bait formulation for the cockroach species present yields no results. Confusing termite swarmers with flying ants means missing a serious structural threat while applying unnecessary ant products.
 
 Each pest species has specific behaviors, nesting habits, and vulnerabilities that determine the effective control strategy. Professional pest control technicians train extensively in identification and understand which products and methods are effective for each species present in Orange County.
 
@@ -1292,7 +1295,7 @@ Application technique matters enormously. Professional pest control products are
 
 DIY rodent control presents particular dangers. Store-bought rodenticide baits are toxic to children, pets, and wildlife. Improperly placed baits lead to secondary poisoning when dogs, cats, or raptors consume poisoned rodents. Rodent poison also creates the risk of rodents dying in inaccessible wall voids and ceiling spaces, producing severe odors that persist for weeks.
 
-Glue boards, another common DIY product, are considered inhumane by many pest control professionals and animal welfare organizations. They also catch non-target animals including lizards, birds, and snakes. Professional rodent control uses tamper-resistant snap trap stations and exclusion methods that are both more effective and safer.
+Glue boards, another common DIY product, are considered inhumane by many pest control professionals and animal welfare organizations. They also catch non-target animals including lizards, birds, and snakes. [Professional rodent control](/services/rodent-control) uses tamper-resistant snap trap stations and exclusion methods that are more effective and reduce risk to non-target animals.
 
 ## When DIY Makes Sense
 
@@ -1304,7 +1307,7 @@ However, when you are dealing with an established infestation, structural pests 
 
 Licensed pest control companies in California are regulated by the Structural Pest Control Board and must follow strict guidelines for product use and application. At Yogi's Pest Control, our technicians are trained, licensed, and use commercial-grade products applied with professional equipment and techniques unavailable to consumers.
 
-Call 714-323-8262 for effective, safe pest control throughout Orange County.`,
+Call 714-323-8262 for effective pest control applied per label throughout Orange County.`,
   },
   {
     slug: "orange-countys-most-common-summer-pests-2026-update",
@@ -1316,25 +1319,25 @@ Call 714-323-8262 for effective, safe pest control throughout Orange County.`,
     metaDescription:
       "The pests OC homes see most in summer 2026: Argentine ants, daytime-biting mosquitoes, roof rats, roaches and wasps, plus what to do about each one now.",
     publishedAt: "2026-03-20",
-    content: `As Orange County heads into another warm summer, homeowners should prepare for the pest pressures that peak during the hottest months of the year. Based on our service data from the past 12 months and current conditions, here is Yogi's Pest Control's updated guide to the most common summer pests across OC for 2026.
+    content: `As Orange County heads into another warm summer, homeowners should prepare for the pest pressures that peak during the hottest months of the year. Based on seasonal patterns and current conditions, here is Yogi's Pest Control's updated guide to the most common summer pests across OC for 2026.
 
 ## Argentine Ants Remain Number One
 
-Argentine ants continue to be the most reported pest across Orange County, and summer amplifies the problem. Hot, dry conditions drive these persistent ants indoors seeking water, sending trails into kitchens and bathrooms in homes from Seal Beach to San Clemente. The massive interconnected super-colonies that characterize Argentine ants in our region mean that killing individual ants does nothing to reduce the population.
+[Argentine ants](/pests/argentine-ants) continue to be the most reported pest across Orange County, and summer amplifies the problem. Hot, dry conditions drive these persistent ants indoors seeking water, sending trails into kitchens and bathrooms in homes from Seal Beach to San Clemente. The massive interconnected super-colonies that characterize Argentine ants in our region mean that killing individual ants does nothing to reduce the population.
 
 This summer, expect elevated ant activity especially during heat waves when outdoor moisture sources dry up. Prevention starts with eliminating indoor moisture from leaky faucets, condensation under sinks, and pet water bowls. Professional perimeter treatments remain the most effective barrier.
 
 ## Roof Rats Continue to Expand
 
-Orange County's roof rat population shows no signs of declining. The combination of mature fruit trees, dense landscaping, and accessible rooflines provides everything roof rats need. Neighborhoods in cities like Orange, Villa Park, and North Tustin with established avocado and citrus groves see particularly heavy activity from May through October as fruit ripens.
+Orange County's roof rat population shows no signs of declining. The combination of mature fruit trees, dense landscaping, and accessible rooflines provides everything roof rats need. Neighborhoods in cities like Orange, [Villa Park](/areas-we-serve/villa-park), and North Tustin with established avocado and citrus groves see particularly heavy activity from May through October as fruit ripens.
 
 Summer is actually the best time to address rodent exclusion because rats are more active outdoors and less reliant on interior shelter. Seal your home now while rats are easier to exclude. Trim trees four feet from rooflines and harvest fruit promptly.
 
 ## Invasive Mosquitoes Expanding Territory
 
-The invasive Aedes mosquitoes that arrived in Orange County several years ago continue expanding their range into new neighborhoods. Unlike native mosquitoes that breed in larger water sources, Aedes mosquitoes breed in containers as small as a bottle cap and bite aggressively during daylight hours. The Orange County Mosquito and Vector Control District has documented their presence in an increasing number of OC cities.
+The [invasive Aedes mosquitoes](/blog/why-mosquitoes-bite-during-the-day-orange-county-aedes) that arrived in Orange County several years ago continue expanding their range into new neighborhoods. Unlike native mosquitoes that breed in larger water sources, Aedes mosquitoes breed in containers as small as a bottle cap and bite aggressively during daylight hours. The Orange County Mosquito and Vector Control District has documented their presence in an increasing number of OC cities.
 
-Eliminate standing water on your property weekly. Check plant saucers, birdbaths, clogged gutters, unused pots, and any container that holds water. Repair window and door screens. Consider professional mosquito barrier treatments for yards where outdoor living is a priority.
+Eliminate standing water on your property weekly. Check plant saucers, birdbaths, clogged gutters, unused pots, and any container that holds water. Repair window and door screens. Consider [professional mosquito barrier treatments](/services/mosquito-control) for yards where outdoor living is a priority.
 
 ## Cockroach Activity Peaks
 
@@ -1344,7 +1347,7 @@ Seal gaps around exterior doors with weather stripping and sweeps. Cover floor d
 
 ## Spiders Follow the Summer Insect Boom
 
-As insect populations peak in summer, spider populations follow. Black widows are especially active from June through October, building webs in garages, meter boxes, and outdoor storage. Brown widows have become increasingly common in OC neighborhoods and tend to nest in outdoor furniture and decorative objects.
+As insect populations peak in summer, spider populations follow. [Black widows](/pests/black-widows) are especially active from June through October, building webs in garages, meter boxes, and outdoor storage. Brown widows have become increasingly common in OC neighborhoods and tend to nest in outdoor furniture and decorative objects.
 
 Reduce spider habitat by decluttering garages and exterior storage areas. Switch to yellow exterior lighting to reduce the insect prey that attracts spiders. Shake out shoes and gloves stored in garages before use.
 
@@ -1370,7 +1373,7 @@ Contact Yogi's Pest Control at 714-323-8262 for summer pest prevention throughou
     publishedAt: "2026-10-19",
     content: `Professional mosquito control in Orange County typically costs $150 to $300 for a one-time yard treatment and $100 to $175 per month for a recurring plan during the May through October season. The inspection is usually free, and the final price depends mostly on yard size, how much shaded landscaping needs treatment, and how many water features are on the property.
 
-Those numbers are the same ranges we publish on our Orange County pest control cost page, and they are what most single-family homes in cities like Costa Mesa, Garden Grove and Orange end up paying. Below is what goes into the price, what a treatment should include, and how to spend as little as possible.
+Those numbers are the same ranges we publish on our [Orange County pest control cost page](/pest-control-cost), and they are what most single-family homes in cities like Costa Mesa, Garden Grove and Orange end up paying. Below is what goes into the price, what a treatment should include, and how to spend as little as possible.
 
 ## Mosquito Control Prices at a Glance (2026)
 
@@ -1408,11 +1411,11 @@ Clear re-entry guidance. Products should be EPA-registered and applied per the l
 
 ## Typical Costs in Three Orange County Cities
 
-Costa Mesa: Many Eastside and Westside lots are small, which keeps a one-time treatment toward the lower end of the $150 to $300 range. The mosquitoes biting during the day here usually come from containers close to home rather than from Upper Newport Bay or the Santa Ana River, which are monitored by the county vector control district. Our Costa Mesa mosquito control page covers the local breeding spots we find most often.
+Costa Mesa: Many Eastside and Westside lots are small, which keeps a one-time treatment toward the lower end of the $150 to $300 range. The mosquitoes biting during the day here usually come from containers close to home rather than from Upper Newport Bay or the Santa Ana River, which are monitored by the county vector control district. Our [Costa Mesa mosquito control page](/areas-we-serve/costa-mesa/mosquito-control) covers the local breeding spots we find most often.
 
-Garden Grove: Invasive Aedes were confirmed in Garden Grove in 2015 after residents reported daytime leg bites. Backyard gardens with buckets, pots and rain barrels are common sources, and closely spaced lots mean neighbors' yards matter. Most homes fall in the standard range, while duplexes and multi-unit properties are quoted on inspection. See our Garden Grove mosquito control page for details.
+Garden Grove: Invasive Aedes were confirmed in Garden Grove in 2015 after residents reported daytime leg bites. Backyard gardens with buckets, pots and rain barrels are common sources, and closely spaced lots mean neighbors' yards matter. Most homes fall in the standard range, while duplexes and multi-unit properties are quoted on inspection. See our [Garden Grove mosquito control page](/areas-we-serve/garden-grove/mosquito-control) for details.
 
-Orange: Standard lots in Old Towne and El Modena fall in the normal range, but horse properties and larger lots in Orange Park Acres and the eastern hills often need a custom quote because of troughs, ponds and slopes. Our Orange mosquito control page explains how we handle equestrian properties.
+Orange: Standard lots in Old Towne and El Modena fall in the normal range, but horse properties and larger lots in Orange Park Acres and the eastern hills often need a custom quote because of troughs, ponds and slopes. Our [Orange mosquito control page](/areas-we-serve/orange/mosquito-control) explains how we handle equestrian properties.
 
 ## What the County Does for Free
 
@@ -1436,7 +1439,7 @@ If your mosquito problem is mild or limited to a short stretch of summer, start 
 
 ## Get a Free Mosquito Quote
 
-Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the California Structural Pest Control Board (OPR 14866), and based in Tustin. We serve all of Orange County 7 days a week from 8 AM to 8 PM. For our full price list across all services, see the pest control cost page, or read about how our mosquito control service works. Call 714-323-8262 to schedule a free inspection.`,
+Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the California Structural Pest Control Board (OPR 14866), and based in Tustin. We serve all of Orange County 7 days a week from 8 AM to 8 PM. For our full price list across all services, see the pest control cost page, or read about how our [mosquito control service](/services/mosquito-control) works. Call 714-323-8262 to schedule a free inspection.`,
   },
   {
     slug: "why-mosquitoes-bite-during-the-day-orange-county-aedes",
@@ -1512,9 +1515,9 @@ If you have symptoms such as fever, rash or joint pain after travel, talk to a d
 
 ## Local Examples: Costa Mesa and Garden Grove
 
-In Costa Mesa, many people assume their mosquitoes come from Upper Newport Bay or the Santa Ana River. Those wetlands are monitored by the vector control district, and the daytime biters on Eastside patios and Mesa Verde backyards usually come from potted plants, fountains and clogged drains much closer to home. Our Costa Mesa mosquito control page lists the breeding spots we find most often there.
+In Costa Mesa, many people assume their mosquitoes come from Upper Newport Bay or the Santa Ana River. Those wetlands are monitored by the vector control district, and the daytime biters on Eastside patios and Mesa Verde backyards usually come from potted plants, fountains and clogged drains much closer to home. Our [Costa Mesa mosquito control page](/areas-we-serve/costa-mesa/mosquito-control) lists the breeding spots we find most often there.
 
-In Garden Grove, where invasive Aedes were confirmed in 2015, the flat, closely spaced lots and productive backyard gardens with buckets and rain barrels give these mosquitoes plenty of places to breed. Our Garden Grove mosquito control page explains why neighbors' yards matter so much in that city.
+In Garden Grove, where invasive Aedes were confirmed in 2015, the flat, closely spaced lots and productive backyard gardens with buckets and rain barrels give these mosquitoes plenty of places to breed. Our [Garden Grove mosquito control page](/areas-we-serve/garden-grove/mosquito-control) explains why neighbors' yards matter so much in that city.
 
 ## Do Citronella Candles, Zappers and Traps Help?
 
@@ -1538,7 +1541,7 @@ Report neglected pools and request free mosquitofish for ponds through the Orang
 
 ## When to Call a Professional
 
-If you have done the weekly container routine and are still getting bitten, the source may be hidden in your yard or coming from nearby properties. A professional mosquito treatment includes a full breeding-site survey, larvicide for water that can't be removed, and an EPA-registered barrier spray applied to shaded resting areas according to the label. During the May through October season, monthly visits typically cost $100 to $175 per month, and a one-time treatment runs $150 to $300.
+If you have done the weekly container routine and are still getting bitten, the source may be hidden in your yard or coming from nearby properties. A [professional mosquito treatment](/services/mosquito-control) includes a full breeding-site survey, larvicide for water that can't be removed, and an EPA-registered barrier spray applied to shaded resting areas according to the label. During the May through October season, [monthly visits typically cost $100 to $175 per month](/blog/mosquito-control-cost-orange-county-2026), and a one-time treatment runs $150 to $300.
 
 Yogi's Pest Control is licensed by the California Structural Pest Control Board (OPR 14866) and serves all of Orange County 7 days a week. Call 714-323-8262 for a free mosquito inspection.`,
   },
@@ -1596,7 +1599,7 @@ Tree branches and palm fronds touching or overhanging the roof.
 
 A roof rat can squeeze through a surprisingly small opening, and once one finds a way in, others follow the same path.
 
-Nearby Newport Beach sees the same pattern, especially in neighborhoods with mature palms and canopy trees close to rooflines. If you live there, our Newport Beach service area page covers local pest issues.
+Nearby Newport Beach sees the same pattern, especially in neighborhoods with mature palms and canopy trees close to rooflines. If you live there, our [Newport Beach service area page](/areas-we-serve/newport-beach) covers local pest issues.
 
 ## Signs You Have Roof Rats
 
@@ -1622,7 +1625,7 @@ We use traps placed along rat runways in attics and garages, out of reach of chi
 
 ## What Roof Rat Control Costs
 
-Here are typical 2026 prices for Orange County, consistent with our published pest control cost page:
+Here are typical 2026 prices for Orange County, consistent with our published [pest control cost page](/pest-control-cost):
 
 Rodent inspection: Free.
 
@@ -1668,7 +1671,7 @@ Rats can carry and spread diseases through droppings, urine and parasites, and t
 
 ## Getting Help in Costa Mesa
 
-Our Costa Mesa rodent control page goes into the specific neighborhoods and housing types we work in, and our rodent control service page explains the full process. We also have a roof rat identification guide in our pest library.
+Our [Costa Mesa rodent control page](/areas-we-serve/costa-mesa/rodent-control) goes into the specific neighborhoods and housing types we work in, and our [rodent control service page](/services/rodent-control) explains the full process. We also have a [roof rat identification guide](/pests/roof-rats) in our pest library.
 
 Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the California Structural Pest Control Board (OPR 14866), and based in nearby Tustin. We serve Costa Mesa and all of Orange County 7 days a week from 8 AM to 8 PM. Call 714-323-8262 for a free rodent inspection.`,
   },
@@ -1686,7 +1689,7 @@ Yogi's Pest Control is owner-operated by Yobani Arreola, licensed by the Califor
 
 ## What Is a Bee Swarm?
 
-Honey bee colonies reproduce by swarming. When a hive becomes crowded, the old queen leaves with a large portion of the workers to start a new colony. The swarm flies out in a loud, swirling cloud, then settles in a cluster on a tree branch, fence, eave, mailbox or car while scout bees search for a permanent home.
+[Honey bee colonies](/pests/honeybees) reproduce by swarming. When a hive becomes crowded, the old queen leaves with a large portion of the workers to start a new colony. The swarm flies out in a loud, swirling cloud, then settles in a cluster on a tree branch, fence, eave, mailbox or car while scout bees search for a permanent home.
 
 A clustered swarm is in a temporary state. Its bees are full of honey for the trip, and with no comb or brood to protect, they are usually calm. The swarm may move on within hours or stay for a few days. The problem is where it goes next: a wall void, attic, chimney, water meter box, irrigation valve box, or the hollow trunk of a tree on your property.
 
@@ -1776,6 +1779,8 @@ After a hive is removed, make sure the entry point is sealed, since the scent of
 
 ## Call for Bee Removal in Anaheim
 
-Our Anaheim bee removal page covers local hive locations and pricing in more detail, and our bee removal service page explains the full process. Yogi's Pest Control is owner-operated, licensed by the California Structural Pest Control Board (OPR 14866), and serves Anaheim and all of Orange County 7 days a week from 8 AM to 8 PM. Call 714-323-8262.`,
+Our [Anaheim bee removal page](/areas-we-serve/anaheim/bee-removal) covers local hive locations and pricing in more detail, and our [bee removal service page](/services/bee-removal) explains the full process. Yogi's Pest Control is owner-operated, licensed by the California Structural Pest Control Board (OPR 14866), and serves Anaheim and all of Orange County 7 days a week from 8 AM to 8 PM. Call 714-323-8262.`,
   },
 ];
+
+export const blogPosts: BlogPost[] = [...basePosts, ...BLOG_POSTS_2, ...BLOG_POSTS_3];

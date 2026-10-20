@@ -8,6 +8,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { blogPosts } from "@/data/blog-posts";
 import { blogCategories } from "@/data/blog-categories";
 import { heroImages } from "@/lib/images";
+import { renderInlineLinks, stripInlineLinks } from "@/lib/inline-links";
 import { pageMeta, breadcrumbJsonLd, BUSINESS_ID, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 // Only the slugs from generateStaticParams exist; anything else is a real 404.
@@ -50,20 +51,32 @@ export default async function BlogPostPage({
     .slice(0, 3);
 
   // Convert markdown-style content to paragraphs
+  // Inline [anchor](href) links are turned into React nodes (no raw HTML).
   const contentSections = post.content.split("\n\n").map((block, i) => {
     if (block.startsWith("## ")) {
+      // Headings stay plain text: link syntax is stripped to its anchor.
       return (
         <h2
           key={i}
           className="mb-4 mt-10 text-2xl font-bold text-foreground"
         >
-          {block.replace("## ", "")}
+          {stripInlineLinks(block.replace("## ", ""))}
         </h2>
+      );
+    }
+    const lines = block.split("\n").filter((l) => l.trim() !== "");
+    if (lines.length > 0 && lines.every((l) => /^[-*] /.test(l.trim()))) {
+      return (
+        <ul key={i} className="mb-6 list-disc space-y-2 pl-6 text-base leading-relaxed text-muted">
+          {lines.map((l, j) => (
+            <li key={j}>{renderInlineLinks(l.trim().slice(2), `${i}-${j}`)}</li>
+          ))}
+        </ul>
       );
     }
     return (
       <p key={i} className="mb-6 text-base leading-relaxed text-muted">
-        {block}
+        {renderInlineLinks(block, String(i))}
       </p>
     );
   });
