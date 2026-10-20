@@ -218,38 +218,8 @@ body {
   box-shadow: 0 -24px 48px -24px rgb(11 26 20 / 0.45);
 }
 
-.cine-hero-day { opacity: 0; }
-
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .cine-hero { view-timeline: --cine-hero block; }
-
-    .cine-hero-day {
-      animation: cine-fade-in linear both;
-      animation-timeline: --cine-hero;
-      animation-range: contain 30% contain 75%;
-    }
-    .cine-hero-night-video {
-      animation: cine-push linear both;
-      animation-timeline: --cine-hero;
-      animation-range: contain 0% contain 100%;
-    }
-    .cine-hero-line1 {
-      animation: cine-line-out linear both;
-      animation-timeline: --cine-hero;
-      animation-range: contain 20% contain 50%;
-    }
-    .cine-hero-line2 {
-      animation: cine-line-in linear both;
-      animation-timeline: --cine-hero;
-      animation-range: contain 40% contain 70%;
-    }
-    .cine-hero-cue {
-      animation: cine-fade-out linear both;
-      animation-timeline: --cine-hero;
-      animation-range: contain 0% contain 15%;
-    }
-
     /* Threat deck: each card eases back as the next one slides over it. */
     .cine-deck-card {
       view-timeline: --cine-card block;
@@ -263,12 +233,4 @@ body {
   }
 }
 
-@keyframes cine-fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes cine-fade-out { to { opacity: 0; } }
-@keyframes cine-push { from { transform: scale(1); } to { transform: scale(1.12); } }
-@keyframes cine-line-out { to { opacity: 0.18; transform: translateY(-3vh); } }
-@keyframes cine-line-in {
-  from { opacity: 0; transform: translateY(4vh); }
-  to { opacity: 1; transform: none; }
-}
 @keyframes cine-recede { to { transform: scale(0.92); filter: brightness(0.45); } }
