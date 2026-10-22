@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Archivo, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -192,6 +193,7 @@ export default function RootLayout({
           <Footer />
           <EmergencyButton />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
